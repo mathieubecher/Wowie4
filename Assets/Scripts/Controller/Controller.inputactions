@@ -1,0 +1,23 @@
+{
+    "name": "Controller",
+    "maps": [
+        {
+            "name": "Default",
+            "id": "46ff9f15-7917-418f-a944-03d64037930a",
+            "actions": [],
+            "bindings": []
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": []
+        },
+        {
+            "name": "Keyboard and mouse",
+            "bindingGroup": "Keyboard and mouse",
+            "devices": []
+        }
+    ]
+}

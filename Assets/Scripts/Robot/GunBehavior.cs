@@ -23,8 +23,6 @@ public class GunBehavior : ScriptableObject
         m_timer += Time.deltaTime;
         if(m_timer >= m_config.rate)
         {
-            Debug.Log("Piou Piou");
-            
             Instantiate(m_bullet, startPos, Quaternion.identity);
             m_timer = 0.0f;
         }

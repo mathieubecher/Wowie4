@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   m_config:
-    rate: 0
+    rate: 0.5
     angleInDegree: 0
-  m_bullet: {fileID: 0}
+  m_bullet: {fileID: 4666815692083401953, guid: c897eed5949657c4ba06443d6667d8c5, type: 3}

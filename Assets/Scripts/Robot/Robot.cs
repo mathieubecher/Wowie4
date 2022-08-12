@@ -20,6 +20,7 @@ public class Robot : MonoBehaviour
     void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
+        m_myHuman = FindObjectOfType<Character>();
     }
 
     // Start is called before the first frame update

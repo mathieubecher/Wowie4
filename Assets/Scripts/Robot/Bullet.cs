@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_rigidbody.velocity = transform.forward * m_speed;
+        m_rigidbody.velocity = transform.right * m_speed;
     }
 
     // Update is called once per frame

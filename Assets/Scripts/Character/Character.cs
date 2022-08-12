@@ -5,10 +5,18 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public const float EPSILON = 1.401298E-45f;
+    
+    // Serialize
+    [SerializeField] private Transform m_body;
+    
+    // Private
     private Rigidbody2D m_rigidbody;
+    private Animator m_fsm;
     void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
+        m_fsm = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -27,17 +35,25 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(GetMoveInput());
+        float moveInput = GetMoveInput();
+        m_body.localScale = new Vector3(Mathf.Abs(moveInput) > EPSILON? moveInput : m_body.localScale.x,1.0f,1.0f);
+
     }
 
-
-    private float GetMoveInput()
+    public void SetDesiredVelocity(float _velocity)
     {
-        return InputController.GetInstance().moveDirection;
+        m_rigidbody.velocity = Vector2.right * _velocity + Vector2.up * m_rigidbody.velocity.y;
+    }
+
+    public float GetMoveInput() 
+    {
+        float moveInput = InputController.GetInstance().moveDirection;
+        moveInput = (Mathf.Abs(moveInput) > EPSILON) ? Mathf.Sign(moveInput) : 0f;
+        return moveInput;
     }
     private void Jump()
     {
-        Debug.Log("Jump");
+        m_fsm.SetTrigger("Jump");
     }
     private void Interact()
     {
@@ -45,6 +61,6 @@ public class Character : MonoBehaviour
     }
     private void Dash()
     {
-        Debug.Log("Dash");
+        m_fsm.SetTrigger("Dash");
     }
 }

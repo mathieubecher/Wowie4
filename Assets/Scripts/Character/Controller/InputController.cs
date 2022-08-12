@@ -18,6 +18,7 @@ public class InputController : MonoBehaviour
     
     public delegate void Jump();
     public static event Jump OnJump;
+    public static event Jump OnReleaseJump;
     
     public delegate void Dash();
     public static event Dash OnDash;
@@ -50,6 +51,8 @@ public class InputController : MonoBehaviour
     {
         if (_context.performed)
             OnJump?.Invoke();
+        if (_context.canceled)
+            OnReleaseJump?.Invoke();
     }
     
 }

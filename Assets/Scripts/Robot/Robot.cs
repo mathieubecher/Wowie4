@@ -10,7 +10,6 @@ public class Robot : MonoBehaviour
         Grabbed
     }
 
-    [SerializeField] private float m_life;
     [SerializeField] private GunBehavior m_equippedGunBehavior;
     
     private State m_state = State.Idle;

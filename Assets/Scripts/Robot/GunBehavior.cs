@@ -10,7 +10,7 @@ public class GunBehavior : ScriptableObject
     public struct Config
     {
         public float rate;
-        public float angleInDegree;
+        public float angleDegrees;
     }
 
     [SerializeField] private Config m_config;
@@ -23,7 +23,8 @@ public class GunBehavior : ScriptableObject
         m_timer += Time.deltaTime;
         if(m_timer >= m_config.rate)
         {
-            Instantiate(m_bullet, startPos, Quaternion.identity);
+            Quaternion rotation = Quaternion.Euler(0, 0, m_config.angleDegrees);
+            Instantiate(m_bullet, startPos, rotation);
             m_timer = 0.0f;
         }
     }

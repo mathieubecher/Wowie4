@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
 
     public static InputController GetInstance()
     {
+        if (!instance) instance = FindObjectOfType<InputController>();
         return instance;
     }
     
@@ -52,7 +53,10 @@ public class InputController : MonoBehaviour
         if (_context.performed)
             OnJump?.Invoke();
         if (_context.canceled)
+        {
             OnReleaseJump?.Invoke();
+            
+        }
     }
     
 }

@@ -40,9 +40,13 @@ public class Character : MonoBehaviour
 
     }
 
-    public void SetDesiredVelocity(float _velocity)
+    public Vector2 GetCurrentVelocity()
     {
-        m_rigidbody.velocity = Vector2.right * _velocity + Vector2.up * m_rigidbody.velocity.y;
+        return m_rigidbody.velocity;
+    }
+    public void SetDesiredVelocity(Vector2 _velocity, bool _ignoreVertical = true)
+    {
+        m_rigidbody.velocity = Vector2.right * _velocity.x + Vector2.up * (_ignoreVertical ? m_rigidbody.velocity.y : _velocity.y);
     }
 
     public float GetMoveInput() 

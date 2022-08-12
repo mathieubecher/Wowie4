@@ -5,7 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float m_damage;
-    [SerializeField] private float m_speed;
+    [SerializeField] private float m_speed = 3.0f;
+    [SerializeField] private bool m_rebound = false;
 
     private Rigidbody2D m_rigidbody;
     void Awake()
@@ -25,6 +26,13 @@ public class Bullet : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D col)
     {
-        Destroy(gameObject);
+        if(m_rebound)
+        {
+            Debug.Log("Bullet try to rebound, but nothing available for now");
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

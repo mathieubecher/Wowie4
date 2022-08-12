@@ -11,12 +11,12 @@ public class Robot : MonoBehaviour
     }
 
     [SerializeField] private float m_life;
+    [SerializeField] private GunBehavior m_equippedGunBehavior;
+    
     private State m_state = State.Idle;
-    private GunBehavior m_equippedGunBehavior;
     private Character m_myHuman; // for human front dir ?
     private Rigidbody2D m_rigidbody;
-    [SerializeField] Bullet m_bullet;
-
+    
     void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
@@ -25,10 +25,7 @@ public class Robot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GunBehavior.Config gunConfig;
-        gunConfig.rate = 0.5f;
-        gunConfig.angleInDegree = 360;
-        m_equippedGunBehavior = new GunBehavior(gunConfig);
+        
     }
 
     // Update is called once per frame

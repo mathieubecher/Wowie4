@@ -55,7 +55,7 @@ MonoBehaviour:
   m_layerMask:
     serializedVersion: 2
     m_Bits: 0
-  m_lifeDistance: 10
+  m_lifeDistance: 30
 --- !u!114 &8787762742117509937
 MonoBehaviour:
   m_ObjectHideFlags: 0

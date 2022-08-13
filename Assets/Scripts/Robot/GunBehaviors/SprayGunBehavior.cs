@@ -9,7 +9,7 @@ public class SprayGunBehavior : GunBehavior
     [SerializeField] private float m_angleBetweenShoot = 10.0f;
 
     private float m_currentAngle = 0.0f;
-
+    
     public override void Shoot(Vector3 _startPos, bool _goRight)
     {
         m_timer += Time.deltaTime;

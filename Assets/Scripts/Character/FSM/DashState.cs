@@ -9,6 +9,7 @@ namespace CharacterFSM
     {
         [SerializeField] private AnimationCurve m_dashDynamic;
         [SerializeField] private float m_dashCooldown = 0.2f;
+        [SerializeField] private float m_dashInvulnerability = 0.5f;
         
         private float m_dashTimer = 0f;
         private float m_previousRelativeOffset = 0f;
@@ -28,7 +29,8 @@ namespace CharacterFSM
                         : math.sign(m_character.body.localScale.x);
             
             m_character.body.localScale = new Vector3(m_direction,1.0f,1.0f);
-
+            m_character.lifeManager.SetInvulnerability(true);
+            
             m_animator.SetInteger(DashInAir, m_animator.GetInteger(DashInAir) + 1);
         }
         
@@ -37,6 +39,11 @@ namespace CharacterFSM
             if (m_forceExit) return;
             
             float maxTime = m_dashDynamic.keys[m_dashDynamic.length-1].time;
+
+            if (m_dashInvulnerability < m_dashTimer && m_dashInvulnerability - m_dashTimer <= Time.deltaTime)
+            {
+                m_character.lifeManager.SetInvulnerability(false);
+            }
             
             m_dashTimer += Time.deltaTime;
             
@@ -61,6 +68,7 @@ namespace CharacterFSM
         {
             m_character.SetDesiredVelocity(new Vector2(0.0f, 0.0f), false);
             
+            m_character.lifeManager.SetInvulnerability(false);
             m_animator.ResetTrigger(ForceExitState);
             m_animator.ResetTrigger(Dash);
             m_animator.SetBool(DashCoolDown, true);

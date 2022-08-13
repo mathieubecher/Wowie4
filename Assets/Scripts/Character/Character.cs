@@ -19,6 +19,7 @@ public class Character : MonoBehaviour
     // Private
     private Rigidbody2D m_rigidbody;
     private DetectPhysics m_detectPhysics;
+    private LifeManager m_lifeManager;
     private Animator m_fsm;
     private CharacterFSM.VirtualState m_currentState;
     private Robot m_robotRef;
@@ -33,6 +34,7 @@ public class Character : MonoBehaviour
     public Transform robotGrabPos => m_robotGrabPos;
     public DetectPhysics detectPhysics => m_detectPhysics;
     public DetectRobot detectRobot => m_detectRobotRef;
+    public LifeManager lifeManager => m_lifeManager;
     
     public void SetState(CharacterFSM.VirtualState _state)
     {
@@ -43,6 +45,7 @@ public class Character : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_fsm = GetComponent<Animator>();
         m_detectPhysics = GetComponent<DetectPhysics>();
+        m_lifeManager = GetComponent<LifeManager>();
     }
 
     private void OnEnable()

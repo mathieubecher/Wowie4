@@ -33,7 +33,9 @@ namespace CharacterFSM
 
             m_animator.SetInteger(DashInAir, m_animator.GetInteger(DashInAir) + 1);
             m_animator.SetBool(IsGrabing, true);
+            
             Character.EnablePlatform(false);
+            m_character.lifeManager.SetInvulnerability(true);
         }
         
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -73,6 +75,7 @@ namespace CharacterFSM
             m_animator.SetBool(IsGrabing, false);
             
             Character.EnablePlatform(true);
+            m_character.lifeManager.SetInvulnerability(false);
         }
 
     }

@@ -8,17 +8,24 @@ public class GunBehavior : ScriptableObject
 {
     [SerializeField] protected float m_firingRate = 1.0f;
     [SerializeField] protected float m_angleDegrees = 0.0f;
-    [SerializeField] protected GameObject m_bullet;
+    [SerializeField] protected GunType m_gunType;
     
     protected float m_timer = 0.0f;
 
-    public virtual void Shoot(Vector3 startPos)
+    public virtual void Shoot(Vector3 _startPos, bool _goRight)
     {
         m_timer += Time.deltaTime;
         if(m_timer >= m_firingRate)
         {
-            Quaternion rotation = Quaternion.Euler(0, 0, m_angleDegrees);
-            Instantiate(m_bullet, startPos, rotation);
+            if(_goRight)
+            {
+                m_gunType.Shoot(_startPos, m_angleDegrees);
+            }
+            else
+            {
+                m_gunType.Shoot(_startPos, m_angleDegrees + 180.0f);
+            }
+            
             m_timer = 0.0f;
         }
     }

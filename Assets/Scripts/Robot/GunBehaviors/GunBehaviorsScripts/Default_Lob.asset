@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_firingRate: 1.5
   m_angleDegrees: 75
-  m_bullet: {fileID: 4666815692083401953, guid: 583013bb80e0eef4d9be4b322ce42417, type: 3}
+  m_gunType: {fileID: 11400000, guid: d2a0113e1a92dd84ca42fd9e53025815, type: 2}

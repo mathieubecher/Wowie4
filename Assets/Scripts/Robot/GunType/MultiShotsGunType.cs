@@ -9,7 +9,7 @@ public class MultiShotsGunType : GunType
     [SerializeField] private int m_numberOfShoot = 3;
     [SerializeField] private float m_angleBetweenShoot = 45.0f;
 
-    public override void Shoot(Vector3 _startPos, float _angle)
+    public override bool Shoot(Vector3 _startPos, float _angle)
     {
         m_timer += Time.deltaTime;
         if(m_timer >= m_firingRate)
@@ -18,8 +18,10 @@ public class MultiShotsGunType : GunType
             {
                 Quaternion rotation = Quaternion.Euler(0, 0, _angle + (m_angleBetweenShoot * i));
                 Instantiate(m_bullet, _startPos, rotation);
-                m_timer = 0.0f;
             }  
+            m_timer = 0.0f;
+            return true;
         }
+        return false;
     }
 }

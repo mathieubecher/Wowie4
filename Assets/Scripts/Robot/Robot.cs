@@ -74,7 +74,7 @@ public class Robot : MonoBehaviour
     public void Grab()
     {
         Debug.Log("Sac à dos, sac à dos!");
-        m_state = State.Grabbed;
+        SetState(State.Grabbed);
         m_rigidbody.isKinematic = true;
         m_rigidbody.velocity = Vector2.zero;
     }
@@ -82,10 +82,16 @@ public class Robot : MonoBehaviour
     public void Drop(Vector2 _velocity)
     {
         Debug.Log("Pourquoi m'abandonner ?");
-        m_state = State.Idle;
+        SetState(State.Idle);
         m_timeIdle = 0.0f;
         m_rigidbody.isKinematic = false;
         m_rigidbody.velocity = _velocity;
+    }
+
+    private void SetState(State _newState)
+    {
+        m_state = _newState;
+        m_equippedGunBehavior.Reset();
     }
 
     private void Shoot()
@@ -120,11 +126,13 @@ public class Robot : MonoBehaviour
     public void SetGunBehavior(GunBehavior _newGunBehavior)
     {
         m_equippedGunBehavior = _newGunBehavior;
+        m_equippedGunBehavior.Reset();
     }
 
     public void SetGunType(GunType _newGunType)
     {
         m_equippedGunBehavior.SetGunType(_newGunType);
+        m_equippedGunBehavior.Reset();
     }
 
     public void Activated(bool _activated)

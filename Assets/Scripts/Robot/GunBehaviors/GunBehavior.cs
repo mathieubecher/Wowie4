@@ -6,8 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "GunBehavior/GunBehavior", order = 1)]
 public class GunBehavior : ScriptableObject
 {
-    [SerializeField] protected float m_angleDegrees = 0.0f;
     [SerializeField] protected GunType m_gunType;
+
+    public virtual void Reset()
+    {}
 
     public virtual bool CanShoot()
     {
@@ -18,11 +20,11 @@ public class GunBehavior : ScriptableObject
     {
         if(_goRight)
         {
-            m_gunType.Shoot(_startPos, m_angleDegrees);
+            m_gunType.Shoot(_startPos, 0.0f);
         }
         else
         {
-            m_gunType.Shoot(_startPos, m_angleDegrees + 180.0f);
+            m_gunType.Shoot(_startPos, 180.0f);
         }
     }
 

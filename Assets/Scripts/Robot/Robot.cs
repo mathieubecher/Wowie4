@@ -24,6 +24,8 @@ public class Robot : MonoBehaviour
     private State m_state = State.Idle;
     private Character m_myHuman; // for human front dir ?
     private Rigidbody2D m_rigidbody;
+
+    private bool m_isActive = true;
     
     void Awake()
     {
@@ -39,24 +41,27 @@ public class Robot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Shoot();
-
-        if(!IsGrabbed())
+        if(m_isActive)
         {
-            m_timeIdle += Time.deltaTime;
-            if(m_timeIdle >= m_timeWaitingBeforeJumpOnPlace) // want attention
+            Shoot();
+
+            if(!IsGrabbed())
             {
-                if(m_elapsedTimeFirstJump <= m_jumpOnPlaceDuration) 
+                m_timeIdle += Time.deltaTime;
+                if(m_timeIdle >= m_timeWaitingBeforeJumpOnPlace) // want attention
                 {
-                    JumpOnPlace(); // need a jump anim ;)
+                    if(m_elapsedTimeFirstJump <= m_jumpOnPlaceDuration) 
+                    {
+                        JumpOnPlace(); // need a jump anim ;)
+                    }
+                    else // enought jumpOnPlace for now
+                    {
+                        m_elapsedTimeFirstJump = 0.0f;
+                        m_elapsedTimeLastJump = 0.0f;
+                        m_timeIdle = 0.0f;
+                    }
+                    m_elapsedTimeFirstJump += Time.deltaTime;
                 }
-                else // enought jumpOnPlace for now
-                {
-                    m_elapsedTimeFirstJump = 0.0f;
-                    m_elapsedTimeLastJump = 0.0f;
-                    m_timeIdle = 0.0f;
-                }
-                m_elapsedTimeFirstJump += Time.deltaTime;
             }
         }
     }
@@ -87,7 +92,7 @@ public class Robot : MonoBehaviour
 
     private void Shoot()
     {
-        if(m_equippedGunBehavior.canShoot())
+        if(m_equippedGunBehavior.CanShoot())
         {
             bool goRight = transform.lossyScale.x > 0.0f;
             m_equippedGunBehavior.Shoot(transform.position, goRight);
@@ -109,13 +114,18 @@ public class Robot : MonoBehaviour
         }
     }
 
-    public void setGunBehavior(GunBehavior _newGunBehavior)
+    public void SetGunBehavior(GunBehavior _newGunBehavior)
     {
         m_equippedGunBehavior = _newGunBehavior;
     }
 
-    public void setGunType(GunType _newGunType)
+    public void SetGunType(GunType _newGunType)
     {
-        m_equippedGunBehavior.setGunType(_newGunType);
+        m_equippedGunBehavior.SetGunType(_newGunType);
+    }
+
+    public void Activated(bool _activated)
+    {
+        m_isActive = _activated;
     }
 }

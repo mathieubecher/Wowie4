@@ -364,7 +364,7 @@ PrefabInstance:
       objectReference: {fileID: 1106632585}
     - target: {fileID: 2301876773162041744, guid: a8dcda2c80b321246960a81ac44b4afe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: setGunType
+      value: SetGunType
       objectReference: {fileID: 0}
     - target: {fileID: 2301876773162041744, guid: a8dcda2c80b321246960a81ac44b4afe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -380,7 +380,7 @@ PrefabInstance:
       objectReference: {fileID: 1106632585}
     - target: {fileID: 6819452294156604013, guid: a8dcda2c80b321246960a81ac44b4afe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: setGunBehavior
+      value: SetGunBehavior
       objectReference: {fileID: 0}
     - target: {fileID: 6981640275079494572, guid: a8dcda2c80b321246960a81ac44b4afe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -388,7 +388,7 @@ PrefabInstance:
       objectReference: {fileID: 1106632585}
     - target: {fileID: 6981640275079494572, guid: a8dcda2c80b321246960a81ac44b4afe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: setGunType
+      value: SetGunType
       objectReference: {fileID: 0}
     - target: {fileID: 6981640275079494572, guid: a8dcda2c80b321246960a81ac44b4afe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -408,7 +408,7 @@ PrefabInstance:
       objectReference: {fileID: 1106632585}
     - target: {fileID: 8999051414605033163, guid: a8dcda2c80b321246960a81ac44b4afe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: setGunBehavior
+      value: SetGunBehavior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8dcda2c80b321246960a81ac44b4afe, type: 3}

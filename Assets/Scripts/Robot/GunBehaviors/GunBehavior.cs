@@ -12,7 +12,7 @@ public class GunBehavior : ScriptableObject
     
     protected float m_timer = 0.0f;
 
-    public virtual bool canShoot()
+    public virtual bool CanShoot()
     {
         return true;
     }
@@ -35,7 +35,7 @@ public class GunBehavior : ScriptableObject
         }
     }
 
-    public void setGunType(GunType _gunType)
+    public void SetGunType(GunType _gunType)
     {
         m_gunType = _gunType;
     }

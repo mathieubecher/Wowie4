@@ -23,6 +23,11 @@ public class InputController : MonoBehaviour
     
     public delegate void Dash();
     public static event Dash OnDash;
+    
+#if UNITY_EDITOR
+    public delegate void DrawDebug();
+    public static event DrawDebug OnDrawDebug;
+#endif
 
     private void Awake()
     {
@@ -54,6 +59,13 @@ public class InputController : MonoBehaviour
             OnJump?.Invoke();
         if (_context.canceled)
             OnReleaseJump?.Invoke();
+    }
+    public void ReadDrawDebugAction(InputAction.CallbackContext _context)
+    {
+#if UNITY_EDITOR
+        if (_context.performed)
+            OnDrawDebug?.Invoke();
+#endif
     }
     
 }

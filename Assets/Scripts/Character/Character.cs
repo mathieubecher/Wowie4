@@ -15,7 +15,11 @@ public class Character : MonoBehaviour
     private Rigidbody2D m_rigidbody;
     private Animator m_fsm;
     private CharacterFSM.VirtualState m_currentState;
-
+    
+#if UNITY_EDITOR
+    private bool m_drawDebug;
+#endif
+    
     public void SetState(CharacterFSM.VirtualState _state)
     {
         m_currentState = _state;
@@ -31,6 +35,9 @@ public class Character : MonoBehaviour
         InputController.OnDash += Dash;
         InputController.OnJump += Jump;
         InputController.OnInteract += Interact;
+#if UNITY_EDITOR
+        InputController.OnDrawDebug += DrawDebug;
+#endif
     }
 
     private void OnDisable()
@@ -38,6 +45,9 @@ public class Character : MonoBehaviour
         InputController.OnDash -= Dash;
         InputController.OnJump -= Jump;
         InputController.OnInteract -= Interact;
+#if UNITY_EDITOR
+        InputController.OnDrawDebug -= DrawDebug;
+#endif
     }
 
     void Update()
@@ -50,10 +60,16 @@ public class Character : MonoBehaviour
     private void FixedUpdate()
     {
         if(m_currentState) m_currentState.OnFixedUpdate();
-        Debug.DrawLine(transform.position, transform.position + (Vector3)m_rigidbody.velocity * 0.1f, Color.white, 10.0f);
+        
+#if UNITY_EDITOR
+        if (m_drawDebug)
+        {
+            Debug.DrawLine(transform.position, transform.position + (Vector3)m_rigidbody.velocity * 0.1f, Color.white, 10.0f);
+        }
+#endif
     }
 
-    #region Physics
+#region Physics
     public Vector2 GetCurrentVelocity()
     {
         return m_rigidbody.velocity;
@@ -71,9 +87,9 @@ public class Character : MonoBehaviour
         moveInput = (math.abs(moveInput) > EPSILON) ? math.sign(moveInput) : 0f;
         return moveInput;
     }
-    #endregion
+#endregion
     
-    #region Inputs
+#region Inputs
     private void Jump()
     {
         m_fsm.SetTrigger("Jump");
@@ -86,5 +102,11 @@ public class Character : MonoBehaviour
     {
         m_fsm.SetTrigger("Dash");
     }
-    #endregion
+#if UNITY_EDITOR
+    private void DrawDebug()
+    {
+        m_drawDebug = !m_drawDebug;
+    }
+#endif
+#endregion
 }

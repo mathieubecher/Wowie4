@@ -231,7 +231,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0fa1ded7-4293-4f07-99a1-ace91f2e0163"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",

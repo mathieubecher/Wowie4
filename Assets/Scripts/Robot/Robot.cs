@@ -87,21 +87,24 @@ public class Robot : MonoBehaviour
         m_rigidbody.isKinematic = false;
         m_rigidbody.velocity = _velocity;
     }
-    
-    // --- Actions ---
 
     private void Shoot()
     {
         if(m_equippedGunBehavior.CanShoot())
         {
             bool goRight = transform.lossyScale.x > 0.0f;
-            m_equippedGunBehavior.Shoot(transform.position, goRight);
+            m_equippedGunBehavior.Shoot(transform.Find("Body/spawnBullet").position, goRight);
         }
     }
 
-    private void Speak()
+    public void Speak()
     {
         Debug.Log("Eve dis : Je suis là");
+    }
+
+    public void setEmote()
+    {
+        Debug.Log("Eve sourie");
     }
 
     private void JumpOnPlace()

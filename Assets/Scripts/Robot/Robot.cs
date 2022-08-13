@@ -100,4 +100,9 @@ public class Robot : MonoBehaviour
             m_elapsedTimeLastJump = 0.0f;
         }
     }
+
+    public void setGunBehavior(GunBehavior _newGunBehavior)
+    {
+        m_equippedGunBehavior = _newGunBehavior;
+    }
 }

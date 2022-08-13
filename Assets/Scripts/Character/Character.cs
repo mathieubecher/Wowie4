@@ -1,17 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public const float EPSILON = 1.401298E-45f;
+    public static readonly float EPSILON = 1.401298E-45f;
     
     // Serialize
     [SerializeField] private Transform m_body;
     [SerializeField] private float m_maxSpeed = 10.0f;
-    public float maxSpeed{ get => m_maxSpeed; }
-    
+    public float maxSpeed => m_maxSpeed;
+    public Transform body => m_body;
+
     // Private
     private Rigidbody2D m_rigidbody;
     private Animator m_fsm;
@@ -44,7 +43,7 @@ public class Character : MonoBehaviour
     void Update()
     {
         float moveInput = GetMoveInput();
-        m_body.localScale = new Vector3(Mathf.Abs(moveInput) > EPSILON? moveInput : m_body.localScale.x,1.0f,1.0f);
+        m_body.localScale = new Vector3(math.abs(moveInput) > EPSILON? moveInput : m_body.localScale.x,1.0f,1.0f);
 
     }
 
@@ -69,7 +68,7 @@ public class Character : MonoBehaviour
     public float GetMoveInput() 
     {
         float moveInput = InputController.GetInstance().moveDirection;
-        moveInput = (Mathf.Abs(moveInput) > EPSILON) ? Mathf.Sign(moveInput) : 0f;
+        moveInput = (math.abs(moveInput) > EPSILON) ? math.sign(moveInput) : 0f;
         return moveInput;
     }
     #endregion

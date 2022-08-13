@@ -27,11 +27,20 @@ namespace CharacterFSM
             m_gravityScaleAtStart = m_character.GetGravityScaler();
             m_character.SetGravityScaler(0.0f);
         }
+        public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            m_jumpTimer += Time.deltaTime;
+    
+            float maxTime = m_jumpVerticalDynamic.keys[m_jumpVerticalDynamic.length-1].time;
+            float exitTime = m_jumpReleaseTimeToExitTime.Evaluate(m_jumpReleaseTime);
+            if ((m_jumpTimer > exitTime && m_jumpTimer > m_minJumpTime) || m_jumpTimer > maxTime)
+            {
+                m_animator.SetBool("forceExitState", true);
+            }
+        }
 
         public override void OnFixedUpdate()
         {
-            m_jumpTimer += Time.deltaTime;
-
             float desiredRelativeHeight = m_jumpVerticalDynamic.Evaluate(m_jumpTimer) ;
             float desiredVerticalSpeed = Time.deltaTime > 0.0f ? (desiredRelativeHeight - m_previousRelativeHeight) / Time.deltaTime : 0.0f;
 
@@ -40,13 +49,6 @@ namespace CharacterFSM
             
             m_character.SetDesiredVelocity(new Vector2(desiredHorizontalSpeed, desiredVerticalSpeed), false);
             m_previousRelativeHeight = desiredRelativeHeight;
-    
-            float maxTime = m_jumpVerticalDynamic.keys[m_jumpVerticalDynamic.length-1].time;
-            float exitTime = m_jumpReleaseTimeToExitTime.Evaluate(m_jumpReleaseTime) * maxTime;
-            if ((m_jumpTimer > exitTime && m_jumpTimer > m_minJumpTime) || m_jumpTimer > maxTime)
-            {
-                m_animator.SetBool("forceExitJump", true);
-            }
         }
         
         protected override void StateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -58,7 +60,7 @@ namespace CharacterFSM
             {
                 m_character.SetDesiredVelocity(new Vector2(m_character.GetCurrentVelocity().x, 0.0f), false);
             }
-            animator.SetBool("forceExitJump", false);
+            animator.SetBool("forceExitState", false);
             m_character.SetGravityScaler(m_gravityScaleAtStart);
         }
 

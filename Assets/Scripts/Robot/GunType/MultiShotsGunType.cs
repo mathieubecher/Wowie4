@@ -11,10 +11,15 @@ public class MultiShotsGunType : GunType
 
     public override void Shoot(Vector3 _startPos, float _angle)
     {
-        for(int i = 0 ; i < m_numberOfShoot ; i++)
+        m_timer += Time.deltaTime;
+        if(m_timer >= m_firingRate)
         {
-            Quaternion rotation = Quaternion.Euler(0, 0, _angle + (m_angleBetweenShoot * i));
-            Instantiate(m_bullet, _startPos, rotation);
-        }   
+            for(int i = 0 ; i < m_numberOfShoot ; i++)
+            {
+                Quaternion rotation = Quaternion.Euler(0, 0, _angle + (m_angleBetweenShoot * i));
+                Instantiate(m_bullet, _startPos, rotation);
+                m_timer = 0.0f;
+            }  
+        }
     }
 }

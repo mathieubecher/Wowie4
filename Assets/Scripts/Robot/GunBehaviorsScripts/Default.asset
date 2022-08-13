@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   m_firingRate: 1.5
-  m_angleDegrees: 30
-  m_bullet: {fileID: 4666815692083401953, guid: 5015c5293ff9842448d06a932aca9191, type: 3}
+  m_angleDegrees: 0
+  m_bullet: {fileID: 4666815692083401953, guid: c897eed5949657c4ba06443d6667d8c5, type: 3}

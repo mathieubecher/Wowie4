@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52334a52c6971047bbd5fb57ab21931, type: 3}
   m_Name: Spray
   m_EditorClassIdentifier: 
-  m_gunType: {fileID: 11400000, guid: c7e152fbaafc6e64ab73b30234c422aa, type: 2}
+  m_gunType: {fileID: 11400000, guid: af458c2037f03564d92727b076130de9, type: 2}
   m_angleBetweenShoot: 10
-  m_startAngle: 0
-  m_endAngle: 180
-  m_isHoraire: 1
+  m_startAngle: 180
+  m_endAngle: 0
+  m_add: 0

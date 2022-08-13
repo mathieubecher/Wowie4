@@ -49,12 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_damage: 1
-  m_speed: 12
+  m_speed: 20
   m_rebound: 0
   m_layerMask:
     serializedVersion: 2
     m_Bits: 0
-  m_lifeDistance: 12
+  m_lifeDistance: 20
 --- !u!50 &6590914925107000866
 Rigidbody2D:
   serializedVersion: 4
@@ -75,7 +75,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &7161805233723547706
 SpriteRenderer:
   m_ObjectHideFlags: 0

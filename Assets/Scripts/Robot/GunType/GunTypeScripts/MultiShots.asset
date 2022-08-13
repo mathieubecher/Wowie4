@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11cf92160762464ea0800ca17a14775, type: 3}
   m_Name: MultiShots
   m_EditorClassIdentifier: 
+  m_firingRate: 1
   m_bullet: {fileID: 4666815692083401953, guid: c897eed5949657c4ba06443d6667d8c5, type: 3}
-  m_numberOfShoot: 3
-  m_angleBetweenShoot: 45
+  m_numberOfShoot: 5
+  m_angleBetweenShoot: 15

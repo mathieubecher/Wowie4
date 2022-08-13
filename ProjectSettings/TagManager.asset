@@ -15,8 +15,8 @@ TagManager:
   - Robot
   - Enemy
   - Bullet
-  - 
-  - 
+  - DetectRobot
+  - Platform
   - 
   - 
   - 

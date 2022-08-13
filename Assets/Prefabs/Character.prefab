@@ -93,7 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1210586108431624564}
-  m_Layer: 0
+  - component: {fileID: 7413435962118608711}
+  - component: {fileID: 4045225020704151391}
+  - component: {fileID: 6334645496188826660}
+  m_Layer: 10
   m_Name: DetectRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,13 +111,63 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872371746606136811}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.259, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5454883677058282501}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7413435962118608711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872371746606136811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a22bbeb1fa73c44cb95352ae5bcc0e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fsm: {fileID: 311141912199843389}
+--- !u!58 &4045225020704151391
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872371746606136811}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5
+--- !u!50 &6334645496188826660
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872371746606136811}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5454883677058282499
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +182,6 @@ GameObject:
   - component: {fileID: 311141912199843389}
   - component: {fileID: 5454883677058282498}
   - component: {fileID: 5454883677058282503}
-  - component: {fileID: 7927289434952572385}
   m_Layer: 6
   m_Name: Character
   m_TagString: Untagged
@@ -311,23 +363,27 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7fc057d5-affc-4f46-86c0-82a2a0f6c9a0
     m_ActionName: Default/Dash[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4758369453276257129}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: ReadDrawDebugAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c13de23c-140d-4ae4-98c8-3155af89cd0c
+    m_ActionName: Default/DebugDraw[/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Default
   m_SplitScreenIndex: 0
   m_Camera: {fileID: 0}
---- !u!114 &7927289434952572385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5454883677058282499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c78d30b4ee0f5b41aead9e04bb88c37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5454883678412674911
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +519,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5719524520989755490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -482,6 +538,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5936546728571919217}
   - component: {fileID: 8824953857925247361}
+  - component: {fileID: 1183326661896368613}
+  - component: {fileID: 9069127514686437144}
   m_Layer: 0
   m_Name: DetectGround
   m_TagString: Untagged
@@ -497,7 +555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6974462031636995139}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.259, z: 0}
+  m_LocalPosition: {x: 0, y: -0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -530,3 +588,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.3}
   m_EdgeRadius: 0
+--- !u!114 &1183326661896368613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6974462031636995139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c78d30b4ee0f5b41aead9e04bb88c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fsm: {fileID: 311141912199843389}
+--- !u!50 &9069127514686437144
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6974462031636995139}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

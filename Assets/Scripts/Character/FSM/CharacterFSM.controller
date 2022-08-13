@@ -327,6 +327,10 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_dashCooldown: 0.2
   m_dashInvulnerability: 0.5
+  m_dashSoundsAtStart:
+  - {fileID: 8300000, guid: 913aa9eb4bafada45a68e3d1577efe5b, type: 3}
+  - {fileID: 8300000, guid: 67bdbd4829cd06b4bbb06ea0c6173b1a, type: 3}
+  - {fileID: 8300000, guid: 49df84839cd4ef4458737ddb970ad4c7, type: 3}
 --- !u!1101 &-3839449393233907627
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -544,6 +548,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_minJumpTime: 0.1
+  m_jumpSoundsAtStart:
+  - {fileID: 8300000, guid: 164f3303f5c07e24e980975db2207618, type: 3}
+  - {fileID: 8300000, guid: 10590511214f740489816b39d96da29a, type: 3}
+  - {fileID: 8300000, guid: f012c1623c23cd8448f1f323173f8574, type: 3}
 --- !u!1101 &-1267852222181113444
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1047,3 +1055,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_hitSoundsAtStart:
+  - {fileID: 8300000, guid: 7b8243bae42370940ada9c4ca13fac7e, type: 3}

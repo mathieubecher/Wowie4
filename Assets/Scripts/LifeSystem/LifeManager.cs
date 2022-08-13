@@ -16,7 +16,6 @@ public class LifeManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("update " + m_lastHit);
         m_lastHit -= Time.deltaTime;
     }
     public void SetInvulnerability(bool _enable)

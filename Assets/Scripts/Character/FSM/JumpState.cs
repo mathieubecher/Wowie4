@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Mathematics;
+using Random = UnityEngine.Random;
 
 namespace CharacterFSM
 {
@@ -18,6 +19,8 @@ namespace CharacterFSM
         [SerializeField] private AnimationCurve m_lossOfControl;
         [SerializeField] private float m_minJumpTime = 0.1f;
         
+        [Header("Audio")] 
+        [SerializeField] private List<AudioClip> m_jumpSoundsAtStart;
         protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             m_animator.ResetTrigger(ForceExitState);
@@ -31,6 +34,9 @@ namespace CharacterFSM
 
             m_gravityScaleAtStart = m_character.GetGravityScaler();
             m_character.SetGravityScaler(0.0f);
+            
+            int randomSoundId = (int)math.floor(Random.Range(0, m_jumpSoundsAtStart.Count));
+            m_character.audio.PlayOneShot(m_jumpSoundsAtStart[randomSoundId]);
         }
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {

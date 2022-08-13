@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace CharacterFSM
 {
@@ -10,6 +11,9 @@ namespace CharacterFSM
         [SerializeField] private AnimationCurve m_dashDynamic;
         [SerializeField] private float m_dashCooldown = 0.2f;
         [SerializeField] private float m_dashInvulnerability = 0.5f;
+
+        [Header("Audio")] 
+        [SerializeField] private List<AudioClip> m_dashSoundsAtStart;
         
         private float m_dashTimer = 0f;
         private float m_previousRelativeOffset = 0f;
@@ -37,6 +41,9 @@ namespace CharacterFSM
             m_character.lifeManager.SetInvulnerability(true);
             
             m_animator.SetInteger(DashInAir, m_animator.GetInteger(DashInAir) + 1);
+
+            int randomSoundId = (int)math.floor(Random.Range(0, m_dashSoundsAtStart.Count));
+            m_character.audio.PlayOneShot(m_dashSoundsAtStart[randomSoundId]);
         }
         
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

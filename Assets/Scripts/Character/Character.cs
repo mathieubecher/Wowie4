@@ -24,6 +24,7 @@ public class Character : MonoBehaviour
     private Animator m_fsm;
     private CharacterFSM.VirtualState m_currentState;
     private Robot m_robotRef;
+    private AudioSource m_audio;
     
 #if UNITY_EDITOR
     private bool m_drawDebug = false;
@@ -36,6 +37,7 @@ public class Character : MonoBehaviour
     public DetectPhysics detectPhysics => m_detectPhysics;
     public DetectRobot detectRobot => m_detectRobotRef;
     public LifeManager lifeManager => m_lifeManager;
+    public AudioSource audio => m_audio;
     
     public void SetState(CharacterFSM.VirtualState _state)
     {
@@ -47,6 +49,7 @@ public class Character : MonoBehaviour
         m_fsm = GetComponent<Animator>();
         m_detectPhysics = GetComponent<DetectPhysics>();
         m_lifeManager = GetComponent<LifeManager>();
+        m_audio = GetComponent<AudioSource>();
     }
 
     private void OnEnable()

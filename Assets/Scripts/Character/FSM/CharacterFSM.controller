@@ -244,13 +244,13 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.2743437
     - serializedVersion: 3
-      time: 0.1004755
+      time: 0.1999836
       value: 1
-      inSlope: 21.878473
-      outSlope: 21.878473
+      inSlope: 0.09822155
+      outSlope: 0.09822155
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.052014098
+      inWeight: 0.4232441
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -268,8 +268,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.0665774
     - serializedVersion: 3
-      time: 0.39942718
-      value: 5.0014524
+      time: 0.39446807
+      value: 4.0019207
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -277,8 +277,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.44935134
-      value: 5.003639
+      time: 0.44439223
+      value: 4.0041075
       inSlope: -0.019482339
       outSlope: -0.019482339
       tangentMode: 0
@@ -286,8 +286,8 @@ MonoBehaviour:
       inWeight: 0.46556866
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5947562
-      value: 4.8740106
+      time: 0.5897971
+      value: 3.8744788
       inSlope: -1.5836593
       outSlope: -1.5836593
       tangentMode: 0
@@ -297,8 +297,31 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_lossOfControl:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   m_minJumpTime: 0.1
-  m_speed: 10
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -384,7 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f44515c95ce6b44bc2ea701f4a9b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 10
+  m_lossOfControl: 0.2
 --- !u!1102 &4901012463578571220
 AnimatorState:
   serializedVersion: 6

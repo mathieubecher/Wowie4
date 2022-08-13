@@ -9,6 +9,8 @@ public class Character : MonoBehaviour
     
     // Serialize
     [SerializeField] private Transform m_body;
+    [SerializeField] private float m_maxSpeed = 10.0f;
+    public float maxSpeed{ get => m_maxSpeed; }
     
     // Private
     private Rigidbody2D m_rigidbody;
@@ -39,7 +41,8 @@ public class Character : MonoBehaviour
         m_body.localScale = new Vector3(Mathf.Abs(moveInput) > EPSILON? moveInput : m_body.localScale.x,1.0f,1.0f);
 
     }
-
+    
+    #region Physics
     public Vector2 GetCurrentVelocity()
     {
         return m_rigidbody.velocity;
@@ -48,6 +51,8 @@ public class Character : MonoBehaviour
     {
         m_rigidbody.velocity = Vector2.right * _velocity.x + Vector2.up * (_ignoreVertical ? m_rigidbody.velocity.y : _velocity.y);
     }
+    public float GetGravityScaler(){ return m_rigidbody.gravityScale; }
+    public void SetGravityScaler(float _gravityScaler){ m_rigidbody.gravityScale = _gravityScaler; }
 
     public float GetMoveInput() 
     {
@@ -55,6 +60,9 @@ public class Character : MonoBehaviour
         moveInput = (Mathf.Abs(moveInput) > EPSILON) ? Mathf.Sign(moveInput) : 0f;
         return moveInput;
     }
+    #endregion
+    
+    #region Inputs
     private void Jump()
     {
         m_fsm.SetTrigger("Jump");
@@ -67,4 +75,5 @@ public class Character : MonoBehaviour
     {
         m_fsm.SetTrigger("Dash");
     }
+    #endregion
 }

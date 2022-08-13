@@ -18,7 +18,7 @@ namespace CharacterFSM
         override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             float moveInput = m_character.GetMoveInput();
-            m_character.SetDesiredVelocity(Vector2.right * (moveInput * m_speed));
+            m_character.SetDesiredVelocity(Vector2.right * (moveInput * m_character.maxSpeed));
         }
 
         // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

@@ -12,6 +12,11 @@ public class GunBehavior : ScriptableObject
     
     protected float m_timer = 0.0f;
 
+    public virtual bool canShoot()
+    {
+        return true;
+    }
+
     public virtual void Shoot(Vector3 _startPos, bool _goRight)
     {
         m_timer += Time.deltaTime;
@@ -28,5 +33,10 @@ public class GunBehavior : ScriptableObject
             
             m_timer = 0.0f;
         }
+    }
+
+    public void setGunType(GunType _gunType)
+    {
+        m_gunType = _gunType;
     }
 }

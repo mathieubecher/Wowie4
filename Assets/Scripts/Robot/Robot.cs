@@ -61,7 +61,7 @@ public class Robot : MonoBehaviour
         }
     }
 
-    public bool IsGrabbed()
+    private bool IsGrabbed()
     {
         return m_state == State.Grabbed;
     }
@@ -87,8 +87,11 @@ public class Robot : MonoBehaviour
 
     private void Shoot()
     {
-        bool goRight = transform.lossyScale.x > 0.0f;
-        m_equippedGunBehavior.Shoot(transform.position, goRight);
+        if(m_equippedGunBehavior.canShoot())
+        {
+            bool goRight = transform.lossyScale.x > 0.0f;
+            m_equippedGunBehavior.Shoot(transform.position, goRight);
+        }
     }
 
     private void Speak()
@@ -109,5 +112,10 @@ public class Robot : MonoBehaviour
     public void setGunBehavior(GunBehavior _newGunBehavior)
     {
         m_equippedGunBehavior = _newGunBehavior;
+    }
+
+    public void setGunType(GunType _newGunType)
+    {
+        m_equippedGunBehavior.setGunType(_newGunType);
     }
 }

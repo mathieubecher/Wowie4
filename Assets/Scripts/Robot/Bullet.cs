@@ -8,7 +8,9 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float m_speed = 3.0f;
     [SerializeField] private bool m_rebound = false;
     [SerializeField] private LayerMask m_layerMask = 0;
-
+    [SerializeField] private float m_lifeDistance = 10.0f;
+    
+    private float m_lifeTime = 0.0f;
     private Vector2 m_currentVelocity;
 
     private Rigidbody2D m_rigidbody;
@@ -22,6 +24,10 @@ public class Bullet : MonoBehaviour
     {
         m_rigidbody.velocity = transform.right * m_speed;
         m_currentVelocity = m_rigidbody.velocity;
+
+        m_lifeTime = m_lifeDistance / m_speed;
+
+        StartCoroutine(LifeTime());
     }
 
     // Update is called once per frame
@@ -41,5 +47,11 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator LifeTime()
+    {
+        yield return new WaitForSeconds(m_lifeTime);
+        Destroy(gameObject);
     }
 }

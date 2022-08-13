@@ -4,18 +4,16 @@ using UnityEngine;
 
 namespace CharacterFSM
 {
-    public class FallState : StateMachineBehaviour
+    public class FallState : VirtualState
     {
-        private Character m_character;
-
         [SerializeField] private float m_lossOfControl = 0.2f;
 
-        override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (!m_character) m_character = animator.GetComponent<Character>();
+            
         }
 
-        override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        override public void OnFixedUpdate()
         {
             float moveInput = m_character.GetMoveInput();
             

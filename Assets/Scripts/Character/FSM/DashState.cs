@@ -4,18 +4,16 @@ using UnityEngine;
 
 namespace CharacterFSM
 {
-    public class DashState : StateMachineBehaviour
+    public class DashState : VirtualState
     {
-        private Character m_character;
-
         [SerializeField] private AnimationCurve m_jumpVerticalDynamic;
 
-        override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (!m_character) m_character = animator.GetComponent<Character>();
+            
         }
 
-        override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        public override void OnFixedUpdate()
         {
 
         }

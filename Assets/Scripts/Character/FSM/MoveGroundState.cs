@@ -4,18 +4,14 @@ using UnityEngine;
 
 namespace CharacterFSM
 {
-    public class MoveGroundState : StateMachineBehaviour
+    public class MoveGroundState : VirtualState
     {
-        private Character m_character;
-
-        [SerializeField] private float m_speed = 5.0f;
-        override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if (!m_character) m_character = animator.GetComponent<Character>();
             animator.ResetTrigger("Jump");
         }
 
-        override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        public override void OnFixedUpdate()
         {
             float moveInput = m_character.GetMoveInput();
             m_character.SetDesiredVelocity(Vector2.right * (moveInput * m_character.maxSpeed));

@@ -15,6 +15,12 @@ public class Character : MonoBehaviour
     // Private
     private Rigidbody2D m_rigidbody;
     private Animator m_fsm;
+    private CharacterFSM.VirtualState m_currentState;
+
+    public void SetState(CharacterFSM.VirtualState _state)
+    {
+        m_currentState = _state;
+    }
     void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
@@ -41,7 +47,13 @@ public class Character : MonoBehaviour
         m_body.localScale = new Vector3(Mathf.Abs(moveInput) > EPSILON? moveInput : m_body.localScale.x,1.0f,1.0f);
 
     }
-    
+
+    private void FixedUpdate()
+    {
+        if(m_currentState) m_currentState.OnFixedUpdate();
+        Debug.DrawLine(transform.position, transform.position + (Vector3)m_rigidbody.velocity * 0.1f, Color.white, 10.0f);
+    }
+
     #region Physics
     public Vector2 GetCurrentVelocity()
     {

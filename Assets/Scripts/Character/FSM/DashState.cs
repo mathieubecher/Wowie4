@@ -21,6 +21,11 @@ namespace CharacterFSM
             m_dashTimer = 0f;
             m_previousRelativeOffset = 0.0f;
             m_forceExit = false;
+
+            if (m_animator.GetBool("grabRobot"))
+            {
+                m_character.DropRobot();
+            }
             
             float moveInput = m_character.GetMoveInput();
             float currentVelocity = m_character.GetCurrentVelocity().x;

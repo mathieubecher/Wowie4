@@ -11,14 +11,4 @@ public class LifeManager : MonoBehaviour
         m_invunlerability = _enable;
     }
 
-    private void OnTriggerEnter2D(Collider2D _other)
-    {
-        if (_other.isTrigger) return;
-        
-    }
-    private void OnTriggerExit2D(Collider2D _other)
-    {
-        if (_other.isTrigger) return;
-        
-    }
 }

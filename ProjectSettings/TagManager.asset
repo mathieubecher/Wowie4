@@ -18,7 +18,7 @@ TagManager:
   - DetectRobot
   - Platform
   - NonPlayerPlatform
-  - 
+  - HurtBox
   - 
   - 
   - 

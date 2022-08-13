@@ -106,7 +106,9 @@ public class Character : MonoBehaviour
     public void DropRobot()
     {
         m_fsm.SetBool("grabRobot", false);
-        m_robotRef.Drop();
+
+        Vector2 drobVelocity = new Vector2(m_rigidbody.velocity.x, 5.0f);
+        m_robotRef.Drop(drobVelocity);
         m_robotRef.transform.parent = null;
         m_robotRef = null;
     }

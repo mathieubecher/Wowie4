@@ -13,11 +13,6 @@ public class DetectRobot : MonoBehaviour
     public Robot robotRef => m_robotRef;
     public float maxDist => m_maxDist;
 
-    private void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D _other)
     {
         if (_other.isTrigger || _other.gameObject.layer == LayerMask.NameToLayer("Character")) return;
@@ -46,7 +41,6 @@ public class DetectRobot : MonoBehaviour
         RaycastHit2D hitInfo = Physics2D.BoxCast(origin, size * 0.95f, 0.0f, direction: direction, distance: distance, mask);
         if (hitInfo)
         {
-            Debug.Log(hitInfo.collider.gameObject);
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
             return false;
         }

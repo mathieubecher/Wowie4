@@ -74,13 +74,13 @@ public class Robot : MonoBehaviour
         m_rigidbody.velocity = Vector2.zero;
     }
 
-    public void Drop()
+    public void Drop(Vector2 _velocity)
     {
         Debug.Log("Pourquoi m'abandonner ?");
         m_state = State.Idle;
         m_timeIdle = 0.0f;
         m_rigidbody.isKinematic = false;
-        m_rigidbody.velocity = Vector2.zero;
+        m_rigidbody.velocity = _velocity;
     }
     
     // --- Actions ---

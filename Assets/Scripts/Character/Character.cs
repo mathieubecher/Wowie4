@@ -10,6 +10,7 @@ public class Character : MonoBehaviour
     [SerializeField] private float m_maxSpeed = 10.0f;
     [SerializeField] private float m_verticalSpeedGrabModifier = 0.5f;
     [SerializeField] private float m_horizontalSpeedGrabModifier = 0.5f;
+    [SerializeField] private float m_damageToHitImpulse = 5.0f;
     // Serialize
     [SerializeField] private Transform m_body;
     [SerializeField] private Transform m_robotGrabPos;
@@ -54,6 +55,7 @@ public class Character : MonoBehaviour
         InputController.OnJump += Jump;
         InputController.OnInteract += Interact;
         InputController.OnDown += Down;
+        lifeManager.OnHit += Hit;
         
 #if UNITY_EDITOR
         InputController.OnDrawDebug += DrawDebug;
@@ -66,6 +68,7 @@ public class Character : MonoBehaviour
         InputController.OnJump -= Jump;
         InputController.OnInteract -= Interact;
         InputController.OnDown -= Down;
+        lifeManager.OnHit -= Hit;
 #if UNITY_EDITOR
         InputController.OnDrawDebug -= DrawDebug;
 #endif
@@ -159,6 +162,14 @@ public class Character : MonoBehaviour
     {
         if(!m_fsm.GetBool("isGrabing"))
             EnablePlatform(!_enable);
+    }
+
+    public void Hit(Vector2 _origin, float _damage, bool _dead)
+    {
+        m_fsm.SetBool("dead", _dead);
+        if (_dead) return;
+        m_fsm.SetTrigger("Hit");
+        SetDesiredVelocity(((Vector2)transform.position - _origin).normalized * _damage * m_damageToHitImpulse, false);
     }
     
 #if UNITY_EDITOR

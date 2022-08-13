@@ -67,7 +67,7 @@ namespace CharacterFSM
             m_character.detectPhysics.OnHitRoof -= HitRoof;
             
             float maxTime = m_jumpVerticalDynamic.keys[m_jumpVerticalDynamic.length-1].time;
-            if (m_jumpTimer < maxTime)
+            if (m_forceExit && m_jumpTimer < maxTime)
             {
                 m_character.SetDesiredVelocity(new Vector2(m_character.GetCurrentVelocity().x, 0.0f), false);
             }

@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1776823581
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 20c45d30341213c4d894375559a83af7, type: 3}
   m_Color: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
@@ -351,6 +351,7 @@ MonoBehaviour:
   m_maxSpeed: 10
   m_verticalSpeedGrabModifier: 0.8
   m_horizontalSpeedGrabModifier: 0.6
+  m_damageToHitImpulse: 20
   m_body: {fileID: 9035915902680645280}
   m_robotGrabPos: {fileID: 8721849827539216313}
   m_detectRobotRef: {fileID: 7413435962118608711}
@@ -378,6 +379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bdac3b2e0e203409d6362ac81ad199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_life: 5
+  m_invulnerableAfterHitTime: 1
 --- !u!95 &311141912199843389
 Animator:
   serializedVersion: 4
@@ -629,7 +632,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1776823581
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 20c45d30341213c4d894375559a83af7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

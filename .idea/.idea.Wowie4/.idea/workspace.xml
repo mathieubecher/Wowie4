@@ -13,6 +13,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/DetectRobot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/FSM/DashState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/FSM/GrabState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/FSM/HitState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/FSM/JumpState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/FSM/MoveGroundState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/FSM/VirtualState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -81,7 +82,8 @@
       <option name="presentableId" value="Default" />
       <updated>1660329643312</updated>
       <workItem from="1660329656866" duration="10278000" />
-      <workItem from="1660379750311" duration="26101000" />
+      <workItem from="1660379750311" duration="26991000" />
+      <workItem from="1660419023953" duration="4135000" />
     </task>
     <servers />
   </component>

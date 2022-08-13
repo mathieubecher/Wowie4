@@ -6,7 +6,8 @@ public class HurtBox : MonoBehaviour
 {
     [SerializeField] private LayerMask m_hitLayers;
     [SerializeField] private LifeManager m_lifeManager;
-
+    
+    
     private void Awake()
     {
         if (!m_lifeManager) m_lifeManager = GetComponentInParent<LifeManager>();
@@ -20,7 +21,10 @@ public class HurtBox : MonoBehaviour
             HitBox hitbox;
             if (_other.TryGetComponent(out hitbox))
             {
-                Debug.Log("Hurt");
+                if (m_lifeManager.Hit(this, hitbox))
+                {
+                    hitbox.Hurt(this);
+                }
             }
         }
         

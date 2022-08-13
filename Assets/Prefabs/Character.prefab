@@ -130,7 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a22bbeb1fa73c44cb95352ae5bcc0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fsm: {fileID: 311141912199843389}
 --- !u!58 &4045225020704151391
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -221,6 +220,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_body: {fileID: 9035915902680645280}
   m_maxSpeed: 10
+  m_detectGroundRef: {fileID: 1183326661896368613}
+  m_detectRobotRef: {fileID: 7413435962118608711}
 --- !u!114 &4758369453276257129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,7 +601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c78d30b4ee0f5b41aead9e04bb88c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fsm: {fileID: 311141912199843389}
 --- !u!50 &9069127514686437144
 Rigidbody2D:
   serializedVersion: 4

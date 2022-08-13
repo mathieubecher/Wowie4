@@ -6,17 +6,8 @@ using UnityEngine;
 public class DetectGround : MonoBehaviour
 {
     private int m_isOnGround = 0;
-    [SerializeField] private Animator m_fsm;
+    public bool isOnGround => m_isOnGround > 0;
 
-
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-        m_fsm.SetBool("isOnGround", m_isOnGround > 0);
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.isTrigger || other.gameObject.layer == LayerMask.NameToLayer("Character")) return;

@@ -9,6 +9,7 @@ namespace CharacterFSM
         protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             animator.ResetTrigger("Jump");
+            m_animator.SetInteger("dashInAir", 0);
         }
 
         public override void OnFixedUpdate()

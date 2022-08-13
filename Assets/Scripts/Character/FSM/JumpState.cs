@@ -11,15 +11,18 @@ namespace CharacterFSM
         private float m_jumpReleaseTime;
         private float m_previousRelativeHeight = 0.0f;
         private float m_gravityScaleAtStart = 0.0f;
+        private bool m_forceExit = false;
         
         [SerializeField] private AnimationCurve m_jumpReleaseTimeToExitTime;
         [SerializeField] private AnimationCurve m_jumpVerticalDynamic;
         [SerializeField] private AnimationCurve m_lossOfControl;
         [SerializeField] private float m_minJumpTime = 0.1f;
+        
         protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             m_jumpTimer = 0f;
-            m_jumpReleaseTime = 1f;
+            m_jumpReleaseTime = 10f;
+            m_forceExit = false;
             
             InputController.OnReleaseJump += ReleaseJump;
             m_previousRelativeHeight = 0.0f;
@@ -29,13 +32,16 @@ namespace CharacterFSM
         }
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            if (m_forceExit) return;
             m_jumpTimer += Time.deltaTime;
-    
+            
             float maxTime = m_jumpVerticalDynamic.keys[m_jumpVerticalDynamic.length-1].time;
             float exitTime = m_jumpReleaseTimeToExitTime.Evaluate(m_jumpReleaseTime);
+            
             if ((m_jumpTimer > exitTime && m_jumpTimer > m_minJumpTime) || m_jumpTimer > maxTime)
             {
-                m_animator.SetBool("forceExitState", true);
+                m_animator.SetTrigger(ForceExitState);
+                m_forceExit = true;
             }
         }
 
@@ -60,7 +66,7 @@ namespace CharacterFSM
             {
                 m_character.SetDesiredVelocity(new Vector2(m_character.GetCurrentVelocity().x, 0.0f), false);
             }
-            animator.SetBool("forceExitState", false);
+            m_animator.ResetTrigger(ForceExitState);
             m_character.SetGravityScaler(m_gravityScaleAtStart);
         }
 

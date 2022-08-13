@@ -8,6 +8,11 @@ namespace CharacterFSM
     {
         protected Character m_character;
         protected Animator m_animator;
+        
+        protected static readonly int ForceExitState = Animator.StringToHash("ForceExitState");
+        protected static readonly int DashInAir = Animator.StringToHash("dashInAir");
+        protected static readonly int DashCoolDown = Animator.StringToHash("dashCooldown");
+        protected static readonly int Dash = Animator.StringToHash("Dash");
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         public sealed override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {

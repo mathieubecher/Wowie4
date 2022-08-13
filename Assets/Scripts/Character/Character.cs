@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -48,6 +50,7 @@ public class Character : MonoBehaviour
         InputController.OnDash += Dash;
         InputController.OnJump += Jump;
         InputController.OnInteract += Interact;
+        InputController.OnDown += Down;
         
 #if UNITY_EDITOR
         InputController.OnDrawDebug += DrawDebug;
@@ -59,6 +62,7 @@ public class Character : MonoBehaviour
         InputController.OnDash -= Dash;
         InputController.OnJump -= Jump;
         InputController.OnInteract -= Interact;
+        InputController.OnDown -= Down;
 #if UNITY_EDITOR
         InputController.OnDrawDebug -= DrawDebug;
 #endif
@@ -67,7 +71,12 @@ public class Character : MonoBehaviour
     void Update()
     {
         m_fsm.SetBool("isOnGround", detectPhysics.isOnGround);
-        m_fsm.SetBool("detectRobot", m_detectRobotRef.detectRobot);
+
+        if (m_detectRobotRef.detectRobot != m_fsm.GetBool("detectRobot"))
+        {
+            m_fsm.ResetTrigger("Interact");
+            m_fsm.SetBool("detectRobot", m_detectRobotRef.detectRobot);
+        }
     }
 
     private void FixedUpdate()
@@ -81,6 +90,7 @@ public class Character : MonoBehaviour
         }
 #endif
     }
+
     public void GrabRobot(Robot _robot)
     {
         m_fsm.SetBool("grabRobot", true);
@@ -101,7 +111,8 @@ public class Character : MonoBehaviour
 #region Physics
     public Vector2 GetCurrentVelocity()
     {
-        return m_rigidbody.velocity;
+        bool grab = m_fsm.GetBool("grabRobot");
+        return new Vector2(m_rigidbody.velocity.x / (grab? m_horizontalSpeedGrabModifier : 1.0f), m_rigidbody.velocity.y);
     }
     public void SetDesiredVelocity(Vector2 _velocity, bool _ignoreVertical = true)
     {
@@ -121,8 +132,9 @@ public class Character : MonoBehaviour
 #endregion
     
 #region Inputs
-    private void Jump()
+    private void Jump(bool _enable)
     {
+        if (!_enable) return;
         m_fsm.SetTrigger("Jump");
     }
     private void Interact()
@@ -137,6 +149,13 @@ public class Character : MonoBehaviour
     {
         m_fsm.SetTrigger("Dash");
     }
+    
+    private void Down(bool _enable)
+    {
+        if(!m_fsm.GetBool("isGrabing"))
+            EnablePlatform(!_enable);
+    }
+    
 #if UNITY_EDITOR
     private void DrawDebug()
     {
@@ -144,6 +163,26 @@ public class Character : MonoBehaviour
     }
 #endif
 #endregion
-
+    
+    public static void EnablePlatform(bool _enable)
+    {
+        foreach (var gameObject in FindGameObjectsWithLayer(LayerMask.NameToLayer("Platform")))
+        {
+            gameObject.GetComponent<Collider2D>().enabled = _enable;
+        }
+    }
+    private static List<GameObject> FindGameObjectsWithLayer (int _layer) {
+        var goArray = FindObjectsOfType<GameObject>();
+        List<GameObject> goList = new List<GameObject>();
+        for (var i = 0; i < goArray.Length; i++) {
+            if (goArray[i].layer == _layer) {
+                goList.Add(goArray[i]);
+            }
+        }
+        if (goList.Count == 0) {
+            return null;
+        }
+        return goList;
+    }
 
 }

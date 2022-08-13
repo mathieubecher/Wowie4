@@ -13,7 +13,8 @@ namespace CharacterFSM
         protected static readonly int DashInAir = Animator.StringToHash("dashInAir");
         protected static readonly int DashCoolDown = Animator.StringToHash("dashCooldown");
         protected static readonly int Dash = Animator.StringToHash("Dash");
-        // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+        protected static readonly int IsGrabing = Animator.StringToHash("isGrabing");
+        
         public sealed override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             if (!m_character) m_character = animator.GetComponent<Character>();

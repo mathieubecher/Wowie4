@@ -32,6 +32,8 @@ namespace CharacterFSM
                 m_character.body.localScale = new Vector3(math.sign(m_direction.x),1.0f,1.0f);
 
             m_animator.SetInteger(DashInAir, m_animator.GetInteger(DashInAir) + 1);
+            m_animator.SetBool(IsGrabing, true);
+            Character.EnablePlatform(false);
         }
         
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -40,7 +42,7 @@ namespace CharacterFSM
             
             float maxTime = m_grabDynamic.keys[m_grabDynamic.length-1].time;
             
-            m_grabTimer += Time.deltaTime;
+            m_grabTimer += m_distance > Character.EPSILON ? Time.deltaTime * m_character.detectRobot.maxDist / m_distance : 0.2f;
             
             if (m_grabTimer >= maxTime)
             {
@@ -67,6 +69,10 @@ namespace CharacterFSM
             
             m_animator.ResetTrigger(ForceExitState);
             m_animator.ResetTrigger(Dash);
+            
+            m_animator.SetBool(IsGrabing, false);
+            
+            Character.EnablePlatform(true);
         }
 
     }

@@ -25,7 +25,7 @@ namespace CharacterFSM
             m_jumpReleaseTime = 10f;
             m_forceExit = false;
             
-            InputController.OnReleaseJump += ReleaseJump;
+            InputController.OnJump += ReleaseJump;
             m_character.detectPhysics.OnHitRoof += HitRoof;
             m_previousRelativeHeight = 0.0f;
 
@@ -63,7 +63,7 @@ namespace CharacterFSM
         
         protected override void StateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            InputController.OnReleaseJump -= ReleaseJump;
+            InputController.OnJump -= ReleaseJump;
             m_character.detectPhysics.OnHitRoof -= HitRoof;
             
             float maxTime = m_jumpVerticalDynamic.keys[m_jumpVerticalDynamic.length-1].time;
@@ -75,8 +75,9 @@ namespace CharacterFSM
             m_character.SetGravityScaler(m_gravityScaleAtStart);
         }
 
-        private void ReleaseJump()
+        private void ReleaseJump(bool _enable)
         {
+            if (_enable) return;
             m_jumpReleaseTime = m_jumpTimer;
         }
 

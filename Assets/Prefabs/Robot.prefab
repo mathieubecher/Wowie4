@@ -244,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_equippedGunBehavior: {fileID: 11400000, guid: 0086242bd6234f245bdb0bf8eb72fca8, type: 2}
   m_jumpAmount: 2
-  m_timeWaitingBeforeJumpOnPlace: 5
+  m_timeWaitingBeforeJumpOnPlace: 60
   m_timeBetweenJump: 0.5
   m_jumpOnPlaceDuration: 2
 --- !u!50 &3302795965034619568

@@ -33,7 +33,9 @@ public class Bullet : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {}
+    {
+        transform.rotation = Quaternion.FromToRotation(Vector3.right * math.sign(transform.localScale.x), m_rigidbody.velocity);
+    }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -43,7 +45,6 @@ public class Bullet : MonoBehaviour
             m_currentVelocity = Vector2.Reflect(m_currentVelocity, normal);
             transform.position = collision.contacts[0].point + m_currentVelocity.normalized * 0.3f;
             m_rigidbody.velocity = m_currentVelocity;
-            transform.rotation = Quaternion.FromToRotation(Vector3.right * math.sign(transform.localScale.x), m_currentVelocity);
         }
         else
         {

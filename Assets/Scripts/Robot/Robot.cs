@@ -16,6 +16,8 @@ public class Robot : MonoBehaviour
     [SerializeField] private float m_timeWaitingBeforeJumpOnPlace = 0.0f;
     [SerializeField] private float m_timeBetweenJump = 0.5f;
     [SerializeField] private float m_jumpOnPlaceDuration = 2.0f;
+
+    [SerializeField] private DetectEnemy m_detectEnemy;
     
     private float m_timeIdle = 0.0f;
     private float m_elapsedTimeLastJump = 0.0f;
@@ -99,7 +101,7 @@ public class Robot : MonoBehaviour
         if(m_equippedGunBehavior.CanShoot())
         {
             bool goRight = transform.lossyScale.x > 0.0f;
-            m_equippedGunBehavior.Shoot(transform.Find("Body/spawnBullet").position, goRight);
+            m_equippedGunBehavior.Shoot(transform.Find("Body/spawnBullet").position, goRight, m_detectEnemy.enemies);
         }
     }
 

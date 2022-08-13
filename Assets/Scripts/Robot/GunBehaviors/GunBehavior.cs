@@ -16,7 +16,7 @@ public class GunBehavior : ScriptableObject
         return true;
     }
 
-    public virtual void Shoot(Vector3 _startPos, bool _goRight)
+    public virtual void Shoot(Vector3 _startPos, bool _goRight, List<Enemy> _detectedEnemies)
     {
         m_gunType.Shoot(_startPos, 0f, _goRight);
     }

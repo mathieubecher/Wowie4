@@ -53,10 +53,7 @@ public class InputController : MonoBehaviour
         if (_context.performed)
             OnJump?.Invoke();
         if (_context.canceled)
-        {
             OnReleaseJump?.Invoke();
-            
-        }
     }
     
 }

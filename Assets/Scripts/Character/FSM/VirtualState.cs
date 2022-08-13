@@ -13,6 +13,7 @@ namespace CharacterFSM
         protected static readonly int DashInAir = Animator.StringToHash("dashInAir");
         protected static readonly int DashCoolDown = Animator.StringToHash("dashCooldown");
         protected static readonly int Dash = Animator.StringToHash("Dash");
+        protected static readonly int Jump = Animator.StringToHash("Jump");
         protected static readonly int IsGrabing = Animator.StringToHash("isGrabing");
         
         public sealed override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

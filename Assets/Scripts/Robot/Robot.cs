@@ -11,10 +11,18 @@ public class Robot : MonoBehaviour
     }
 
     [SerializeField] private GunBehavior m_equippedGunBehavior;
+    [SerializeField] private float m_jumpAmount = 10.0f;
+    [SerializeField] private float m_timeWaitingBeforeJumpOnPlace = 0.0f;
+    [SerializeField] private float m_timeBetweenJump = 0.5f;
+    [SerializeField] private float m_jumpOnPlaceDuration = 2.0f;
     
     private State m_state = State.Idle;
     private Character m_myHuman; // for human front dir ?
     private Rigidbody2D m_rigidbody;
+    
+    private float m_timeIdle = 0.0f;
+    private float m_elapsedTimeLastJump = 0.0f;
+    private float m_elapsedTimeFirstJump = 0.0f;
     
     void Awake()
     {
@@ -32,6 +40,25 @@ public class Robot : MonoBehaviour
     void Update()
     {
         Shoot();
+
+        if(!IsGrabbed())
+        {
+            m_timeIdle += Time.deltaTime;
+            if(m_timeIdle >= m_timeWaitingBeforeJumpOnPlace) // want attention
+            {
+                if(m_elapsedTimeFirstJump <= m_jumpOnPlaceDuration) 
+                {
+                    JumpOnPlace(); // need a jump anim ;)
+                }
+                else // enought jumpOnPlace for now
+                {
+                    m_elapsedTimeFirstJump = 0.0f;
+                    m_elapsedTimeLastJump = 0.0f;
+                    m_timeIdle = 0.0f;
+                }
+                m_elapsedTimeFirstJump += Time.deltaTime;
+            }
+        }
     }
 
     public bool IsGrabbed()
@@ -49,6 +76,7 @@ public class Robot : MonoBehaviour
     {
         Debug.Log("Pourquoi m'abandonner");
         m_state = State.Idle;
+        m_timeIdle = 0.0f;
     }
     
     // --- Actions ---
@@ -65,6 +93,11 @@ public class Robot : MonoBehaviour
 
     private void JumpOnPlace()
     {
-        Debug.Log("Hop .. Hop");
+        m_elapsedTimeLastJump += Time.deltaTime;
+        if(m_elapsedTimeLastJump >= m_timeBetweenJump)
+        {
+            m_rigidbody.AddForce(Vector2.up * m_jumpAmount, ForceMode2D.Impulse);
+            m_elapsedTimeLastJump = 0.0f;
+        }
     }
 }

@@ -18,14 +18,7 @@ public class GunBehavior : ScriptableObject
 
     public virtual void Shoot(Vector3 _startPos, bool _goRight)
     {
-        if(_goRight)
-        {
-            m_gunType.Shoot(_startPos, 0.0f);
-        }
-        else
-        {
-            m_gunType.Shoot(_startPos, 180.0f);
-        }
+        m_gunType.Shoot(_startPos, 0f, _goRight);
     }
 
     public void SetGunType(GunType _gunType)

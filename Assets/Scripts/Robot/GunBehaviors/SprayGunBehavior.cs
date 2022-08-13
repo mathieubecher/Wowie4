@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "GunBehavior/SprayGunBehavior", order = 2)]
+[CreateAssetMenu(fileName = "Data", menuName = "GunBehavior/SprayGunBehavior", order = 3)]
 public class SprayGunBehavior : GunBehavior
 {
     [SerializeField] private float m_angleBetweenShoot = 10.0f;
@@ -24,17 +24,17 @@ public class SprayGunBehavior : GunBehavior
         {
             Reset();
         }
-        
+
         if(m_add && m_currentAngle <= m_endAngle)
         {
-            if(m_gunType.Shoot(_startPos, m_currentAngle))
+            if(m_gunType.Shoot(_startPos, m_currentAngle, _goRight))
             {
                 m_currentAngle += m_angleBetweenShoot;
             }
         }
         else if(!m_add && m_currentAngle >= m_endAngle)
         {
-            if(m_gunType.Shoot(_startPos, m_currentAngle))
+            if(m_gunType.Shoot(_startPos, m_currentAngle, _goRight))
             {
                 m_currentAngle -= m_angleBetweenShoot;
             }

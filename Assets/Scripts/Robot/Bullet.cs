@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Mathematics;
 
 public class Bullet : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_rigidbody.velocity = transform.right * m_speed;
+        m_rigidbody.velocity = transform.right * (math.sign(transform.localScale.x) * m_speed);
         m_currentVelocity = m_rigidbody.velocity;
 
         m_lifeTime = m_lifeDistance / m_speed;
@@ -40,8 +41,9 @@ public class Bullet : MonoBehaviour
         {
             Vector2 normal = collision.contacts[0].normal;
             m_currentVelocity = Vector2.Reflect(m_currentVelocity, normal);
-            transform.position += (Vector3) m_currentVelocity.normalized * 0.1f;
+            transform.position = collision.contacts[0].point + m_currentVelocity.normalized * 0.3f;
             m_rigidbody.velocity = m_currentVelocity;
+            transform.rotation = Quaternion.FromToRotation(Vector3.right * math.sign(transform.localScale.x), m_currentVelocity);
         }
         else
         {

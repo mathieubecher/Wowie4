@@ -9,7 +9,7 @@ public class MultiShotsGunType : GunType
     [SerializeField] private int m_numberOfShoot = 3;
     [SerializeField] private float m_angleBetweenShoot = 45.0f;
 
-    public override bool Shoot(Vector3 _startPos, float _angle)
+    public override bool Shoot(Vector3 _startPos, float _angle, bool _isRight)
     {
         m_timer += Time.deltaTime;
         if(m_timer >= m_firingRate)

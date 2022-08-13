@@ -11,18 +11,19 @@ public class Robot : MonoBehaviour
     }
 
     [SerializeField] private GunBehavior m_equippedGunBehavior;
+
     [SerializeField] private float m_jumpAmount = 2.0f;
     [SerializeField] private float m_timeWaitingBeforeJumpOnPlace = 0.0f;
     [SerializeField] private float m_timeBetweenJump = 0.5f;
     [SerializeField] private float m_jumpOnPlaceDuration = 2.0f;
     
-    private State m_state = State.Idle;
-    private Character m_myHuman; // for human front dir ?
-    private Rigidbody2D m_rigidbody;
-    
     private float m_timeIdle = 0.0f;
     private float m_elapsedTimeLastJump = 0.0f;
     private float m_elapsedTimeFirstJump = 0.0f;
+    
+    private State m_state = State.Idle;
+    private Character m_myHuman; // for human front dir ?
+    private Rigidbody2D m_rigidbody;
     
     void Awake()
     {
@@ -33,7 +34,6 @@ public class Robot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -74,7 +74,7 @@ public class Robot : MonoBehaviour
 
     public void Drop()
     {
-        Debug.Log("Pourquoi m'abandonner");
+        Debug.Log("Pourquoi m'abandonner ?");
         m_state = State.Idle;
         m_timeIdle = 0.0f;
     }
@@ -83,7 +83,7 @@ public class Robot : MonoBehaviour
 
     private void Shoot()
     {
-        m_equippedGunBehavior.Shoot(transform.position);
+        m_equippedGunBehavior.Shoot(transform.position, transform.eulerAngles.z);
     }
 
     private void Speak()

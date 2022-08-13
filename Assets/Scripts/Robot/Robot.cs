@@ -11,7 +11,7 @@ public class Robot : MonoBehaviour
     }
 
     [SerializeField] private GunBehavior m_equippedGunBehavior;
-    [SerializeField] private float m_jumpAmount = 10.0f;
+    [SerializeField] private float m_jumpAmount = 2.0f;
     [SerializeField] private float m_timeWaitingBeforeJumpOnPlace = 0.0f;
     [SerializeField] private float m_timeBetweenJump = 0.5f;
     [SerializeField] private float m_jumpOnPlaceDuration = 2.0f;

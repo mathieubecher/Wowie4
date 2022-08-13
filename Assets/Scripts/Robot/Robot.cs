@@ -61,7 +61,7 @@ public class Robot : MonoBehaviour
         }
     }
 
-    public bool IsGrabbed()
+    private bool IsGrabbed()
     {
         return m_state == State.Grabbed;
     }
@@ -109,5 +109,10 @@ public class Robot : MonoBehaviour
     public void setGunBehavior(GunBehavior _newGunBehavior)
     {
         m_equippedGunBehavior = _newGunBehavior;
+    }
+
+    public void setGunType(GunType _newGunType)
+    {
+        m_equippedGunBehavior.setGunType(_newGunType);
     }
 }

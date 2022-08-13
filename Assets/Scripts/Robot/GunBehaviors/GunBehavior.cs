@@ -29,4 +29,9 @@ public class GunBehavior : ScriptableObject
             m_timer = 0.0f;
         }
     }
+
+    public void setGunType(GunType _gunType)
+    {
+        m_gunType = _gunType;
+    }
 }

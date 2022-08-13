@@ -12,12 +12,20 @@ public class GunBehavior : ScriptableObject
     
     protected float m_timer = 0.0f;
 
-    public virtual void Shoot(Vector3 _startPos, float _currentAngle)
+    public virtual void Shoot(Vector3 _startPos, bool _goRight)
     {
         m_timer += Time.deltaTime;
         if(m_timer >= m_firingRate)
         {
-            m_gunType.Shoot(_startPos, _currentAngle + m_angleDegrees);
+            if(_goRight)
+            {
+                m_gunType.Shoot(_startPos, m_angleDegrees);
+            }
+            else
+            {
+                m_gunType.Shoot(_startPos, m_angleDegrees + 180.0f);
+            }
+            
             m_timer = 0.0f;
         }
     }

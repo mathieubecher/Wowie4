@@ -10,14 +10,14 @@ public class SprayGunBehavior : GunBehavior
 
     private float m_currentAngle = 0.0f;
 
-    public override void Shoot(Vector3 _startPos, float _currentAngle)
+    public override void Shoot(Vector3 _startPos, bool _goRight)
     {
         m_timer += Time.deltaTime;
         if(m_timer >= m_firingRate)
         {
             if(m_currentAngle <= m_angleDegrees)
             {
-                m_gunType.Shoot(_startPos, _currentAngle + m_currentAngle);
+                m_gunType.Shoot(_startPos, m_currentAngle);
                 m_currentAngle += m_angleBetweenShoot;
             }
             else

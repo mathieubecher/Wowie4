@@ -87,7 +87,8 @@ public class Robot : MonoBehaviour
 
     private void Shoot()
     {
-        m_equippedGunBehavior.Shoot(transform.position, transform.eulerAngles.z);
+        bool goRight = transform.lossyScale.x > 0.0f;
+        m_equippedGunBehavior.Shoot(transform.position, goRight);
     }
 
     private void Speak()

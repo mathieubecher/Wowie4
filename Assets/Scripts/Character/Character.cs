@@ -8,6 +8,9 @@ public class Character : MonoBehaviour
     // Serialize
     [SerializeField] private Transform m_body;
     [SerializeField] private float m_maxSpeed = 10.0f;
+    
+    [SerializeField] private DetectGround m_detectGroundRef;
+    [SerializeField] private DetectRobot m_detectRobotRef;
     public float maxSpeed => m_maxSpeed;
     public Transform body => m_body;
 
@@ -35,6 +38,7 @@ public class Character : MonoBehaviour
         InputController.OnDash += Dash;
         InputController.OnJump += Jump;
         InputController.OnInteract += Interact;
+        
 #if UNITY_EDITOR
         InputController.OnDrawDebug += DrawDebug;
 #endif
@@ -54,7 +58,10 @@ public class Character : MonoBehaviour
     {
         float moveInput = GetMoveInput();
         m_body.localScale = new Vector3(math.abs(moveInput) > EPSILON? moveInput : m_body.localScale.x,1.0f,1.0f);
-
+        
+        m_fsm.SetBool("isOnGround", m_detectGroundRef.isOnGround);
+        Debug.Log(m_detectRobotRef.detectRobot);
+        m_fsm.SetBool("detectRobot", m_detectRobotRef.detectRobot);
     }
 
     private void FixedUpdate()

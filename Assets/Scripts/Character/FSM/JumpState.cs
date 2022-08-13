@@ -20,11 +20,13 @@ namespace CharacterFSM
         
         protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            m_animator.ResetTrigger(ForceExitState);
             m_jumpTimer = 0f;
             m_jumpReleaseTime = 10f;
             m_forceExit = false;
             
             InputController.OnReleaseJump += ReleaseJump;
+            m_character.detectPhysics.OnHitRoof += HitRoof;
             m_previousRelativeHeight = 0.0f;
 
             m_gravityScaleAtStart = m_character.GetGravityScaler();
@@ -60,6 +62,7 @@ namespace CharacterFSM
         protected override void StateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             InputController.OnReleaseJump -= ReleaseJump;
+            m_character.detectPhysics.OnHitRoof -= HitRoof;
             
             float maxTime = m_jumpVerticalDynamic.keys[m_jumpVerticalDynamic.length-1].time;
             if (m_jumpTimer < maxTime)
@@ -73,6 +76,11 @@ namespace CharacterFSM
         private void ReleaseJump()
         {
             m_jumpReleaseTime = m_jumpTimer;
+        }
+
+        private void HitRoof()
+        {
+            m_animator.SetTrigger(ForceExitState);
         }
     }
 }

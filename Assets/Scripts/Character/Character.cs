@@ -9,18 +9,19 @@ public class Character : MonoBehaviour
     [SerializeField] private Transform m_body;
     [SerializeField] private float m_maxSpeed = 10.0f;
     
-    [SerializeField] private DetectGround m_detectGroundRef;
     [SerializeField] private DetectRobot m_detectRobotRef;
     public float maxSpeed => m_maxSpeed;
     public Transform body => m_body;
 
     // Private
     private Rigidbody2D m_rigidbody;
+    private DetectPhysics m_detectPhysics;
+    public DetectPhysics detectPhysics => m_detectPhysics;
     private Animator m_fsm;
     private CharacterFSM.VirtualState m_currentState;
     
 #if UNITY_EDITOR
-    private bool m_drawDebug;
+    private bool m_drawDebug = false;
 #endif
     
     public void SetState(CharacterFSM.VirtualState _state)
@@ -31,6 +32,7 @@ public class Character : MonoBehaviour
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_fsm = GetComponent<Animator>();
+        m_detectPhysics = GetComponent<DetectPhysics>();
     }
 
     private void OnEnable()
@@ -59,7 +61,7 @@ public class Character : MonoBehaviour
         float moveInput = GetMoveInput();
         m_body.localScale = new Vector3(math.abs(moveInput) > EPSILON? moveInput : m_body.localScale.x,1.0f,1.0f);
         
-        m_fsm.SetBool("isOnGround", m_detectGroundRef.isOnGround);
+        m_fsm.SetBool("isOnGround", detectPhysics.isOnGround);
         Debug.Log(m_detectRobotRef.detectRobot);
         m_fsm.SetBool("detectRobot", m_detectRobotRef.detectRobot);
     }

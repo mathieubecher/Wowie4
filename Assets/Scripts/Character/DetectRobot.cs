@@ -9,14 +9,6 @@ public class DetectRobot : MonoBehaviour
     private Robot m_robotRef;
     public bool robotRef => m_robotRef;
     
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-    }
     private void OnTriggerEnter2D(Collider2D _other)
     {
         if (_other.isTrigger || _other.gameObject.layer == LayerMask.NameToLayer("Character")) return;

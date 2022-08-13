@@ -70,6 +70,7 @@ public class Robot : MonoBehaviour
     {
         Debug.Log("Sac à dos, sac à dos!");
         m_state = State.Grabbed;
+        m_rigidbody.isKinematic = true;
     }
 
     public void Drop()
@@ -77,6 +78,7 @@ public class Robot : MonoBehaviour
         Debug.Log("Pourquoi m'abandonner");
         m_state = State.Idle;
         m_timeIdle = 0.0f;
+        m_rigidbody.isKinematic = false;
     }
     
     // --- Actions ---

@@ -57,6 +57,8 @@ namespace CharacterFSM
             
             m_character.SetDesiredVelocity(new Vector2(desiredHorizontalSpeed, desiredVerticalSpeed), false);
             m_previousRelativeHeight = desiredRelativeHeight;
+            
+            m_character.body.localScale = new Vector3(math.abs(desiredHorizontalSpeed) > Character.EPSILON? math.sign(desiredHorizontalSpeed) : m_character.body.localScale.x,1.0f,1.0f);
         }
         
         protected override void StateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

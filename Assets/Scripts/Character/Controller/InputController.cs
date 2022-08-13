@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -52,6 +53,16 @@ public class InputController : MonoBehaviour
         if (_context.performed)
             OnDash?.Invoke();
     }
+    public void ReadDownAction(InputAction.CallbackContext _context)
+    {
+        if (_context.performed || _context.canceled)
+        {
+            foreach (var gameObject in FindGameObjectsWithLayer(LayerMask.NameToLayer("Platform")))
+            {
+                gameObject.GetComponent<Collider2D>().enabled = !_context.performed;
+            }
+        }
+    }
     
     public void ReadJumpAction(InputAction.CallbackContext _context)
     {
@@ -67,5 +78,20 @@ public class InputController : MonoBehaviour
             OnDrawDebug?.Invoke();
 #endif
     }
+    
+    private static List<GameObject> FindGameObjectsWithLayer (int _layer) {
+        var goArray = FindObjectsOfType<GameObject>();
+        List<GameObject> goList = new List<GameObject>();
+        for (var i = 0; i < goArray.Length; i++) {
+            if (goArray[i].layer == _layer) {
+                goList.Add(goArray[i]);
+            }
+        }
+        if (goList.Count == 0) {
+            return null;
+        }
+        return goList;
+    }
+    
     
 }

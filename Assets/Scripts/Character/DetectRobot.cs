@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class DetectRobot : MonoBehaviour
 {
+    [SerializeField] private float m_maxDist = 5.0f;
+    
     private bool m_detectRobot;
-    public bool detectRobot => m_detectRobot;
     private Robot m_robotRef;
-    public bool robotRef => m_robotRef;
+    public bool detectRobot => m_detectRobot;
+    public Robot robotRef => m_robotRef;
+    public float maxDist => m_maxDist;
+    
     
     private void OnTriggerEnter2D(Collider2D _other)
     {

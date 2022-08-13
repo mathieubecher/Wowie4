@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f725714794e9e04d9ebc6f925c0f075, type: 3}
   m_Name: MonoShot
   m_EditorClassIdentifier: 
+  m_firingRate: 0.5
   m_bullet: {fileID: 4666815692083401953, guid: c897eed5949657c4ba06443d6667d8c5, type: 3}

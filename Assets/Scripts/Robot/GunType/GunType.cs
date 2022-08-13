@@ -11,7 +11,7 @@ public class GunType : ScriptableObject
   
     protected float m_timer = 0.0f;
 
-    public virtual void Shoot(Vector3 _startPos, float _angle)
+    public virtual bool Shoot(Vector3 _startPos, float _angle)
     {
         m_timer += Time.deltaTime;
         if(m_timer >= m_firingRate)
@@ -19,6 +19,8 @@ public class GunType : ScriptableObject
             Quaternion rotation = Quaternion.Euler(0, 0, _angle);
             Instantiate(m_bullet, _startPos, rotation);
             m_timer = 0.0f;
+            return true;
         }
+        return false;
     }
 }

@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9035915902680645280}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6785069755168858638
 SpriteRenderer:
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a22bbeb1fa73c44cb95352ae5bcc0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_maxDist: 5
 --- !u!58 &4045225020704151391
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,6 +168,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &4353797875180826417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8721849827539216313}
+  m_Layer: 6
+  m_Name: GrabPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8721849827539216313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353797875180826417}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.72, y: -0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9035915902680645280}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5454883677058282499
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,9 +250,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe306c228abe7945a38b9a26f8671eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_body: {fileID: 9035915902680645280}
   m_maxSpeed: 10
-  m_detectGroundRef: {fileID: 2043176174332631448}
+  m_verticalSpeedGrabModifier: 0.8
+  m_horizontalSpeedGrabModifier: 0.6
+  m_body: {fileID: 9035915902680645280}
+  m_robotGrabPos: {fileID: 8721849827539216313}
   m_detectRobotRef: {fileID: 7413435962118608711}
 --- !u!114 &4758369453276257129
 MonoBehaviour:
@@ -380,6 +414,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c13de23c-140d-4ae4-98c8-3155af89cd0c
     m_ActionName: Default/DebugDraw[/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4758369453276257129}
+        m_TargetAssemblyTypeName: InputController, Assembly-CSharp
+        m_MethodName: ReadDownAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f0c21b95-8192-47ac-84c2-5a7f93d4a7b8
+    m_ActionName: Default/Down[/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Default
@@ -428,7 +478,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9035915902680645280}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5454883678412674912
 SpriteRenderer:
@@ -536,6 +586,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8721849827539216313}
   - {fileID: 5454883678412674910}
   - {fileID: 7043042732780796089}
   m_Father: {fileID: 5454883677058282501}

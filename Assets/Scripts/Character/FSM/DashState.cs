@@ -27,6 +27,8 @@ namespace CharacterFSM
                         : math.abs(currentVelocity) > Character.EPSILON ? math.sign(currentVelocity)
                         : math.sign(m_character.body.localScale.x);
             
+            m_character.body.localScale = new Vector3(m_direction,1.0f,1.0f);
+
             m_animator.SetInteger(DashInAir, m_animator.GetInteger(DashInAir) + 1);
         }
         
@@ -59,9 +61,8 @@ namespace CharacterFSM
         {
             m_character.SetDesiredVelocity(new Vector2(0.0f, 0.0f), false);
             
-            animator.ResetTrigger(ForceExitState);
+            m_animator.ResetTrigger(ForceExitState);
             m_animator.ResetTrigger(Dash);
-            
             m_animator.SetBool(DashCoolDown, true);
             
             m_character.StartCoroutine(Cooldown());

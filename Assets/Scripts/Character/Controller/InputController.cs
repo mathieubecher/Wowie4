@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,9 +18,11 @@ public class InputController : MonoBehaviour
     public delegate void Interact();
     public static event Interact OnInteract;
     
-    public delegate void Jump();
+    public delegate void Jump(bool _pressed);
     public static event Jump OnJump;
-    public static event Jump OnReleaseJump;
+    
+    public delegate void Down(bool _pressed);
+    public static event Down OnDown;
     
     public delegate void Dash();
     public static event Dash OnDash;
@@ -52,14 +55,22 @@ public class InputController : MonoBehaviour
         if (_context.performed)
             OnDash?.Invoke();
     }
+    public void ReadDownAction(InputAction.CallbackContext _context)
+    {
+        if (_context.performed || _context.canceled)
+        {
+            OnDown?.Invoke(_context.performed);
+        }
+    }
     
     public void ReadJumpAction(InputAction.CallbackContext _context)
     {
         if (_context.performed)
-            OnJump?.Invoke();
+            OnJump?.Invoke(true);
         if (_context.canceled)
-            OnReleaseJump?.Invoke();
+            OnJump?.Invoke(false);
     }
+
     public void ReadDrawDebugAction(InputAction.CallbackContext _context)
     {
 #if UNITY_EDITOR
@@ -67,5 +78,4 @@ public class InputController : MonoBehaviour
             OnDrawDebug?.Invoke();
 #endif
     }
-    
 }

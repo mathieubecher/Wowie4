@@ -71,6 +71,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""f0c21b95-8192-47ac-84c2-5a7f93d4a7b8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -209,7 +218,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8f4a3526-7cf0-441f-81bd-5aa9e95322a3"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -230,12 +239,45 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""1f6a799f-c4ae-4f99-a65c-994b679386d1"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""0fa1ded7-4293-4f07-99a1-ace91f2e0163"",
                     ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""DebugDraw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1c8d88bb-26ab-44f3-af79-17f040a66dd0"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c40f016-adb3-4782-b818-5c9d116b9d18"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -279,6 +321,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_Default_Interact = m_Default.FindAction("Interact", throwIfNotFound: true);
         m_Default_Dash = m_Default.FindAction("Dash", throwIfNotFound: true);
         m_Default_DebugDraw = m_Default.FindAction("DebugDraw", throwIfNotFound: true);
+        m_Default_Down = m_Default.FindAction("Down", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -343,6 +386,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_Interact;
     private readonly InputAction m_Default_Dash;
     private readonly InputAction m_Default_DebugDraw;
+    private readonly InputAction m_Default_Down;
     public struct DefaultActions
     {
         private @Inputs m_Wrapper;
@@ -352,6 +396,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Default_Interact;
         public InputAction @Dash => m_Wrapper.m_Default_Dash;
         public InputAction @DebugDraw => m_Wrapper.m_Default_DebugDraw;
+        public InputAction @Down => m_Wrapper.m_Default_Down;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -376,6 +421,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @DebugDraw.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnDebugDraw;
                 @DebugDraw.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnDebugDraw;
                 @DebugDraw.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnDebugDraw;
+                @Down.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnDown;
+                @Down.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnDown;
+                @Down.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnDown;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -395,6 +443,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @DebugDraw.started += instance.OnDebugDraw;
                 @DebugDraw.performed += instance.OnDebugDraw;
                 @DebugDraw.canceled += instance.OnDebugDraw;
+                @Down.started += instance.OnDown;
+                @Down.performed += instance.OnDown;
+                @Down.canceled += instance.OnDown;
             }
         }
     }
@@ -424,5 +475,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnDebugDraw(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
     }
 }

@@ -6,9 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "GunBehavior/SprayGunBehavior", order = 3)]
 public class SprayGunBehavior : GunBehavior
 {
-    [SerializeField] private float m_angleBetweenShoot = 10.0f;
-    [SerializeField] private float m_startAngle = 180.0f;
-    [SerializeField] private float m_endAngle = 0.0f;
+    [SerializeField] private float m_angleBetweenShoot = 10f;
+    [SerializeField] private float m_startAngle = 180f;
+    [SerializeField] private float m_endAngle = 0f;
     [SerializeField] private bool m_add = false;
 
     private float m_currentAngle = 0.0f;
@@ -20,7 +20,7 @@ public class SprayGunBehavior : GunBehavior
     
     public override void Shoot(Vector3 _startPos, bool _goRight , string _bulletLayer)
     {
-        if(m_currentAngle > 360 || m_currentAngle < 0.0f)
+        if(m_currentAngle > 360f || m_currentAngle < 0f)
         {
             Reset();
         }

@@ -337,8 +337,6 @@ MonoBehaviour:
   m_jumpOnPlaceDuration: 2
   m_bodyAnimator: {fileID: 732864362962899446}
   m_gunBehaviors:
-  - {fileID: 11400000, guid: 7098c348b1f64db4a9165ae76e7ee9d1, type: 2}
-  - {fileID: 11400000, guid: c1b0159ce2c67a44b9a9758c98ea34b9, type: 2}
   - {fileID: 11400000, guid: 0086242bd6234f245bdb0bf8eb72fca8, type: 2}
 --- !u!114 &8844998208908018938
 MonoBehaviour:

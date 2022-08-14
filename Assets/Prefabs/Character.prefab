@@ -600,9 +600,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe306c228abe7945a38b9a26f8671eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxSpeed: 10
-  m_verticalSpeedGrabModifier: 0.8
-  m_horizontalSpeedGrabModifier: 0.6
+  m_maxSpeed: 12
+  m_verticalSpeedGrabModifier: 0.7
+  m_horizontalSpeedGrabModifier: 0.5
   m_damageToHitImpulse: 20
   m_body: {fileID: 9035915902680645280}
   m_robotGrabPos: {fileID: 8721849827539216313}

@@ -419,6 +419,7 @@ MonoBehaviour:
   m_detectTargets: {fileID: 122989719193800626}
   m_bulletLayer: Bullet
   m_gunType: {fileID: 11400000, guid: c7e152fbaafc6e64ab73b30234c422aa, type: 2}
+  m_spawnBulletPos: {fileID: 3042679812265064212}
 --- !u!50 &3302795965034619568
 Rigidbody2D:
   serializedVersion: 4

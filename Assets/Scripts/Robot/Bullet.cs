@@ -6,7 +6,6 @@ using Unity.Mathematics;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float m_damage;
     [SerializeField] private float m_speed = 3.0f;
     [SerializeField] private bool m_rebound = false;
     [SerializeField] private LayerMask m_layerMask = 0;

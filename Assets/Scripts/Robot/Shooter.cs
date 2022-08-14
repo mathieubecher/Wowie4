@@ -13,14 +13,15 @@ public class Shooter : MonoBehaviour
     
     // Private
     private bool m_isActive = true;
-    private Transform m_spawnBulletPos;
+    [SerializeField] private Transform m_spawnBulletPos;
     
     // Getter
     public GunBehavior gunBehavior => m_equippedGunBehavior;
 
     private void Awake()
     {
-        m_spawnBulletPos = transform.Find("Body/spawnBullet");
+        m_equippedGunBehavior.SetGunType(m_gunType);
+        m_equippedGunBehavior.Reset();
     }
 
     void Update()

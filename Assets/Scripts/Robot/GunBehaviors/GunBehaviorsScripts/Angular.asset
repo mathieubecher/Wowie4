@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c573d11357709a74495eb5e2414d6681, type: 3}
   m_Name: Angular
   m_EditorClassIdentifier: 
-  m_gunType: {fileID: 11400000, guid: d2a0113e1a92dd84ca42fd9e53025815, type: 2}
+  m_condition: {fileID: 11400000, guid: 06c760da68c938340a85a2515b8de8f1, type: 2}
   m_angle: 75

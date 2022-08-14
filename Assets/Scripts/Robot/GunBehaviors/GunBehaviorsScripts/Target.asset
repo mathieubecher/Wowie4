@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e1248a9a5da56842933bab0967c8942, type: 3}
   m_Name: Target
   m_EditorClassIdentifier: 
-  m_gunType: {fileID: 11400000, guid: c7e152fbaafc6e64ab73b30234c422aa, type: 2}
+  m_condition: {fileID: 11400000, guid: 06c760da68c938340a85a2515b8de8f1, type: 2}
+  m_closest: 1
+  m_robotCentric: 1

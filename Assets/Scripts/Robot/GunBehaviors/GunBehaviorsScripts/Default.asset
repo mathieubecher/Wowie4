@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46b45033978f8b4f943c35437a047a0, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  m_firingRate: 1
-  m_angleDegrees: 0
-  m_gunType: {fileID: 11400000, guid: c7e152fbaafc6e64ab73b30234c422aa, type: 2}
+  m_condition: {fileID: 11400000, guid: 06c760da68c938340a85a2515b8de8f1, type: 2}

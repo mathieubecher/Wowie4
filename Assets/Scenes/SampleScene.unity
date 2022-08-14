@@ -898,6 +898,18 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6756980527826837104, guid: 7bda00fa64837744398cebb546c8ff8b, type: 3}
+      propertyPath: m_Size.x
+      value: 1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756980527826837104, guid: 7bda00fa64837744398cebb546c8ff8b, type: 3}
+      propertyPath: m_Size.y
+      value: 2.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756980527826837104, guid: 7bda00fa64837744398cebb546c8ff8b, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9047966695964206247, guid: 7bda00fa64837744398cebb546c8ff8b, type: 3}
       propertyPath: m_Name
       value: Robot

@@ -8,6 +8,7 @@ public class TargetDistanceCondition : TargetCondition
 {
     [SerializeField] protected bool m_closest = true;
     [SerializeField] protected bool m_robotCentric = true;
+    [SerializeField] protected LayerMask m_layer;
 
     private Transform m_bestTarget;
 
@@ -25,6 +26,8 @@ public class TargetDistanceCondition : TargetCondition
             float bestDistance = -1f;
             foreach(Transform target in m_targets)
             {
+                if((m_layer.value & (1 << target.gameObject.layer)) == 0) break;
+
                 Vector3 direction = from.position - target.position;
                 float distance = direction.magnitude;
                 bool closest = m_closest ? bestDistance > distance : bestDistance <= distance;

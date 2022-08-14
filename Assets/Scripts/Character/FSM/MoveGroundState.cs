@@ -47,18 +47,20 @@ namespace CharacterFSM
                 {
                     m_state = MoveState.STOP;
                     m_currentCurve = m_stopCurve;
-                    m_stateTimer = GetCurveTimeForValue(m_currentCurve, math.abs(velocityInput),20, true);
+                    m_stateTimer = TimeFromValue(m_currentCurve, math.abs(velocityInput));
+                    Debug.Log(m_stateTimer + " " + velocityInput);
                     
                 }
             }
-            else if (math.abs(moveInput) > 0.3f && (m_state == MoveState.TURN || math.abs(velocityInput) > 0.3f && math.abs(math.sign(velocityInput) - math.sign(moveInput)) > Character.EPSILON))
+            else if (math.abs(moveInput) > 0.3f && (m_state == MoveState.TURN || math.abs(velocityInput) > 0.1f && math.abs(math.sign(velocityInput) - math.sign(moveInput)) > Character.EPSILON))
             {
                 if (m_state != MoveState.TURN || Math.Abs(m_turnDirection - math.sign(moveInput)) > Character.EPSILON)
                 {
                     m_state = MoveState.TURN;
                     m_currentCurve = m_turnCurve;
                     m_turnDirection = math.sign(moveInput);
-                    m_stateTimer = GetCurveTimeForValue(m_currentCurve, velocityInput * math.sign(moveInput),20);
+                    m_stateTimer = TimeFromValue(m_currentCurve, velocityInput * math.sign(moveInput));
+                    Debug.Log(m_stateTimer + " " + velocityInput);
                 }
             }
             else if((m_state is MoveState.START or MoveState.STOP || math.abs(velocityInput) < 0.1f) && math.abs(moveInput) > 0.3f)
@@ -67,7 +69,8 @@ namespace CharacterFSM
                 {
                     m_state = MoveState.START;
                     m_currentCurve = m_startCurve;
-                    m_stateTimer = GetCurveTimeForValue(m_currentCurve, math.abs(velocityInput),20);
+                    m_stateTimer = TimeFromValue(m_currentCurve, math.abs(velocityInput));
+                    Debug.Log(m_stateTimer + " " + velocityInput);
                 }
             }
             else if(m_state != MoveState.UPDATE)
@@ -87,12 +90,17 @@ namespace CharacterFSM
         {
             float moveInput = m_character.GetMoveInput();
             UpdateMoveState();
-            if (m_state != MoveState.UPDATE && m_stateTimer > m_currentCurve.keys[m_currentCurve.length - 1].time)
+            
+            m_stateTimer += Time.deltaTime * (m_state == MoveState.STOP? -1f : 1f);
+            if (m_state != MoveState.UPDATE)
             {
-                m_state = MoveState.UPDATE;
+                if(m_state == MoveState.STOP && m_stateTimer < 0f)
+                    m_state = MoveState.UPDATE;
+                else if(m_stateTimer > m_currentCurve.keys[m_currentCurve.length - 1].time)
+                    m_state = MoveState.UPDATE;
+                    
             }
             
-            m_stateTimer += Time.deltaTime;
             float desiredVelocity = moveInput * m_character.maxSpeed;
             if (m_state != MoveState.UPDATE)
             {
@@ -109,30 +117,26 @@ namespace CharacterFSM
             
         }
          
-        private float GetCurveTimeForValue( AnimationCurve curveToCheck, float value, int accuracy, bool down = false) {
-
-             float startTime = curveToCheck.keys [0].time;
-             float endTime = curveToCheck.keys [curveToCheck.length - 1].time;
-             float nearestTime = startTime;
-             float step = endTime - startTime;
-
-             for (int i = 0; i < accuracy; i++) {
-
-                 float valueAtNearestTime = curveToCheck.Evaluate (nearestTime);
-                 float distanceToValueAtNearestTime = Mathf.Abs (value - valueAtNearestTime);
-
-                 float timeToCompare = nearestTime + step;
-                 float valueAtTimeToCompare = curveToCheck.Evaluate (timeToCompare);
-                 float distanceToValueAtTimeToCompare = Mathf.Abs (value - valueAtTimeToCompare);
-
-                 if ((!down && distanceToValueAtTimeToCompare < distanceToValueAtNearestTime) || (down && distanceToValueAtTimeToCompare > distanceToValueAtNearestTime)) {
-                     nearestTime = timeToCompare;
-                     valueAtNearestTime = valueAtTimeToCompare;
-                 }
-                 step = Mathf.Abs(step * 0.5f) * Mathf.Sign(value-valueAtNearestTime);
-             }
-
-             return nearestTime;
+        public static float TimeFromValue(AnimationCurve c, float value, float precision = 1e-6f)
+        {
+            float minTime = c.keys[0].time;
+            float maxTime = c.keys[c.keys.Length-1].time;
+            float best = (maxTime + minTime) / 2;
+            float bestVal = c.Evaluate(best);
+            int it=0;
+            const int maxIt = 1000;
+            float sign = Mathf.Sign(c.keys[c.keys.Length-1].value -c.keys[0].value);
+            while(it < maxIt && Mathf.Abs(minTime - maxTime) > precision) {
+                if((bestVal - value) * sign > 0) {
+                    maxTime = best;
+                } else {
+                    minTime = best;
+                }
+                best = (maxTime + minTime) / 2;
+                bestVal = c.Evaluate(best);
+                it++;
+            }
+            return best;
         }
     }
 }

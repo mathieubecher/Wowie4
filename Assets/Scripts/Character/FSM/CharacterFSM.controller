@@ -176,7 +176,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.07594936
     - serializedVersion: 3
-      time: 0.20000002
+      time: 0.3
       value: 1
       inSlope: 0
       outSlope: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 0.2
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -224,16 +224,16 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.14358975
     - serializedVersion: 3
-      time: 0.060366206
+      time: 0.077761225
       value: -0.003921494
-      inSlope: 20.196377
-      outSlope: 20.196377
+      inSlope: 12.884235
+      outSlope: 12.884235
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.25295985
-      outWeight: 0.33333334
+      outWeight: 0.10294096
     - serializedVersion: 3
-      time: 0.2
+      time: 0.2988388
       value: 1
       inSlope: 0
       outSlope: 0
@@ -244,6 +244,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_state: 0
 --- !u!1101 &-5593133752362930869
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

@@ -114,9 +114,9 @@ public class Robot : MonoBehaviour
         }
     }
 
-    public void SetGunBehavior(GunBehavior _newGunBehavior)
+    public void SetEquippedGunBehavior(GunBehavior _newGunBehavior)
     {
-        m_shooter.SetGunBehavior(_newGunBehavior);
+        m_shooter.SetEquippedGunBehavior(_newGunBehavior);
     }
 
     public void SetGunType(GunType _newGunType)

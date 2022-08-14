@@ -9,6 +9,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] private GunBehavior m_equippedGunBehavior;
     [SerializeField] private DetectTargets m_detectTargets;
     [SerializeField] private string m_bulletLayer = "Bullet";
+    [SerializeField] protected GunType m_gunType;
     
     // Private
     private bool m_isActive = true;
@@ -35,14 +36,16 @@ public class Shooter : MonoBehaviour
         m_isActive = _active;
     }
     
-    public void SetGunBehavior(GunBehavior _newGunBehavior)
+    public void SetEquippedGunBehavior(GunBehavior _newGunBehavior)
     {
         m_equippedGunBehavior = _newGunBehavior;
+        m_equippedGunBehavior.SetGunType(m_gunType);
         m_equippedGunBehavior.Reset();
     }
 
     public void SetGunType(GunType _newGunType)
     {
+        m_gunType = _newGunType;
         m_equippedGunBehavior.SetGunType(_newGunType);
         m_equippedGunBehavior.Reset();
     }

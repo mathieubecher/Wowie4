@@ -25,12 +25,14 @@ public class Bullet : MonoBehaviour
     private void OnEnable()
     {
         m_hitbox.OnHurt += Hurt;
+        m_hitbox.OnCollide += Hurt;
     }
 
     private void OnDisable()
     {
         
         m_hitbox.OnHurt -= Hurt;
+        m_hitbox.OnCollide += Hurt;
     }
 
     private void Hurt(HurtBox _other)

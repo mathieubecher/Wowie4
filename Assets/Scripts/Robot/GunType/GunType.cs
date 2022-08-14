@@ -11,18 +11,23 @@ public class GunType : ScriptableObject
   
     protected float m_timer = 0f;
 
-    public virtual bool Shoot(Vector3 _startPos, float _angle, bool _isRight)
+    public virtual bool Shoot(Vector3 _startPos, float _angle, bool _isRight, string _bulletLayer)
     {
         m_timer += Time.deltaTime;
         if(m_timer >= m_firingRate)
         {
             Quaternion rotation = Quaternion.Euler(0, 0, (_isRight ? 1f : -1f ) * _angle);
-            GameObject spawnedObject = Instantiate(m_bullet, _startPos, rotation);
-            Vector3 currentLocalScale = spawnedObject.transform.localScale;
-            spawnedObject.transform.localScale = new Vector3((_isRight ? 1f : -1f ) * currentLocalScale.x, currentLocalScale.y, currentLocalScale.z);
-            m_timer = 0.0f;
+            InstantiateBullet(_startPos, rotation, _isRight, _bulletLayer);
             return true;
         }
         return false;
+    }
+
+    protected void InstantiateBullet(Vector3 _startPos, Quaternion _rotation, bool _isRight, string _bulletLayer)
+    {
+        GameObject spawnedObject = Instantiate(m_bullet, _startPos, _rotation);
+        Vector3 currentLocalScale = spawnedObject.transform.localScale;
+        spawnedObject.transform.localScale = new Vector3((_isRight ? 1f : -1f ) * currentLocalScale.x, currentLocalScale.y, currentLocalScale.z);
+        spawnedObject.layer = LayerMask.NameToLayer(_bulletLayer);
     }
 }

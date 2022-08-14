@@ -8,6 +8,7 @@ public class Shooter : MonoBehaviour
     
     [SerializeField] private GunBehavior m_equippedGunBehavior;
     [SerializeField] private DetectTargets m_detectTargets;
+    [SerializeField] private string m_bulletLayer = "Bullet";
     
     // Private
     private bool m_isActive = true;
@@ -55,7 +56,7 @@ public class Shooter : MonoBehaviour
         if (m_equippedGunBehavior.FindTarget(m_detectTargets.targets))
         {
             bool goRight = transform.lossyScale.x > 0.0f;
-            m_equippedGunBehavior.Shoot(m_spawnBulletPos.position, goRight);
+            m_equippedGunBehavior.Shoot(m_spawnBulletPos.position, goRight, m_bulletLayer);
         }
     }
 

@@ -18,7 +18,7 @@ public class SprayGunBehavior : GunBehavior
         m_currentAngle = m_startAngle;
     }
     
-    public override void Shoot(Vector3 _startPos, bool _goRight)
+    public override void Shoot(Vector3 _startPos, bool _goRight , string _bulletLayer)
     {
         if(m_currentAngle > 360 || m_currentAngle < 0.0f)
         {
@@ -27,14 +27,14 @@ public class SprayGunBehavior : GunBehavior
 
         if(m_add && m_currentAngle <= m_endAngle)
         {
-            if(m_gunType.Shoot(_startPos, m_currentAngle, _goRight))
+            if(m_gunType.Shoot(_startPos, m_currentAngle, _goRight, _bulletLayer))
             {
                 m_currentAngle += m_angleBetweenShoot;
             }
         }
         else if(!m_add && m_currentAngle >= m_endAngle)
         {
-            if(m_gunType.Shoot(_startPos, m_currentAngle, _goRight))
+            if(m_gunType.Shoot(_startPos, m_currentAngle, _goRight, _bulletLayer))
             {
                 m_currentAngle -= m_angleBetweenShoot;
             }

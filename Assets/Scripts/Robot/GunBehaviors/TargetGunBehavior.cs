@@ -21,10 +21,10 @@ public class TargetGunBehavior : GunBehavior
         return false;
     }
 
-    public override void Shoot(Vector3 _startPos, bool _goRight)
+    public override void Shoot(Vector3 _startPos, bool _goRight, string _bulletLayer)
     {
         Vector3 direction = m_target.transform.position - _startPos;
         float angle = Vector3.Angle(Vector3.right, direction);
-        m_gunType.Shoot(_startPos, angle, true);
+        m_gunType.Shoot(_startPos, angle, true, _bulletLayer);
     }
 }

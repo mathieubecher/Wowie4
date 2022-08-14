@@ -11,12 +11,12 @@ public class GunBehavior : ScriptableObject
     public virtual void Reset()
     {}
 
-    public virtual bool CanShoot()
+    public virtual bool FindTarget(List<Transform> _detectedTargets)
     {
         return true;
     }
 
-    public virtual void Shoot(Vector3 _startPos, bool _goRight, List<Transform> _detectTargets)
+    public virtual void Shoot(Vector3 _startPos, bool _goRight)
     {
         m_gunType.Shoot(_startPos, 0f, _goRight);
     }

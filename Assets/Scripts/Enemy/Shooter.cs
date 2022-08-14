@@ -52,11 +52,8 @@ public class Shooter : MonoBehaviour
     
     public void Shoot()
     {
-        if(m_equippedGunBehavior.CanShoot())
-        {
-            bool goRight = transform.lossyScale.x > 0.0f;
-            m_equippedGunBehavior.Shoot(m_spawnBulletPos.position, goRight, m_detectTargets.targets);
-        }
+        bool goRight = transform.lossyScale.x > 0.0f;
+        m_equippedGunBehavior.Shoot(m_spawnBulletPos.position, goRight);
     }
 
 }

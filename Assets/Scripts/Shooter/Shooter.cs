@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Shooter : MonoBehaviour
 {
@@ -10,10 +12,14 @@ public class Shooter : MonoBehaviour
     [SerializeField] private DetectTargets m_detectTargets;
     [SerializeField] private string m_bulletLayer = "Bullet";
     [SerializeField] protected GunType m_gunType;
+    [SerializeField] private Transform m_spawnBulletPos;
+    
+    protected AudioSource m_audio;
+    [Header("Sound")]
+    [SerializeField] protected List<AudioClip> m_shootSounds;
     
     // Private
     private bool m_isActive = true;
-    [SerializeField] private Transform m_spawnBulletPos;
     
     // Getter
     public GunBehavior gunBehavior => m_equippedGunBehavior;
@@ -23,6 +29,7 @@ public class Shooter : MonoBehaviour
     {
         m_equippedGunBehavior.SetGunType(m_gunType);
         m_equippedGunBehavior.Reset();
+        m_audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -60,7 +67,14 @@ public class Shooter : MonoBehaviour
     
     public void Shoot()
     {
-        m_equippedGunBehavior.Shoot(m_spawnBulletPos.position, transform.lossyScale.x > 0f, m_bulletLayer);
+        if (m_equippedGunBehavior.Shoot(m_spawnBulletPos.position, transform.lossyScale.x > 0f, m_bulletLayer))
+        {
+            if (m_audio && m_shootSounds.Count > 0)
+            {
+                int randomSoundId = (int)math.floor(Random.Range(0, m_shootSounds.Count));
+                m_audio.PlayOneShot(m_shootSounds[randomSoundId]);
+            }
+        }
     }
 
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Character : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Character : MonoBehaviour
     
     [SerializeField] private DetectRobot m_detectRobotRef;
     
+    [Header("Audio")] 
+    [SerializeField] private List<AudioClip> m_grabSounds;
     [Header("Anim")]
     [SerializeField] private RuntimeAnimatorController m_classicAnimator;
     [SerializeField] private RuntimeAnimatorController m_grabAnimator;
@@ -92,6 +95,7 @@ public class Character : MonoBehaviour
         m_fsm.SetBool("isOnGround", detectPhysics.isOnGround);
         
         m_fsm.SetFloat("isOnGroundLastTime", detectPhysics.isOnGround ? 0.0f : m_fsm.GetFloat("isOnGroundLastTime") + Time.deltaTime);
+        m_fsm.SetFloat("TriggerJumpBuffer",m_fsm.GetFloat("TriggerJumpBuffer") + Time.deltaTime);
         
         m_lastGrabTimer += Time.deltaTime;
         m_fsm.SetBool("canGrab", m_lastGrabTimer > m_grabCooldown);
@@ -137,6 +141,9 @@ public class Character : MonoBehaviour
         _robot.transform.localPosition = Vector3.zero;
         _robot.transform.localScale= Vector3.one;
         m_robotRef = _robot;
+        
+        int randomSoundId = (int)math.floor(Random.Range(0, m_grabSounds.Count));
+        audio.PlayOneShot(m_grabSounds[randomSoundId]);
     }
     public void DropRobot(bool _dropOnPlace)
     {
@@ -178,6 +185,7 @@ public class Character : MonoBehaviour
     {
         if (!_enable) return;
         m_fsm.SetTrigger("Jump");
+        m_fsm.SetFloat("TriggerJumpBuffer",0.0f);
     }
     private void Interact()
     {

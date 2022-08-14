@@ -97,6 +97,7 @@ public class Robot : MonoBehaviour
         SetState(State.Grabbed);
         m_rigidbody.isKinematic = true;
         m_rigidbody.velocity = Vector2.zero;
+        m_bodyAnimator.SetBool("isGrab", true);
     }
 
     public void Drop(Vector2 _velocity)
@@ -106,6 +107,7 @@ public class Robot : MonoBehaviour
         m_timeIdle = 0.0f;
         m_rigidbody.isKinematic = false;
         m_rigidbody.velocity = _velocity;
+        m_bodyAnimator.SetBool("isGrab", false);
     }
 
     private void SetState(State _newState)

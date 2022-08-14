@@ -14,7 +14,7 @@ public class GunBehavior : ScriptableObject
 
     public virtual bool CanShoot()
     {
-        return m_condition.Poll();
+        return m_condition && m_condition.Poll();
     }
 
     public virtual bool FindTarget(List<Transform> _detectedTargets)

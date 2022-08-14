@@ -607,6 +607,8 @@ MonoBehaviour:
   m_body: {fileID: 9035915902680645280}
   m_robotGrabPos: {fileID: 8721849827539216313}
   m_detectRobotRef: {fileID: 7413435962118608711}
+  m_classicAnimator: {fileID: 9100000, guid: 8ded7a47b0a95704ea2c48bdb55e99ab, type: 2}
+  m_grabAnimator: {fileID: 22100000, guid: 95391fd2c6db9eb418e3eeb009935772, type: 2}
 --- !u!114 &4758369453276257129
 MonoBehaviour:
   m_ObjectHideFlags: 0

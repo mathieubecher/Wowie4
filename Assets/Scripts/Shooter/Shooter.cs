@@ -60,7 +60,7 @@ public class Shooter : MonoBehaviour
     
     public void Shoot()
     {
-        //m_equippedGunBehavior.Shoot(m_spawnBulletPos.position, transform.lossyScale.x > 0f, m_bulletLayer);
+        m_equippedGunBehavior.Shoot(m_spawnBulletPos.position, transform.lossyScale.x > 0f, m_bulletLayer);
     }
 
 }

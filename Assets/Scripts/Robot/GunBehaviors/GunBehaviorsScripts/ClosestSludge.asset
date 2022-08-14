@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00897e2873de37449b63627a371a6add, type: 3}
-  m_Name: ClosestTarget
+  m_Script: {fileID: 11500000, guid: 1e1248a9a5da56842933bab0967c8942, type: 3}
+  m_Name: ClosestSludge
   m_EditorClassIdentifier: 
-  m_closest: 1
-  m_robotCentric: 1
-  m_layer:
-    serializedVersion: 2
-    m_Bits: 33024
+  m_condition: {fileID: 11400000, guid: 06c760da68c938340a85a2515b8de8f1, type: 2}
+  m_targetCondition: {fileID: 11400000, guid: 5c8bc9aaf55d0c445b4afc84a5c7c7d1, type: 2}

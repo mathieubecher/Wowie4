@@ -22,7 +22,6 @@ namespace CharacterFSM
         public override void OnFixedUpdate()
         {
             float moveInput = m_character.GetMoveInput();
-            
             m_character.SetDesiredVelocity(Vector2.right * (moveInput * m_character.maxSpeed));
         }
 

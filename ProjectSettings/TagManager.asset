@@ -20,7 +20,7 @@ TagManager:
   - NonPlayerPlatform
   - HurtBox
   - DetectEnemy
-  - 
+  - FlyingEnemy
   - 
   - 
   - 

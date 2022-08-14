@@ -242,7 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_hitLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 33024
   m_lifeManager: {fileID: 7307942283617523196}
 --- !u!50 &2826156278797742979
 Rigidbody2D:

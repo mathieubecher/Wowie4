@@ -30,3 +30,23 @@ namespace EnemyFSM{
         protected virtual void StateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex){}
     }
 }
+
+//protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+//{
+//    
+//}
+
+//public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+//{
+//    
+//}
+        
+//public override void OnFixedUpdate()
+//{
+            
+//}
+
+//protected override void StateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+//{
+//    
+//}

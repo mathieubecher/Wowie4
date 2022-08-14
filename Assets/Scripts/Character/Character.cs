@@ -7,11 +7,11 @@ public class Character : MonoBehaviour
 {
     public static readonly float EPSILON = 1.401298E-45f;
     
+    // Serialize
     [SerializeField] private float m_maxSpeed = 10.0f;
     [SerializeField] private float m_verticalSpeedGrabModifier = 0.5f;
     [SerializeField] private float m_horizontalSpeedGrabModifier = 0.5f;
     [SerializeField] private float m_damageToHitImpulse = 5.0f;
-    // Serialize
     [SerializeField] private Transform m_body;
     [SerializeField] private Transform m_robotGrabPos;
     

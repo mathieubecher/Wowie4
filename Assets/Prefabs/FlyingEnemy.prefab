@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5840483256354869510}
   - component: {fileID: 4838233991612800154}
-  m_Layer: 8
+  m_Layer: 15
   m_Name: square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1065695130890849519}
   - component: {fileID: 3436253986117503193}
   - component: {fileID: 8423583468636681177}
-  m_Layer: 8
+  m_Layer: 15
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,8 +111,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5798544379225006544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5840483256354869510}
@@ -221,7 +221,8 @@ GameObject:
   - component: {fileID: 4306106744608132776}
   - component: {fileID: 6828398694980141626}
   - component: {fileID: 3267780405498760407}
-  m_Layer: 8
+  - component: {fileID: 1088427233886034750}
+  m_Layer: 13
   m_Name: Hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,8 +237,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7280313894105569049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.996, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4300256151313813717}
@@ -283,8 +284,29 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!50 &1088427233886034750
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280313894105569049}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &9047966695964206247
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +319,8 @@ GameObject:
   - component: {fileID: 3862905101010482084}
   - component: {fileID: 190971550320805000}
   - component: {fileID: 1683034772758144385}
-  m_Layer: 8
+  - component: {fileID: 7197966795787816108}
+  m_Layer: 15
   m_Name: FlyingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,10 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c762acd163ebd4cbd48df61b229787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hitSoundsAtStart:
-  - {fileID: 8300000, guid: 62a6b1f3bedc94945b10bffbf1b33e79, type: 3}
-  - {fileID: 8300000, guid: a809797a26e76824e9591e971e4d2a17, type: 3}
-  - {fileID: 8300000, guid: ff68273f79467694bbc73cfa152ebf44, type: 3}
+  m_body: {fileID: 5700417007993870181}
 --- !u!114 &190971550320805000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,3 +391,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &7197966795787816108
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047966695964206247}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

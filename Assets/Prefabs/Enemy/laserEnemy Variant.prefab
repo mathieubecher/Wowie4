@@ -286,8 +286,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dist: 30
   m_damagePerSeconds: 0.1
+  m_angularSpeed: 30
   m_shootSpawner: {fileID: 518136808100397265}
   m_target: {fileID: 0}
+  m_castLayerMask:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!4 &4676059065970891110 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4300256151313813717, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}

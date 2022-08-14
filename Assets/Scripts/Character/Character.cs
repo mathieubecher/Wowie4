@@ -16,6 +16,10 @@ public class Character : MonoBehaviour
     [SerializeField] private Transform m_robotGrabPos;
     
     [SerializeField] private DetectRobot m_detectRobotRef;
+    
+    [Header("Anim")]
+    [SerializeField] private RuntimeAnimatorController m_classicAnimator;
+    [SerializeField] private RuntimeAnimatorController m_grabAnimator;
 
     // Private
     private Rigidbody2D m_rigidbody;
@@ -110,6 +114,7 @@ public class Character : MonoBehaviour
     public void GrabRobot(Robot _robot)
     {
         m_fsm.SetBool("grabRobot", true);
+        m_animator.runtimeAnimatorController = m_grabAnimator;
         _robot.Grab();
         _robot.transform.parent = robotGrabPos;
         _robot.transform.localPosition = Vector3.zero;
@@ -119,9 +124,9 @@ public class Character : MonoBehaviour
     public void DropRobot()
     {
         m_fsm.SetBool("grabRobot", false);
+        m_animator.runtimeAnimatorController = m_classicAnimator;
 
-        Vector2 drobVelocity = new Vector2(m_rigidbody.velocity.x, 5.0f);
-        m_robotRef.Drop(drobVelocity);
+        m_robotRef.Drop(m_rigidbody.velocity.x);
         m_robotRef.transform.parent = null;
         m_robotRef = null;
     }

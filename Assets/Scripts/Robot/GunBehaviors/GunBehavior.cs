@@ -17,7 +17,7 @@ public class GunBehavior : ScriptableObject
 
     public virtual bool CanShoot()
     {
-        return m_condition.Poll();
+        return m_condition && m_condition.Poll();
     }
 
     public virtual void Shoot(Vector3 _startPos, bool _goRight, string _bulletLayer)

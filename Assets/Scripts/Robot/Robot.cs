@@ -10,6 +10,7 @@ public class Robot : MonoBehaviour
         Idle,
         Grabbed
     }
+    [SerializeField] private float m_upVelocityOnDrop = 20.0f;
 
     [SerializeField] private float m_jumpAmount = 2.0f;
     [SerializeField] private float m_timeWaitingBeforeJumpOnPlace = 0.0f;
@@ -98,15 +99,17 @@ public class Robot : MonoBehaviour
         SetState(State.Grabbed);
         m_rigidbody.isKinematic = true;
         m_rigidbody.velocity = Vector2.zero;
+        m_bodyAnimator.SetBool("isGrab", true);
     }
 
-    public void Drop(Vector2 _velocity)
+    public void Drop(float _velocity)
     {
         Debug.Log("Pourquoi m'abandonner ?");
         SetState(State.Idle);
         m_timeIdle = 0.0f;
         m_rigidbody.isKinematic = false;
-        m_rigidbody.velocity = _velocity;
+        m_rigidbody.velocity = new Vector2(_velocity, m_upVelocityOnDrop);
+        m_bodyAnimator.SetBool("isGrab", false);
     }
 
     private void SetState(State _newState)

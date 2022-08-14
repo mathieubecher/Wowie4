@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Right
+  m_Name: JumpLeftGrab
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -22,25 +22,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_FlipX
-    path: robotSprite
-    classID: 212
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -51,16 +32,16 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Enabled
-    path: robotSprite
+    attribute: m_FlipX
+    path: Sprite
     classID: 212
     script: {fileID: 0}
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 134952083, guid: 9e565023094a13a4491f9a6f756a54bd, type: 3}
+      value: {fileID: -170545244, guid: 2c3c2093fe579ca4c87a084a175d8791, type: 3}
     attribute: m_Sprite
-    path: robotSprite
+    path: Sprite
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -71,28 +52,21 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 221233445
+      path: 850496168
       attribute: 555744692
       script: {fileID: 0}
       typeID: 212
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 221233445
-      attribute: 3305885265
-      script: {fileID: 0}
-      typeID: 212
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 221233445
+      path: 850496168
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 134952083, guid: 9e565023094a13a4491f9a6f756a54bd, type: 3}
+    - {fileID: -170545244, guid: 2c3c2093fe579ca4c87a084a175d8791, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -119,25 +93,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_FlipX
-    path: robotSprite
-    classID: 212
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -148,8 +103,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Enabled
-    path: robotSprite
+    attribute: m_FlipX
+    path: Sprite
     classID: 212
     script: {fileID: 0}
   m_EulerEditorCurves: []

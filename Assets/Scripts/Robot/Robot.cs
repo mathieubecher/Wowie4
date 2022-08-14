@@ -15,6 +15,8 @@ public class Robot : MonoBehaviour
     [SerializeField] private float m_timeWaitingBeforeJumpOnPlace = 0.0f;
     [SerializeField] private float m_timeBetweenJump = 0.5f;
     [SerializeField] private float m_jumpOnPlaceDuration = 2.0f;
+
+    [SerializeField] private List<GunBehavior> m_gunBehaviors;
     
     private Shooter m_shooter;
     
@@ -45,6 +47,16 @@ public class Robot : MonoBehaviour
     {
         if(m_isActive)
         {
+            
+            if(m_gunBehaviors.Count == 0)
+            {
+                ActivateShooter(false);
+            }
+            else
+            {
+                ActivateShooter(true);
+            }
+
             if(!IsGrabbed())
             {
                 m_timeIdle += Time.deltaTime;
@@ -113,6 +125,16 @@ public class Robot : MonoBehaviour
             m_elapsedTimeLastJump = 0.0f;
         }
     }
+    
+    public void AddGunBehavior(GunBehavior _newGunBehavior)
+    {
+        m_gunBehaviors.Add(_newGunBehavior);
+    }
+
+    public void RemoveGunBehavior(GunBehavior _newGunBehavior)
+    {
+        m_gunBehaviors.Remove(_newGunBehavior);
+    }
 
     public void SetEquippedGunBehavior(GunBehavior _newGunBehavior)
     {
@@ -127,6 +149,11 @@ public class Robot : MonoBehaviour
     public void Activated(bool _activated)
     {
         m_isActive = _activated;
+        ActivateShooter(_activated);
+    }
+
+    private void ActivateShooter(bool _activated)
+    {
         m_shooter.Activate(_activated);
     }
 }

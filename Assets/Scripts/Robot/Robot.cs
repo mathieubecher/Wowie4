@@ -49,14 +49,21 @@ public class Robot : MonoBehaviour
         if(m_isActive)
         {
             m_bodyAnimator.SetBool("Right", transform.lossyScale.x > 0.0f);
-            if(m_gunBehaviors.Count == 0)
+
+            bool findBehavior = false;
+            foreach(GunBehavior gunBehavior in m_gunBehaviors)
             {
-                ActivateShooter(false);
+                if(gunBehavior.CanShoot())
+                {
+                    if(gunBehavior != m_shooter.gunBehavior)
+                    {
+                        SetEquippedGunBehavior(gunBehavior);
+                    }
+                    findBehavior = true;
+                    break;
+                }
             }
-            else
-            {
-                ActivateShooter(true);
-            }
+            ActivateShooter(findBehavior);
 
             if(!IsGrabbed())
             {
@@ -139,6 +146,8 @@ public class Robot : MonoBehaviour
 
     public void SetEquippedGunBehavior(GunBehavior _newGunBehavior)
     {
+        m_gunBehaviors.Clear();
+        AddGunBehavior(_newGunBehavior);
         m_shooter.SetEquippedGunBehavior(_newGunBehavior);
     }
 

@@ -18,7 +18,7 @@ public class Shooter : MonoBehaviour
     // Getter
     public GunBehavior gunBehavior => m_equippedGunBehavior;
 
-    private void Awake()
+    private void Start()
     {
         m_equippedGunBehavior.SetGunType(m_gunType);
         m_equippedGunBehavior.Reset();
@@ -50,6 +50,7 @@ public class Shooter : MonoBehaviour
         m_equippedGunBehavior.SetGunType(_newGunType);
         m_equippedGunBehavior.Reset();
     }
+    
     public void Reset()
     {
         m_equippedGunBehavior.Reset();

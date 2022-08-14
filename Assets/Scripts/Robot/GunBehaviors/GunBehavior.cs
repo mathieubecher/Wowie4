@@ -6,10 +6,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "GunBehavior/GunBehavior", order = 1)]
 public class GunBehavior : ScriptableObject
 {
+    [SerializeField] protected Condition m_condition;
     protected GunType m_gunType;
 
     public virtual void Reset()
     {}
+
+    public virtual bool CanShoot()
+    {
+        return m_condition.Poll();
+    }
 
     public virtual bool FindTarget(List<Transform> _detectedTargets)
     {

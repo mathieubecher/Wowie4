@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Condition/TargetCondition/TargetCondition", order = 1)]
 public class TargetCondition : Condition
 {
-    protected List<Transform> m_targets;
+    protected List<Transform> m_targets = new List<Transform>();
 
     public virtual void SetTargets(List<Transform> _targets)
     {

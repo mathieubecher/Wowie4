@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e1248a9a5da56842933bab0967c8942, type: 3}
-  m_Name: Target
+  m_Name: TargetCharacter
   m_EditorClassIdentifier: 
   m_condition: {fileID: 11400000, guid: 06c760da68c938340a85a2515b8de8f1, type: 2}
-  m_targetCondition: {fileID: 11400000, guid: 08cdb3cfe93b6f44c92bf52920162243, type: 2}
+  m_targetCondition: {fileID: 11400000, guid: 2beada6041cb5ca4b83bdb9d1dc6eb3f, type: 2}

@@ -10,6 +10,7 @@ public class LifeManager : MonoBehaviour
     [SerializeField] private float m_life = 5.0f;
     [SerializeField] private float m_invulnerableAfterHitTime = 1.0f;
     public bool dead => m_life <= Character.EPSILON;
+    public float life => m_life;
 
     private float m_lastHit;
     private bool m_invunlerability = false;
@@ -23,13 +24,24 @@ public class LifeManager : MonoBehaviour
         m_invunlerability = _enable;
     }
 
-    public bool Hit(HurtBox _hurtBox, HitBox _other)
+    public bool Hit(HurtBox _hurtBox, HitBox _other, bool _hit = true)
     {
         if (m_invunlerability || dead || m_lastHit > 0f) return false;
 
         m_life -= _other.damage;
-        m_lastHit = m_invulnerableAfterHitTime;
-        OnHit?.Invoke(_other.transform.position, _other.damage, dead);
+        if (_hit || dead)
+        {
+            m_lastHit = m_invulnerableAfterHitTime;
+            OnHit?.Invoke(_other.transform.position, _other.damage, dead);
+            
+        }
         return true;
+    }
+
+    public void Damaged(float _damage)
+    {
+        m_life -= _damage;
+        if(dead) OnHit?.Invoke(transform.position, _damage, dead);
+        
     }
 }

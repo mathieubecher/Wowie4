@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     
     [SerializeField] private bool m_follower = true;
     [SerializeField] private bool m_onGround;
+    [SerializeField] private bool m_followTrack;
+    [SerializeField] private Track m_track;
     [SerializeField] private Transform m_body;
     
     // Private
@@ -27,6 +29,7 @@ public class Enemy : MonoBehaviour
     
     public Transform target => m_characterRef.transform;
     public Transform body => m_body;
+    public Track track => m_track;
 
     // Event
     public delegate void DeadDelegate(Enemy _enemy);
@@ -48,6 +51,7 @@ public class Enemy : MonoBehaviour
         
         m_fsm.SetBool("canFollow", m_follower);
         m_fsm.SetBool("onGround", m_onGround);
+        m_fsm.SetBool("followTrack", m_followTrack);
 
     }
     protected void OnEnable()

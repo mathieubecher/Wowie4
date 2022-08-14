@@ -22,7 +22,7 @@ namespace EnemyFSM
                 
         public override void OnFixedUpdate()
         {
-            m_enemy.SetDesiredVelocity(m_enemy.track.GetVelocity(m_enemy.transform.position, m_speed));
+            m_enemy.SetDesiredVelocity(m_enemy.track.GetVelocity(m_enemy.transform.position, m_speed), false);
         }
         protected override void StateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {

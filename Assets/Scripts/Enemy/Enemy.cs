@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
         
         m_fsm.SetBool("canFollow", m_follower);
         m_fsm.SetBool("onGround", m_onGround);
-        m_fsm.SetBool("followTrack", m_followTrack);
+        m_fsm.SetBool("followTrack", m_followTrack && m_track);
 
     }
     protected void OnEnable()

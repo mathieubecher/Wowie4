@@ -7,7 +7,6 @@ using Color = UnityEngine.Color;
 
 public class Track : MonoBehaviour
 {
-    [SerializeField] private List<Transform> m_points;
     [SerializeField] private bool m_loop = true;
     private List<Vector2> m_positions;
     private int m_currentPoint = 0;
@@ -15,13 +14,18 @@ public class Track : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (m_points.Count > 0)
+        EdgeCollider2D edgeCollider;
+        if (TryGetComponent<EdgeCollider2D>(out edgeCollider))
         {
-            foreach (var point in m_points)
+            Vector2[] points = edgeCollider.points;
+            m_positions = new List<Vector2>();
+            foreach (var point in points)
             {
-                m_positions.Add(point.position);
+                m_positions.Add((Vector2)transform.position + point);
             }
-        }   
+
+            Destroy(edgeCollider);
+        }
     }
 
     public Vector2 GetVelocity(Vector2 _position, float _speed)
@@ -46,14 +50,18 @@ public class Track : MonoBehaviour
     
     private void OnDrawGizmos()
     {
-        Transform startPos = null;
-        foreach (var point in m_points)
+        if (m_positions != null)
         {
-            if (startPos)
+            Vector3 startPos = Vector3.zero;
+            foreach (var position in m_positions)
             {
-                Debug.DrawLine(startPos.position, point.position, Color.cyan);
+                if (startPos != Vector3.zero)
+                {
+                    Debug.DrawLine(startPos, position, Color.cyan);
+                }
+                startPos = position;
             }
-            startPos = point;
         }
+        
     }
 }

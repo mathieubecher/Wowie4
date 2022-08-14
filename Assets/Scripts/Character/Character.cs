@@ -92,6 +92,7 @@ public class Character : MonoBehaviour
         m_fsm.SetBool("isOnGround", detectPhysics.isOnGround);
         
         m_fsm.SetFloat("isOnGroundLastTime", detectPhysics.isOnGround ? 0.0f : m_fsm.GetFloat("isOnGroundLastTime") + Time.deltaTime);
+        m_fsm.SetFloat("TriggerJumpBuffer",m_fsm.GetFloat("TriggerJumpBuffer") + Time.deltaTime);
         
         m_lastGrabTimer += Time.deltaTime;
         m_fsm.SetBool("canGrab", m_lastGrabTimer > m_grabCooldown);
@@ -178,6 +179,7 @@ public class Character : MonoBehaviour
     {
         if (!_enable) return;
         m_fsm.SetTrigger("Jump");
+        m_fsm.SetFloat("TriggerJumpBuffer",0.0f);
     }
     private void Interact()
     {

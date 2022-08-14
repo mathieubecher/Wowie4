@@ -9,7 +9,7 @@ namespace CharacterFSM
     {
         protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            animator.ResetTrigger(Jump);
+            if(animator.GetFloat("TriggerJumpBuffer") > 0.2f) animator.ResetTrigger(Jump);
             animator.ResetTrigger(Dash);
             m_animator.SetInteger(DashInAir, 0);
         }

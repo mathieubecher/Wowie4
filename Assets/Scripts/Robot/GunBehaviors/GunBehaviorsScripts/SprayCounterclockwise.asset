@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SprayCounterclockwise
   m_EditorClassIdentifier: 
   m_condition: {fileID: 11400000, guid: 06c760da68c938340a85a2515b8de8f1, type: 2}
-  m_angleBetweenShoot: 10
+  m_angleSpeed: 30
   m_startAngle: 0
-  m_endAngle: 180
-  m_add: 1
+  m_endAngle: 360
+  m_clockwise: 0

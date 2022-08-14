@@ -23,7 +23,7 @@ public class TargetGunBehavior : GunBehavior
         if(m_targetCondition.Poll())
         {
             Transform target = m_targetCondition.GetBestTarget();
-            Vector3 direction = target.transform.position - _startPos;
+            Vector3 direction = target.transform.position + Vector3.up - _startPos;
             float angle = Vector2.SignedAngle(Vector2.right, direction);
             m_gunType.Shoot(_startPos, angle, true, _bulletLayer);
         }

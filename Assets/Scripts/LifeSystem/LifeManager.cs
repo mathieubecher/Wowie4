@@ -23,13 +23,17 @@ public class LifeManager : MonoBehaviour
         m_invunlerability = _enable;
     }
 
-    public bool Hit(HurtBox _hurtBox, HitBox _other)
+    public bool Hit(HurtBox _hurtBox, HitBox _other, bool _hit = true)
     {
         if (m_invunlerability || dead || m_lastHit > 0f) return false;
 
         m_life -= _other.damage;
-        m_lastHit = m_invulnerableAfterHitTime;
-        OnHit?.Invoke(_other.transform.position, _other.damage, dead);
+        if (_hit || dead)
+        {
+            m_lastHit = m_invulnerableAfterHitTime;
+            OnHit?.Invoke(_other.transform.position, _other.damage, dead);
+            
+        }
         return true;
     }
 }

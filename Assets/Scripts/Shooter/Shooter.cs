@@ -17,6 +17,7 @@ public class Shooter : MonoBehaviour
     
     // Getter
     public GunBehavior gunBehavior => m_equippedGunBehavior;
+    public DetectTargets detectTargets => m_detectTargets;
 
     private void Start()
     {
@@ -50,7 +51,7 @@ public class Shooter : MonoBehaviour
         m_equippedGunBehavior.SetGunType(_newGunType);
         m_equippedGunBehavior.Reset();
     }
-    
+
     public void Reset()
     {
         m_equippedGunBehavior.Reset();
@@ -58,11 +59,7 @@ public class Shooter : MonoBehaviour
     
     public void Shoot()
     {
-        if (m_equippedGunBehavior.FindTarget(m_detectTargets.targets))
-        {
-            bool goRight = transform.lossyScale.x > 0.0f;
-            m_equippedGunBehavior.Shoot(m_spawnBulletPos.position, goRight, m_bulletLayer);
-        }
+        m_equippedGunBehavior.Shoot(m_spawnBulletPos.position, transform.lossyScale.x > 0f, m_bulletLayer);
     }
 
 }

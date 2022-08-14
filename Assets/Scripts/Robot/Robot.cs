@@ -54,6 +54,7 @@ public class Robot : MonoBehaviour
             bool findBehavior = false;
             foreach(GunBehavior gunBehavior in m_gunBehaviors)
             {
+                gunBehavior.UpdateTargets(m_shooter.detectTargets.targets);
                 if(gunBehavior.CanShoot())
                 {
                     if(gunBehavior != m_shooter.gunBehavior)

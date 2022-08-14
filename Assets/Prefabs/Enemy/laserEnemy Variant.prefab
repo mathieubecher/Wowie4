@@ -43,8 +43,16 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1065695130890849519, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065695130890849519, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_Color.g
-      value: 0.5415801
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065695130890849519, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.23760104
       objectReference: {fileID: 0}
     - target: {fileID: 3862905101010482084, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_follower
@@ -112,7 +120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9047966695964206247, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_Name
-      value: laserEnemy
+      value: laserEnemy Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}

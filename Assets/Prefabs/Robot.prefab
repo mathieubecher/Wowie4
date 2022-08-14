@@ -49,6 +49,7 @@ MonoBehaviour:
   m_targetLayers:
     serializedVersion: 2
     m_Bits: 33024
+  m_targets: []
 --- !u!58 &6234999439881003399
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -398,6 +399,10 @@ MonoBehaviour:
   m_timeWaitingBeforeJumpOnPlace: 60
   m_timeBetweenJump: 0.5
   m_jumpOnPlaceDuration: 2
+  m_gunBehaviors:
+  - {fileID: 11400000, guid: 7098c348b1f64db4a9165ae76e7ee9d1, type: 2}
+  - {fileID: 11400000, guid: c1b0159ce2c67a44b9a9758c98ea34b9, type: 2}
+  - {fileID: 11400000, guid: 0086242bd6234f245bdb0bf8eb72fca8, type: 2}
 --- !u!114 &8844998208908018938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_equippedGunBehavior: {fileID: 11400000, guid: 0086242bd6234f245bdb0bf8eb72fca8, type: 2}
   m_detectTargets: {fileID: 122989719193800626}
+  m_bulletLayer: Bullet
+  m_gunType: {fileID: 11400000, guid: c7e152fbaafc6e64ab73b30234c422aa, type: 2}
 --- !u!50 &3302795965034619568
 Rigidbody2D:
   serializedVersion: 4

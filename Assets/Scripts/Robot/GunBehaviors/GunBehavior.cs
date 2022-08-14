@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "GunBehavior/GunBehavior", order = 1)]
 public class GunBehavior : ScriptableObject
 {
-    [SerializeField] protected GunType m_gunType;
+    protected GunType m_gunType;
 
     public virtual void Reset()
     {}

@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3436253986117503193}
   - component: {fileID: 8423583468636681177}
   m_Layer: 15
-  m_Name: body
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 7197966795787816108}
   - component: {fileID: 3244336800925888907}
   m_Layer: 15
-  m_Name: Enemy
+  m_Name: FlyingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

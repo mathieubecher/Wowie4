@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,14 +11,32 @@ public class Bullet : MonoBehaviour
     [SerializeField] private bool m_rebound = false;
     [SerializeField] private LayerMask m_layerMask = 0;
     [SerializeField] private float m_lifeDistance = 10.0f;
-    
+
     private float m_lifeTime = 0.0f;
     private Vector2 m_currentVelocity;
 
     private Rigidbody2D m_rigidbody;
+    private HitBox m_hitbox;
     void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
+        m_hitbox = GetComponent<HitBox>();
+    }
+
+    private void OnEnable()
+    {
+        m_hitbox.OnHurt += Hurt;
+    }
+
+    private void OnDisable()
+    {
+        
+        m_hitbox.OnHurt -= Hurt;
+    }
+
+    private void Hurt(HurtBox _other)
+    {
+        Destroy(gameObject);
     }
 
     // Start is called before the first frame update

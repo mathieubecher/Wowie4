@@ -16,6 +16,7 @@ public class Robot : MonoBehaviour
     [SerializeField] private float m_timeBetweenJump = 0.5f;
     [SerializeField] private float m_jumpOnPlaceDuration = 2.0f;
 
+    [SerializeField] private Animator m_bodyAnimator;
     [SerializeField] private List<GunBehavior> m_gunBehaviors;
     
     private Shooter m_shooter;
@@ -47,7 +48,7 @@ public class Robot : MonoBehaviour
     {
         if(m_isActive)
         {
-            
+            m_bodyAnimator.SetBool("Right", transform.lossyScale.x > 0.0f);
             if(m_gunBehaviors.Count == 0)
             {
                 ActivateShooter(false);

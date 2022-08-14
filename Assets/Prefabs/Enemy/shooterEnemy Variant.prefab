@@ -222,8 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b9b6b312340e148be4a15a704bbfa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_equippedGunBehavior: {fileID: 11400000, guid: 7098c348b1f64db4a9165ae76e7ee9d1, type: 2}
+  m_equippedGunBehavior: {fileID: 11400000, guid: 90895f8da34f0af4d9c1d0233c1c76e6, type: 2}
   m_detectTargets: {fileID: 7704292047369051627}
   m_bulletLayer: EnemyBullet
-  m_gunType: {fileID: 11400000, guid: c7e152fbaafc6e64ab73b30234c422aa, type: 2}
+  m_gunType: {fileID: 11400000, guid: 7ae1d4ed51187ae4ba4573787bc75269, type: 2}
   m_spawnBulletPos: {fileID: 6044742208828958323}

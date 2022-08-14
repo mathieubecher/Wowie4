@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7161805233723547706}
   - component: {fileID: -7308950229026043318}
   m_Layer: 9
-  m_Name: Bullet
+  m_Name: Bullet enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f34b9cf825f10345abfbe540ad397e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 20
+  m_speed: 10
   m_rebound: 0
   m_layerMask:
     serializedVersion: 2

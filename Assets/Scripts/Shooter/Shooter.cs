@@ -29,6 +29,7 @@ public class Shooter : MonoBehaviour
     {
         if(m_isActive)
         {
+            m_equippedGunBehavior.UpdateTargets(m_detectTargets.targets);
             Shoot();
         }
     }

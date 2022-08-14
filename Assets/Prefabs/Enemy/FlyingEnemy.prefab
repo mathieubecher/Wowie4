@@ -210,6 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_damage: 1
+  m_tickRate: 0
+  m_damageTick: 0
 --- !u!1 &7280313894105569049
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_life: 5
-  m_invulnerableAfterHitTime: 1
+  m_invulnerableAfterHitTime: 0.1
 --- !u!95 &1683034772758144385
 Animator:
   serializedVersion: 4

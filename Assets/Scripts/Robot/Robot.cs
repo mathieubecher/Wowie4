@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Robot : MonoBehaviour
 {   
@@ -10,14 +11,12 @@ public class Robot : MonoBehaviour
         Grabbed
     }
 
-    [SerializeField] private GunBehavior m_equippedGunBehavior;
-
     [SerializeField] private float m_jumpAmount = 2.0f;
     [SerializeField] private float m_timeWaitingBeforeJumpOnPlace = 0.0f;
     [SerializeField] private float m_timeBetweenJump = 0.5f;
     [SerializeField] private float m_jumpOnPlaceDuration = 2.0f;
-
-    [SerializeField] private DetectEnemy m_detectEnemy;
+    
+    private Shooter m_shooter;
     
     private float m_timeIdle = 0.0f;
     private float m_elapsedTimeLastJump = 0.0f;
@@ -33,6 +32,7 @@ public class Robot : MonoBehaviour
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_myHuman = FindObjectOfType<Character>();
+        m_shooter = GetComponent<Shooter>();
     }
 
     // Start is called before the first frame update
@@ -45,8 +45,6 @@ public class Robot : MonoBehaviour
     {
         if(m_isActive)
         {
-            Shoot();
-
             if(!IsGrabbed())
             {
                 m_timeIdle += Time.deltaTime;
@@ -93,16 +91,7 @@ public class Robot : MonoBehaviour
     private void SetState(State _newState)
     {
         m_state = _newState;
-        m_equippedGunBehavior.Reset();
-    }
-
-    private void Shoot()
-    {
-        if(m_equippedGunBehavior.CanShoot())
-        {
-            bool goRight = transform.lossyScale.x > 0.0f;
-            m_equippedGunBehavior.Shoot(transform.Find("Body/spawnBullet").position, goRight, m_detectEnemy.enemies);
-        }
+        m_shooter.Reset();
     }
 
     public void Speak()
@@ -127,18 +116,17 @@ public class Robot : MonoBehaviour
 
     public void SetGunBehavior(GunBehavior _newGunBehavior)
     {
-        m_equippedGunBehavior = _newGunBehavior;
-        m_equippedGunBehavior.Reset();
+        m_shooter.SetGunBehavior(_newGunBehavior);
     }
 
     public void SetGunType(GunType _newGunType)
     {
-        m_equippedGunBehavior.SetGunType(_newGunType);
-        m_equippedGunBehavior.Reset();
+        m_shooter.SetGunType(_newGunType);
     }
 
     public void Activated(bool _activated)
     {
         m_isActive = _activated;
+        m_shooter.Activate(_activated);
     }
 }

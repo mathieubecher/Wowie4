@@ -13,11 +13,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform m_body;
     
     // Private
-    private Animator m_fsm;
+    protected Animator m_fsm;
     private Rigidbody2D m_rigidbody;
-    private LifeManager m_lifeManager;
-    private AudioSource m_audio;
-    private EnemyFSM.VirtualState m_currentState;
+    protected LifeManager m_lifeManager;
+    protected AudioSource m_audio;
+    protected EnemyFSM.VirtualState m_currentState;
 
     private Character m_characterRef;
     
@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
     {
         m_currentState = _state;
     }
-    void Awake()
+    protected void Awake()
     {
         m_fsm = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody2D>();
@@ -50,17 +50,17 @@ public class Enemy : MonoBehaviour
         m_fsm.SetBool("onGround", m_onGround);
 
     }
-    private void OnEnable()
+    protected void OnEnable()
     {
         lifeManager.OnHit += Hit;
     }
 
-    private void OnDisable()
+    protected void OnDisable()
     {
         lifeManager.OnHit -= Hit;
     }
     
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         if(m_currentState) m_currentState.OnFixedUpdate();
     }
@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
 
 #endregion
     
-    private void Hit(Vector2 _origin, float _damage, bool _dead)
+    protected void Hit(Vector2 _origin, float _damage, bool _dead)
     {
         m_fsm.SetTrigger("Hit");
         

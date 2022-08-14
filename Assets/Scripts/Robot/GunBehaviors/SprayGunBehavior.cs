@@ -6,12 +6,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "GunBehavior/SprayGunBehavior", order = 3)]
 public class SprayGunBehavior : GunBehavior
 {
-    [SerializeField] private float m_angleBetweenShoot = 10f;
+    [SerializeField] private float m_angleSpeed = 30f;
     [SerializeField] private float m_startAngle = 180f;
     [SerializeField] private float m_endAngle = 0f;
-    [SerializeField] private bool m_add = false;
+    [SerializeField] private bool m_clockwise = true;
 
-    private float m_currentAngle = 0.0f;
+    private float m_currentAngle = 0f;
 
     public override void Reset()
     {
@@ -20,28 +20,15 @@ public class SprayGunBehavior : GunBehavior
     
     public override void Shoot(Vector3 _startPos, bool _goRight , string _bulletLayer)
     {
-        if(m_currentAngle > 360f || m_currentAngle < 0f)
+        if( m_currentAngle > 360f 
+            || m_currentAngle < 0f 
+            || m_clockwise && m_currentAngle <= m_endAngle 
+            || !m_clockwise && m_currentAngle >= m_endAngle)
         {
             Reset();
         }
 
-        if(m_add && m_currentAngle <= m_endAngle)
-        {
-            if(m_gunType.Shoot(_startPos, m_currentAngle, _goRight, _bulletLayer))
-            {
-                m_currentAngle += m_angleBetweenShoot;
-            }
-        }
-        else if(!m_add && m_currentAngle >= m_endAngle)
-        {
-            if(m_gunType.Shoot(_startPos, m_currentAngle, _goRight, _bulletLayer))
-            {
-                m_currentAngle -= m_angleBetweenShoot;
-            }
-        }
-        else
-        {
-            Reset();
-        }
+        m_gunType.Shoot(_startPos, m_currentAngle, _goRight, _bulletLayer);
+        m_currentAngle += (m_clockwise ? -1f : 1f) * m_angleSpeed * Time.deltaTime;
     }
 }

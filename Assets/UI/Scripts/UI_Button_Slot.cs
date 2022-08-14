@@ -24,6 +24,13 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
 
     public Color Color_Unselected;
 
+    private GameObject Behavior_Database;
+    private GameObject Behavior_Child;
+    private UI_Behavior_Manager Behavior_Manager;
+
+    private bool IsSelected;
+
+
 
     
 
@@ -32,22 +39,68 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
     // Start is called before the first frame update
     void Start()
     {
-        Update_Behavior(0);
+        Behavior_Database = GameObject.Find("Behavior_Database");
+        Behavior_Child = Behavior_Database.transform.GetChild(ID_Behavior + 1).gameObject;
+        Behavior_Manager = Behavior_Child.GetComponent<UI_Behavior_Manager>();
+        Update_Behavior(ID_Behavior);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Update_Behavior(ID_Behavior);
     }
 
     public void Update_Behavior(int New_ID)
     {
-        Text_Name.text = "Prio" + ID_Slot + ": " + "Empty";
+        ID_Behavior = New_ID;
+
+        if (ID_Behavior == 0)
+        {
+            IsEmpty = true;
+        } else
+        {
+            Behavior_Child = Behavior_Database.transform.GetChild(ID_Behavior - 1).gameObject;
+            Behavior_Manager = Behavior_Child.GetComponent<UI_Behavior_Manager>();
+        }
+        
+
+        if (IsEmpty == true)
+        {
+            Text_Name.text = "Prio" + ID_Slot + ": " + "Empty";
+
+            if (IsSelected == true)
+            {
+                Icon.sprite = Empty_Selected;
+            }
+            else
+            {
+                Icon.sprite = Empty_Unselect;
+            }
+        }
+        else
+        {
+            Text_Name.text = "Prio" + ID_Slot + ": " + Behavior_Manager.Behavior_Name;
+
+            if (IsSelected == true)
+            {
+                Icon.sprite = Behavior_Manager.Behavior_Icon_Selected;
+            }
+            else
+            {
+                Icon.sprite = Behavior_Manager.Behavior_Icon;
+            }
+        }
+
+        
+
+
+        
     }
 
     public void OnSelect(BaseEventData eventData)
     {
+        IsSelected = true;
         Arrow.SetActive(true);
         Background.SetActive(true);
         Selection_Border.SetActive(true);
@@ -55,6 +108,10 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
         if (IsEmpty == true)
         {
             Icon.sprite = Empty_Selected;
+        }
+        else
+        {
+            Icon.sprite = Behavior_Manager.Behavior_Icon_Selected;
         }
         Number.sprite = Number_Selected;
         
@@ -66,6 +123,7 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
 
     public void OnDeselect(BaseEventData eventData)
     {
+        IsSelected = false;
         Arrow.SetActive(false);
         Background.SetActive(false);
         Selection_Border.SetActive(false);
@@ -74,6 +132,9 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
         {
             Icon.sprite = Empty_Unselect;
             
+        } else
+        {
+            Icon.sprite  = Behavior_Manager.Behavior_Icon;
         }
         Number.sprite = Number_Unselect;
 

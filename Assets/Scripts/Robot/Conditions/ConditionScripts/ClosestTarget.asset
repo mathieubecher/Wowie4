@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52334a52c6971047bbd5fb57ab21931, type: 3}
-  m_Name: Spray
+  m_Script: {fileID: 11500000, guid: 00897e2873de37449b63627a371a6add, type: 3}
+  m_Name: ClosestTarget
   m_EditorClassIdentifier: 
-  m_condition: {fileID: 11400000, guid: 06c760da68c938340a85a2515b8de8f1, type: 2}
-  m_angleBetweenShoot: 10
-  m_startAngle: 180
-  m_endAngle: 0
-  m_add: 0
+  m_closest: 1
+  m_robotCentric: 1

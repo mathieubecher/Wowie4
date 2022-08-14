@@ -8,7 +8,7 @@ namespace CharacterFSM
     {
         protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if( m_animator.GetBool("grabRobot")) m_character.DropRobot();
+            if( m_animator.GetBool("grabRobot")) m_character.DropRobot(true);
         }
 
         override public void OnFixedUpdate()

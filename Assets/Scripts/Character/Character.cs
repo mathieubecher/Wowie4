@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     [SerializeField] private float m_verticalSpeedGrabModifier = 0.5f;
     [SerializeField] private float m_horizontalSpeedGrabModifier = 0.5f;
     [SerializeField] private float m_damageToHitImpulse = 5.0f;
+    [SerializeField] private float m_grabCooldown = 0.6f;
     [SerializeField] private Transform m_body;
     [SerializeField] private Transform m_robotGrabPos;
     
@@ -30,6 +31,8 @@ public class Character : MonoBehaviour
     private CharacterFSM.VirtualState m_currentState;
     private Robot m_robotRef;
     private AudioSource m_audio;
+
+    private float m_lastGrabTimer;
     
 #if UNITY_EDITOR
     private bool m_drawDebug = false;
@@ -83,10 +86,20 @@ public class Character : MonoBehaviour
         InputController.OnDrawDebug -= DrawDebug;
 #endif
     }
-
+    
     void Update()
     {
         m_fsm.SetBool("isOnGround", detectPhysics.isOnGround);
+        
+        m_fsm.SetFloat("isOnGroundLastTime", detectPhysics.isOnGround ? 0.0f : m_fsm.GetFloat("isOnGroundLastTime") + Time.deltaTime);
+        
+        m_lastGrabTimer += Time.deltaTime;
+        m_fsm.SetBool("canGrab", m_lastGrabTimer > m_grabCooldown);
+        if (m_lastGrabTimer < m_grabCooldown - 0.3f)
+        {
+            m_fsm.ResetTrigger("Interact");
+        }
+
         m_animator.SetBool("isOnGround", detectPhysics.isOnGround);
         m_animator.SetFloat("moveDir", transform.localScale.x );
         m_animator.SetFloat("moveSpeed", math.abs(GetCurrentVelocity().x) );
@@ -110,10 +123,14 @@ public class Character : MonoBehaviour
         }
 #endif
     }
-
+    public void StartGrabRobot(Robot _robot)
+    {
+        _robot.StartGrab();
+    }
     public void GrabRobot(Robot _robot)
     {
         m_fsm.SetBool("grabRobot", true);
+        m_fsm.SetBool("canJumpInAir", true);
         m_animator.runtimeAnimatorController = m_grabAnimator;
         _robot.Grab();
         _robot.transform.parent = robotGrabPos;
@@ -121,12 +138,14 @@ public class Character : MonoBehaviour
         _robot.transform.localScale= Vector3.one;
         m_robotRef = _robot;
     }
-    public void DropRobot()
+    public void DropRobot(bool _dropOnPlace)
     {
         m_fsm.SetBool("grabRobot", false);
+        m_fsm.SetBool("canJumpInAir", false);
+        m_lastGrabTimer = 0.0f;
         m_animator.runtimeAnimatorController = m_classicAnimator;
 
-        m_robotRef.Drop(m_rigidbody.velocity.x);
+        m_robotRef.Drop(m_rigidbody.velocity.x, _dropOnPlace);
         m_robotRef.transform.parent = null;
         m_robotRef = null;
     }
@@ -164,7 +183,7 @@ public class Character : MonoBehaviour
     {
         if (m_fsm.GetBool("grabRobot"))
         {
-            DropRobot();
+            DropRobot(false);
         }
         else m_fsm.SetTrigger("Interact");
     }
@@ -184,7 +203,7 @@ public class Character : MonoBehaviour
         m_fsm.SetBool("dead", _dead);
         if (_dead) return;
         m_fsm.SetTrigger("Hit");
-        SetDesiredVelocity(((Vector2)transform.position - _origin).normalized * _damage * m_damageToHitImpulse, false);
+        SetDesiredVelocity(((Vector2)transform.position - _origin).normalized * (_damage * m_damageToHitImpulse), false);
     }
     
 #if UNITY_EDITOR

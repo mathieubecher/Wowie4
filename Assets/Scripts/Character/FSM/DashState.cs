@@ -11,7 +11,8 @@ namespace CharacterFSM
         [SerializeField] private AnimationCurve m_dashDynamic;
         [SerializeField] private float m_dashCooldown = 0.2f;
         [SerializeField] private float m_dashInvulnerability = 0.5f;
-
+        [SerializeField] private float m_verticalFriction = 0.6f;
+        
         [Header("Audio")] 
         [SerializeField] private List<AudioClip> m_dashSoundsAtStart;
         
@@ -29,7 +30,7 @@ namespace CharacterFSM
 
             if (m_animator.GetBool("grabRobot"))
             {
-                m_character.DropRobot();
+                m_character.DropRobot(false);
             }
             
             float moveInput = m_character.GetMoveInput();
@@ -73,7 +74,7 @@ namespace CharacterFSM
             float desiredRelativeOffset = m_dashDynamic.Evaluate(m_dashTimer) ;
             float desiredHorizontalSpeed = Time.deltaTime > 0.0f ? (desiredRelativeOffset - m_previousRelativeOffset) / Time.deltaTime : 0.0f;
             
-            m_character.SetDesiredVelocity(new Vector2(desiredHorizontalSpeed * m_direction, 0.0f), false);
+            m_character.SetDesiredVelocity(new Vector2(desiredHorizontalSpeed * m_direction, m_character.GetCurrentVelocity().y * m_verticalFriction), false);
             m_previousRelativeOffset = desiredRelativeOffset;
         }
         

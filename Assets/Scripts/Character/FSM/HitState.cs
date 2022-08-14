@@ -17,7 +17,7 @@ namespace CharacterFSM
         [SerializeField] private List<AudioClip> m_hitSoundsAtStart;
         protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            if( m_animator.GetBool("grabRobot")) m_character.DropRobot();
+            if( m_animator.GetBool("grabRobot")) m_character.DropRobot(true);
             m_animator.ResetTrigger(ForceExitState);
             m_forceExit = false;
             m_hitTimer = 0.0f;

@@ -8,6 +8,7 @@ namespace CharacterFSM
     public class GrabState : VirtualState
     {
         [SerializeField] private AnimationCurve m_grabDynamic;
+        [SerializeField] private float m_exitDashSpeed = 4f;
         
         private float m_grabTimer = 0f;
         private float m_previousRelativeOffset = 0f;
@@ -36,6 +37,7 @@ namespace CharacterFSM
             
             Character.EnablePlatform(false);
             m_character.lifeManager.SetInvulnerability(true);
+            m_character.StartGrabRobot(m_robotRef);
         }
         
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -66,7 +68,7 @@ namespace CharacterFSM
         
         protected override void StateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            m_character.SetDesiredVelocity(new Vector2(0.0f, 0.0f), false);
+            m_character.SetDesiredVelocity( m_character.GetCurrentVelocity().normalized * m_exitDashSpeed, false);
             m_character.GrabRobot(m_robotRef);
             
             m_animator.ResetTrigger(ForceExitState);

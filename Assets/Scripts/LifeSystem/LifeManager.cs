@@ -10,6 +10,7 @@ public class LifeManager : MonoBehaviour
     [SerializeField] private float m_life = 5.0f;
     [SerializeField] private float m_invulnerableAfterHitTime = 1.0f;
     public bool dead => m_life <= Character.EPSILON;
+    public float life => m_life;
 
     private float m_lastHit;
     private bool m_invunlerability = false;

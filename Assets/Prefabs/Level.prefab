@@ -1199,6 +1199,10 @@ PrefabInstance:
       propertyPath: m_follower
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3862905101010482084, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_onGround
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4300256151313813717, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1267,7 +1271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3912608429441401723, guid: 2d917be763067694b8e6b0813236b012, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.74
+      value: -9.68
       objectReference: {fileID: 0}
     - target: {fileID: 3912608429441401723, guid: 2d917be763067694b8e6b0813236b012, type: 3}
       propertyPath: m_LocalPosition.y

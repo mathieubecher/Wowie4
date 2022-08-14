@@ -22,6 +22,7 @@ public class Character : MonoBehaviour
     private DetectPhysics m_detectPhysics;
     private LifeManager m_lifeManager;
     private Animator m_fsm;
+    private Animator m_animator;
     private CharacterFSM.VirtualState m_currentState;
     private Robot m_robotRef;
     private AudioSource m_audio;
@@ -33,6 +34,7 @@ public class Character : MonoBehaviour
     // Getter
     public float maxSpeed => m_maxSpeed;
     public Transform body => m_body;
+    public Animator animator => m_animator;
     public Transform robotGrabPos => m_robotGrabPos;
     public DetectPhysics detectPhysics => m_detectPhysics;
     public DetectRobot detectRobot => m_detectRobotRef;
@@ -50,6 +52,7 @@ public class Character : MonoBehaviour
         m_detectPhysics = GetComponent<DetectPhysics>();
         m_lifeManager = GetComponent<LifeManager>();
         m_audio = GetComponent<AudioSource>();
+        m_animator = m_body.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -80,6 +83,10 @@ public class Character : MonoBehaviour
     void Update()
     {
         m_fsm.SetBool("isOnGround", detectPhysics.isOnGround);
+        m_animator.SetBool("isOnGround", detectPhysics.isOnGround);
+        m_animator.SetFloat("moveDir", transform.localScale.x );
+        m_animator.SetFloat("moveSpeed", math.abs(GetCurrentVelocity().x) );
+        
 
         if (m_detectRobotRef.detectRobot != m_fsm.GetBool("detectRobot"))
         {
@@ -185,7 +192,9 @@ public class Character : MonoBehaviour
     
     public static void EnablePlatform(bool _enable)
     {
-        foreach (var gameObject in FindGameObjectsWithLayer(LayerMask.NameToLayer("Platform")))
+        var platforms = FindGameObjectsWithLayer(LayerMask.NameToLayer("Platform"));
+        
+        foreach (var gameObject in platforms)
         {
             gameObject.GetComponent<Collider2D>().enabled = _enable;
         }
@@ -197,9 +206,6 @@ public class Character : MonoBehaviour
             if (goArray[i].layer == _layer) {
                 goList.Add(goArray[i]);
             }
-        }
-        if (goList.Count == 0) {
-            return null;
         }
         return goList;
     }

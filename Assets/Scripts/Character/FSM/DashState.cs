@@ -22,6 +22,7 @@ namespace CharacterFSM
         
         protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            m_character.animator.SetBool("dash", true);
             m_dashTimer = 0f;
             m_previousRelativeOffset = 0.0f;
             m_forceExit = false;
@@ -86,6 +87,7 @@ namespace CharacterFSM
             m_animator.SetBool(DashCoolDown, true);
             
             m_character.StartCoroutine(Cooldown());
+            m_character.animator.SetBool("dash", false);
         }
 
         private IEnumerator Cooldown()

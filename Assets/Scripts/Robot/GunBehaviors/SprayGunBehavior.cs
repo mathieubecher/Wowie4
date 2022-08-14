@@ -18,7 +18,7 @@ public class SprayGunBehavior : GunBehavior
         m_currentAngle = m_startAngle;
     }
     
-    public override void Shoot(Vector3 _startPos, bool _goRight, List<Enemy> _detectedEnemies)
+    public override void Shoot(Vector3 _startPos, bool _goRight)
     {
         if(m_currentAngle > 360 || m_currentAngle < 0.0f)
         {
@@ -43,6 +43,5 @@ public class SprayGunBehavior : GunBehavior
         {
             Reset();
         }
-        
     }
 }

@@ -98,10 +98,10 @@ public class Robot : MonoBehaviour
 
     private void Shoot()
     {
-        if(m_equippedGunBehavior.CanShoot())
+        if(m_equippedGunBehavior.FindTarget(m_detectEnemy.enemies))
         {
             bool goRight = transform.lossyScale.x > 0.0f;
-            m_equippedGunBehavior.Shoot(transform.Find("Body/spawnBullet").position, goRight, m_detectEnemy.enemies);
+            m_equippedGunBehavior.Shoot(transform.Find("Body/spawnBullet").position, goRight);
         }
     }
 

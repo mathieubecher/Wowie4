@@ -15,6 +15,7 @@ public class HitBox : MonoBehaviour
     public delegate void OnHurtDelegate(HurtBox _other);
 
     public event OnHurtDelegate OnHurt;
+    public event OnHurtDelegate OnCollide;
 
     public delegate void OnTickDelegate(HitBox _hit);
 
@@ -26,7 +27,6 @@ public class HitBox : MonoBehaviour
         {
             if (m_tickTimer <= 0.0f)
             {
-                Debug.Log("Tick");
                 m_tickTimer = m_tickRate;
                 OnTick?.Invoke(this);
             }
@@ -37,5 +37,10 @@ public class HitBox : MonoBehaviour
     public void Hurt(HurtBox _other)
     {
         OnHurt?.Invoke(_other);
+    }
+
+    public void Collider(HurtBox hurtBox)
+    {
+        OnCollide?.Invoke(hurtBox);
     }
 }

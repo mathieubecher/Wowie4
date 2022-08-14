@@ -33,6 +33,10 @@ public class HurtBox : MonoBehaviour
                     {
                         hitbox.Hurt(this);
                     }
+                    else
+                    {
+                        hitbox.Collider(this);
+                    }
                 }
             }
         }

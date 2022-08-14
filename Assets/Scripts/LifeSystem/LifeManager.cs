@@ -36,4 +36,11 @@ public class LifeManager : MonoBehaviour
         }
         return true;
     }
+
+    public void Damaged(float _damage)
+    {
+        m_life -= _damage;
+        if(dead) OnHit?.Invoke(transform.position, _damage, dead);
+        
+    }
 }

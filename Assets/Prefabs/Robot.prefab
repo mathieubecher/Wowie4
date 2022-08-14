@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_targetLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 33024
 --- !u!58 &6234999439881003399
 CircleCollider2D:
   m_ObjectHideFlags: 0

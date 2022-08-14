@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
         m_audio = GetComponent<AudioSource>();
         m_characterRef = FindObjectOfType<Character>();
         
-        m_fsm.SetBool("follow", m_follower);
+        m_fsm.SetBool("canFollow", m_follower);
         m_fsm.SetBool("onGround", m_onGround);
 
     }

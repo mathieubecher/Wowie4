@@ -95,7 +95,6 @@ public class Robot : MonoBehaviour
 
     public void Grab()
     {
-        Debug.Log("Sac à dos, sac à dos!");
         SetState(State.Grabbed);
         m_rigidbody.isKinematic = true;
         m_rigidbody.velocity = Vector2.zero;
@@ -104,7 +103,6 @@ public class Robot : MonoBehaviour
 
     public void Drop(float _velocity)
     {
-        Debug.Log("Pourquoi m'abandonner ?");
         SetState(State.Idle);
         m_timeIdle = 0.0f;
         m_rigidbody.isKinematic = false;

@@ -24,7 +24,7 @@ public class TargetGunBehavior : GunBehavior
     public override void Shoot(Vector3 _startPos, bool _goRight, string _bulletLayer)
     {
         Vector3 direction = m_target.transform.position - _startPos;
-        float angle = Vector3.Angle(Vector3.right, direction);
+        float angle = Vector2.SignedAngle(Vector2.right, direction);
         m_gunType.Shoot(_startPos, angle, true, _bulletLayer);
     }
 }

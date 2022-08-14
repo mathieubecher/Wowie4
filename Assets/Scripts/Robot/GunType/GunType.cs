@@ -18,6 +18,7 @@ public class GunType : ScriptableObject
         {
             Quaternion rotation = Quaternion.Euler(0, 0, (_isRight ? 1f : -1f ) * _angle);
             InstantiateBullet(_startPos, rotation, _isRight, _bulletLayer);
+            m_timer = 0f;
             return true;
         }
         return false;

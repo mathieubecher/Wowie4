@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Character : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Character : MonoBehaviour
     
     [SerializeField] private DetectRobot m_detectRobotRef;
     
+    [Header("Audio")] 
+    [SerializeField] private List<AudioClip> m_grabSounds;
     [Header("Anim")]
     [SerializeField] private RuntimeAnimatorController m_classicAnimator;
     [SerializeField] private RuntimeAnimatorController m_grabAnimator;
@@ -138,6 +141,9 @@ public class Character : MonoBehaviour
         _robot.transform.localPosition = Vector3.zero;
         _robot.transform.localScale= Vector3.one;
         m_robotRef = _robot;
+        
+        int randomSoundId = (int)math.floor(Random.Range(0, m_grabSounds.Count));
+        audio.PlayOneShot(m_grabSounds[randomSoundId]);
     }
     public void DropRobot(bool _dropOnPlace)
     {

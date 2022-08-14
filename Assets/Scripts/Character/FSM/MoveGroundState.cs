@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using Random = UnityEngine.Random;
 
 namespace CharacterFSM
 {
@@ -22,9 +23,13 @@ namespace CharacterFSM
         [SerializeField] private AnimationCurve m_stopCurve; 
         [SerializeField] private AnimationCurve m_turnCurve;
 
+        [SerializeField] private MoveState m_state;
+        
+        [Header("Audio")] 
+        [SerializeField] private List<AudioClip> m_touchGroundSounds;
+        
         private float m_lastDir;
         private float m_stateTimer;
-        [SerializeField] private MoveState m_state;
         private AnimationCurve m_currentCurve;
         private float m_turnDirection;
         protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -34,6 +39,9 @@ namespace CharacterFSM
             m_animator.SetInteger(DashInAir, 0);
             
             UpdateMoveState();
+            
+            int randomSoundId = (int)math.floor(Random.Range(0, m_touchGroundSounds.Count));
+            m_character.audio.PlayOneShot(m_touchGroundSounds[randomSoundId]);
         }
 
         private void UpdateMoveState()

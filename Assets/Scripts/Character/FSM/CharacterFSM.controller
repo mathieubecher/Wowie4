@@ -245,6 +245,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_state: 0
+  m_touchGroundSounds:
+  - {fileID: 8300000, guid: e7c9ba701b04f954cbc2125db34385b4, type: 3}
 --- !u!1101 &-5593133752362930869
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

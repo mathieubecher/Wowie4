@@ -1057,11 +1057,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2297277643829741987, guid: b21f174ef4b09e341b74ff3cc9634c27, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.74
+      value: 8.98
       objectReference: {fileID: 0}
     - target: {fileID: 2297277643829741987, guid: b21f174ef4b09e341b74ff3cc9634c27, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.47
+      value: 5.64
       objectReference: {fileID: 0}
     - target: {fileID: 2297277643829741987, guid: b21f174ef4b09e341b74ff3cc9634c27, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1409,25 +1409,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: laserEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 3770310912643096278, guid: fba6336b64128c74aa09994bca6d73cb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 3770310912643096278, guid: fba6336b64128c74aa09994bca6d73cb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.745
-      objectReference: {fileID: 0}
     - target: {fileID: 4676059065970891110, guid: fba6336b64128c74aa09994bca6d73cb, type: 3}
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4676059065970891110, guid: fba6336b64128c74aa09994bca6d73cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.84
+      value: 10.64
       objectReference: {fileID: 0}
     - target: {fileID: 4676059065970891110, guid: fba6336b64128c74aa09994bca6d73cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.86
+      value: 4.13
       objectReference: {fileID: 0}
     - target: {fileID: 4676059065970891110, guid: fba6336b64128c74aa09994bca6d73cb, type: 3}
       propertyPath: m_LocalPosition.z

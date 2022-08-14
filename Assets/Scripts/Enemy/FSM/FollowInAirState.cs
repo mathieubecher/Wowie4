@@ -17,10 +17,10 @@ namespace EnemyFSM
             m_enemy.SetGravityScaler(0.0f);
         }
 
-        public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-        {
-            
-        }
+        //public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        //{
+        //    
+        //}
         
         public override void OnFixedUpdate()
         {
@@ -40,9 +40,9 @@ namespace EnemyFSM
 
         }
 
-        //protected override void StateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-        //{
-        //    
-        //}
+        protected override void StateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            m_enemy.SetGravityScaler(m_gravityScaleAtStart);
+        }
     }
 }

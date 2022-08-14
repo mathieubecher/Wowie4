@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
 {
     public static readonly float EPSILON = 1.401298E-45f;
     
+    [SerializeField] private bool m_follower = true;
+    [SerializeField] private bool m_onGround;
     [SerializeField] private Transform m_body;
     
     // Private
@@ -43,6 +45,10 @@ public class Enemy : MonoBehaviour
         m_lifeManager = GetComponent<LifeManager>();
         m_audio = GetComponent<AudioSource>();
         m_characterRef = FindObjectOfType<Character>();
+        
+        m_fsm.SetBool("follow", m_follower);
+        m_fsm.SetBool("onGround", m_onGround);
+
     }
     private void OnEnable()
     {

@@ -11,7 +11,7 @@ namespace CharacterFSM
 
         protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            
+            m_animator.ResetTrigger("Jump");
         }
 
         override public void OnFixedUpdate()

@@ -34,6 +34,12 @@ namespace CharacterFSM
 
             m_gravityScaleAtStart = m_character.GetGravityScaler();
             m_character.SetGravityScaler(0.0f);
+
+            if (m_animator.GetFloat("isOnGroundLastTime") > 0.2f && m_animator.GetBool("grabRobot"))
+            {
+                m_character.DropRobot(true);
+                m_animator.SetBool("canJumpInAir", false);
+            }
             
             int randomSoundId = (int)math.floor(Random.Range(0, m_jumpSoundsAtStart.Count));
             m_character.audio.PlayOneShot(m_jumpSoundsAtStart[randomSoundId]);

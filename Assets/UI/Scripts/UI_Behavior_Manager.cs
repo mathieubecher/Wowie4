@@ -14,6 +14,7 @@ public class UI_Behavior_Manager : MonoBehaviour
     public bool Is_Equiped;
     public bool Is_New;
     public bool Locked;
+    public int Priority_Order;
 
 
     // Start is called before the first frame update

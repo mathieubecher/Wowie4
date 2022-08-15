@@ -11,10 +11,13 @@ public class UI_Menu_Custo_Manager : MonoBehaviour
     public GameObject Button_Behavior_Prefab;
 
     private GameObject Behavior_Database;
+    private GameObject Behavior_Child;
+    private UI_Behavior_Manager Behavior_Manager;
     private GameObject Behavior_Button;
     private GameObject Slot_Button;
     private int Behavior_Number;
     public int Selected_Slot;
+    private int Equiped_Behavior;
 
 
     // Start is called before the first frame update
@@ -87,6 +90,34 @@ public class UI_Menu_Custo_Manager : MonoBehaviour
         }
         Slot_Button.GetComponent<UI_Button_Slot>().Update_Behavior(ID_Behavior + 1);
         
+    }
+
+    public void Refresh_IsEquiped()
+    {
+        for (int i = 1; i < Behavior_Number; i++)
+        {
+            Instantiate(Button_Behavior_Prefab, Behavior_List.transform);
+            Behavior_Button = Behavior_List.transform.GetChild(i).gameObject;
+            Behavior_Button.GetComponent<UI_Behavior_Button>().ID_Behavior = i;
+
+
+
+        }
+
+        for (int i = 1; i <= 4; i++)
+        {
+
+            Slot_Button = Slot_List.transform.GetChild(Selected_Slot).gameObject;
+            Equiped_Behavior = Slot_Button.GetComponent<UI_Button_Slot>().ID_Behavior;
+            Behavior_Child = Behavior_Database.transform.GetChild(i).gameObject;
+            Behavior_Manager = Behavior_Child.GetComponent<UI_Behavior_Manager>();
+            
+            
+
+
+
+
+        }
     }
 
 }

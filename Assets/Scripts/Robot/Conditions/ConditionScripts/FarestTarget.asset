@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00897e2873de37449b63627a371a6add, type: 3}
   m_Name: FarestTarget
   m_EditorClassIdentifier: 
+  m_distance: 30
   m_closest: 0
   m_robotCentric: 1
   m_layer:

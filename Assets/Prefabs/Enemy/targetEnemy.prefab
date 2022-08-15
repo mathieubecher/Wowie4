@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 190971550320805000, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_life
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 190971550320805000, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_invulnerableAfterHitTime
       value: 0.1
       objectReference: {fileID: 0}

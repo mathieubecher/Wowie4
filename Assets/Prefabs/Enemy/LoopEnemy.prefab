@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bdac3b2e0e203409d6362ac81ad199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_life: 5
+  m_life: 1
   m_invulnerableAfterHitTime: 0.1
 --- !u!95 &2045757487428873746
 Animator:

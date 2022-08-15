@@ -18,6 +18,7 @@ namespace EnemyFSM
         {
             m_gravityScaleAtStart = m_enemy.GetGravityScaler();
             m_enemy.SetGravityScaler(0.0f);
+            
             m_enemy.SetDesiredVelocity(Vector2.zero, false);
             
             int randomSoundId = (int)math.floor(Random.Range(0, m_hitSoundsAtStart.Count));

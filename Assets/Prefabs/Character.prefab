@@ -809,7 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bdac3b2e0e203409d6362ac81ad199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_life: 5
+  m_life: 10
   m_invulnerableAfterHitTime: 1
 --- !u!95 &311141912199843389
 Animator:

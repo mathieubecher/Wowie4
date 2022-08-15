@@ -8,6 +8,11 @@ public class TargetGunBehavior : GunBehavior
 {
     [SerializeField] protected TargetCondition m_targetCondition;
 
+    public override void Reset()
+    {
+        FindObjectOfType<Robot>().SetDistanceDetect(m_targetCondition.distance);
+    }
+
     public override void UpdateTargets(List<Transform> _targets)
     {
         m_targetCondition.SetTargets(_targets);

@@ -25,11 +25,16 @@ public class Shooter : MonoBehaviour
     public GunBehavior gunBehavior => m_equippedGunBehavior;
     public DetectTargets detectTargets => m_detectTargets;
 
+    private float m_initColliderRadius;
+
     private void Start()
     {
         m_equippedGunBehavior.SetGunType(m_gunType);
         m_equippedGunBehavior.Reset();
         m_audio = GetComponent<AudioSource>();
+
+        CircleCollider2D collider = m_detectTargets.transform.GetComponent<CircleCollider2D>();
+        m_initColliderRadius = collider.radius;
     }
 
     void Update()
@@ -62,6 +67,8 @@ public class Shooter : MonoBehaviour
 
     public void Reset()
     {
+        CircleCollider2D collider = m_detectTargets.transform.GetComponent<CircleCollider2D>();
+        collider.radius = m_initColliderRadius;
         m_equippedGunBehavior.Reset();
     }
     
@@ -77,4 +84,9 @@ public class Shooter : MonoBehaviour
         }
     }
 
+    public void SetDistanceDetect(float distance)
+    {
+        CircleCollider2D collider = m_detectTargets.transform.GetComponent<CircleCollider2D>();
+        collider.radius = distance;
+    }
 }

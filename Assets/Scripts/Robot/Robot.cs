@@ -12,15 +12,15 @@ public class Robot : MonoBehaviour
     }
     [SerializeField] private float m_upVelocityOnDrop = 20.0f;
 
-    [SerializeField] private float m_timeWaitingBeforeJumpOnPlace = 0.0f;
+    //[SerializeField] private float m_timeWaitingBeforeJumpOnPlace = 0.0f;
 
     [SerializeField] private Animator m_bodyAnimator;
     [SerializeField] private List<GunBehavior> m_gunBehaviors;
     
     private Shooter m_shooter;
     
-    private float m_timeIdle = 0.0f;
-    private bool m_jumpOnPlace = false;
+    //private float m_timeIdle = 0.0f;
+    //private bool m_jumpOnPlace = false;
     
     private State m_state = State.Idle;
     private Rigidbody2D m_rigidbody;
@@ -62,7 +62,7 @@ public class Robot : MonoBehaviour
             }
             ActivateShooter(findBehavior);
 
-            if(!IsGrabbed() && isRight)
+            /*if(!IsGrabbed() && isRight)
             {
                 m_timeIdle += Time.deltaTime;
                 if(m_timeIdle >= m_timeWaitingBeforeJumpOnPlace) // want attention
@@ -74,7 +74,7 @@ public class Robot : MonoBehaviour
                         StartCoroutine(JumpOnPlace());
                     }
                 }
-            }
+            }*/
         }
     }
 
@@ -100,7 +100,7 @@ public class Robot : MonoBehaviour
     public void Drop(float _velocity, bool _dropOnPlace)
     {
         SetState(State.Idle);
-        m_timeIdle = 0.0f;
+        //m_timeIdle = 0.0f;
         m_rigidbody.isKinematic = false;
         m_rigidbody.velocity = _dropOnPlace? Vector2.zero : new Vector2(_velocity, m_upVelocityOnDrop);
         m_bodyAnimator.SetBool("isGrab", false);
@@ -122,13 +122,13 @@ public class Robot : MonoBehaviour
         Debug.Log("Eve sourie");
     }
 
-    private IEnumerator JumpOnPlace()
+    /*private IEnumerator JumpOnPlace()
     {
         yield return new WaitForSeconds(1f);
         m_bodyAnimator.SetBool("JumpOnPlace", false);
         m_jumpOnPlace = false;
         m_timeIdle = 0f;
-    }
+    }*/
     
     public void SetGunBehaviors(List<GunBehavior> _newGunBehaviors)
     {
@@ -156,5 +156,10 @@ public class Robot : MonoBehaviour
     private void ActivateShooter(bool _activated)
     {
         m_shooter.Activate(_activated);
+    }
+
+    public void SetDistanceDetect(float _distance)
+    {
+        m_shooter.SetDistanceDetect(_distance);
     }
 }

@@ -21,19 +21,19 @@ public class TargetDistanceCondition : TargetCondition
     {
         if(m_targets.Count > 0)
         {
+            Debug.Log("TargetDistanceCondition");
             Transform from = m_robotCentric ? FindObjectOfType<Robot>().transform : FindObjectOfType<Character>().transform;
 
             float bestDistance = -1f;
             foreach(Transform target in m_targets)
             {
-                if((m_layer.value & (1 << target.gameObject.layer)) == 0) break;
-
+                if((m_layer.value & (1 << target.gameObject.layer)) == 0) continue;
                 Vector3 direction = from.position - target.position;
-                float distance = direction.magnitude;
-                bool closest = m_closest ? bestDistance > distance : bestDistance <= distance;
+                float currentDistance = direction.magnitude;
+                bool closest = m_closest ? bestDistance > currentDistance : bestDistance <= currentDistance;
                 if(bestDistance == -1f || closest)
                 {
-                    bestDistance = distance;
+                    bestDistance = currentDistance;
                     m_bestTarget = target;
                 }
             }

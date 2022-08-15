@@ -32,4 +32,9 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(m_orderedLevels[m_currentLevel].name);
         m_currentLevel++;
     }
+
+    public void LoadLevel(SceneAsset _level)
+    {
+        SceneManager.LoadScene(m_orderedLevels.Find(x => x.name == _level.name).name);
+    }
 }

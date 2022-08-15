@@ -36,6 +36,7 @@ public class SaveDiskette : MonoBehaviour
 
     public void InitRobotEquippedGunBehavior(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log("InitRobotEquippedGunBehavior");
         m_robot = FindObjectOfType<Robot>();
         if(m_robot)
         {

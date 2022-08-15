@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SaveDiskette : MonoBehaviour
 {
-    [SerializeField] private List<GunBehavior> m_allUnlockedGunBehaviors;
     [SerializeField] private List<GunBehavior> m_equippedGunBehaviors;
 
     private Robot m_robot;
@@ -44,13 +43,8 @@ public class SaveDiskette : MonoBehaviour
         }
     }
 
-    public void AddEquippedGunBehaviors(GunBehavior _equippedGunBehavior)
+    public void SetEquippedGunBehaviors(List<GunBehavior> _equippedGunBehaviors)
     {
-        m_equippedGunBehaviors.Add(_equippedGunBehavior);
-    }
-
-    public void RemoveEquippedGunBehaviors(GunBehavior _equippedGunBehavior)
-    {
-        m_equippedGunBehaviors.Remove(_equippedGunBehavior);
+        m_equippedGunBehaviors = _equippedGunBehaviors;
     }
 }

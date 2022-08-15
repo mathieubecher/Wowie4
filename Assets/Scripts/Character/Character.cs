@@ -107,6 +107,7 @@ public class Character : MonoBehaviour
         m_animator.SetBool("isOnGround", detectPhysics.isOnGround);
         m_animator.SetFloat("moveDir", transform.localScale.x );
         m_animator.SetFloat("moveSpeed", math.abs(GetCurrentVelocity().x) );
+        m_animator.SetFloat("fallDir", GetCurrentVelocity().y );
         
 
         if (m_detectRobotRef.detectRobot != m_fsm.GetBool("detectRobot"))

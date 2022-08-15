@@ -34,7 +34,7 @@ public class UI_Behavior_Button : MonoBehaviour, IDeselectHandler, ISelectHandle
     void Start()
     {
         Menu_Manager = GameObject.Find("Viewport");
-        Behavior_Database = GameObject.Find("Behavior_Database");
+        Behavior_Database = GameObject.Find("SaveDiskette");
         Behavior_Child = Behavior_Database.transform.GetChild(ID_Behavior).gameObject;
         Behavior_Manager = Behavior_Child.GetComponent<UI_Behavior_Manager>();
 

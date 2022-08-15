@@ -99,6 +99,10 @@ public class Character : MonoBehaviour
         
         m_lastGrabTimer += Time.deltaTime;
         m_fsm.SetBool("canGrab", m_lastGrabTimer > m_grabCooldown);
+        m_detectRobotRef.disable = (m_lastGrabTimer <= m_grabCooldown);
+        m_detectRobotRef.alpha = math.min(m_lastGrabTimer / m_grabCooldown, 1.0f);
+        
+        
         if (m_lastGrabTimer < m_grabCooldown - 0.3f)
         {
             m_fsm.ResetTrigger("Interact");
@@ -107,6 +111,7 @@ public class Character : MonoBehaviour
         m_animator.SetBool("isOnGround", detectPhysics.isOnGround);
         m_animator.SetFloat("moveDir", transform.localScale.x );
         m_animator.SetFloat("moveSpeed", math.abs(GetCurrentVelocity().x) );
+        m_animator.SetFloat("fallDir", GetCurrentVelocity().y );
         
 
         if (m_detectRobotRef.detectRobot != m_fsm.GetBool("detectRobot"))
@@ -135,7 +140,7 @@ public class Character : MonoBehaviour
     {
         m_fsm.SetBool("grabRobot", true);
         m_fsm.SetBool("canJumpInAir", true);
-        m_animator.runtimeAnimatorController = m_grabAnimator;
+        //m_animator.runtimeAnimatorController = m_grabAnimator;
         _robot.Grab();
         _robot.transform.parent = robotGrabPos;
         _robot.transform.localPosition = Vector3.zero;
@@ -150,7 +155,7 @@ public class Character : MonoBehaviour
         m_fsm.SetBool("grabRobot", false);
         m_fsm.SetBool("canJumpInAir", false);
         m_lastGrabTimer = 0.0f;
-        m_animator.runtimeAnimatorController = m_classicAnimator;
+        //m_animator.runtimeAnimatorController = m_classicAnimator;
 
         m_robotRef.Drop(m_rigidbody.velocity.x, _dropOnPlace);
         m_robotRef.transform.parent = null;
@@ -211,7 +216,8 @@ public class Character : MonoBehaviour
         m_fsm.SetBool("dead", _dead);
         if (_dead) return;
         m_fsm.SetTrigger("Hit");
-        SetDesiredVelocity(((Vector2)transform.position - _origin).normalized * (_damage * m_damageToHitImpulse), false);
+        m_animator.SetTrigger("Hit");
+        SetDesiredVelocity(new Vector2(math.sign(((Vector2)transform.position - _origin).x), 1.0f) * (_damage * m_damageToHitImpulse), false);
     }
     
 #if UNITY_EDITOR

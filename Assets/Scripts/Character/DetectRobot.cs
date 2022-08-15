@@ -5,14 +5,50 @@ using UnityEngine;
 
 public class DetectRobot : MonoBehaviour
 {
-    [SerializeField] private float m_maxDist = 5.0f;
+    public bool disable;
+    public float alpha;
     
+    
+    [SerializeField] private float m_maxDist = 5.0f;
+    [SerializeField] private Color m_reachableColor;
+    [SerializeField] private Color m_unreachableColor;
+    [SerializeField] private AnimationCurve m_alphaByDist;
+
+    private LineRenderer m_line;
     private bool m_detectRobot;
     private Robot m_robotRef;
     public bool detectRobot => m_detectRobot && CanReachRobot();
     public Robot robotRef => m_robotRef;
     public float maxDist => m_maxDist;
 
+    private void Awake()
+    {
+        m_line = GetComponent<LineRenderer>();
+        m_maxDist = GetComponent<CircleCollider2D>().radius;
+    }
+
+    private void LateUpdate()
+    {
+        m_line.enabled = m_detectRobot;
+        if (m_line.enabled)
+        {
+            int lenght = m_line.positionCount;
+            Color color = detectRobot ? m_reachableColor : m_unreachableColor;
+            color.a *= m_alphaByDist.Evaluate((m_robotRef.transform.position - transform.position).magnitude / m_maxDist) * alpha;
+            
+            m_line.endColor = color;
+            m_line.startColor = m_line.endColor;
+            Vector3[] points = new Vector3[lenght];
+            Vector3 start = transform.position + Vector3.up;
+            Vector3 stop = m_robotRef.transform.position+ Vector3.up * 0.4f;
+            for (int i = 0; i < lenght; ++i)
+            {
+                points[i] = Vector3.Lerp(start, stop, i / (float)lenght);
+            }
+            m_line.SetPositions(points);
+            
+        }
+    }
     private void OnTriggerEnter2D(Collider2D _other)
     {
         if (_other.isTrigger || _other.gameObject.layer == LayerMask.NameToLayer("Character")) return;

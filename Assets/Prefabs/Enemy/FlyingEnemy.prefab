@@ -361,6 +361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_follower: 1
   m_onGround: 0
+  m_followTrack: 0
+  m_track: {fileID: 0}
   m_body: {fileID: 5700417007993870181}
 --- !u!114 &190971550320805000
 MonoBehaviour:

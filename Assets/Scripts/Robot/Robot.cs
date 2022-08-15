@@ -20,6 +20,7 @@ public class Robot : MonoBehaviour
     private Shooter m_shooter;
     
     private float m_timeIdle = 0.0f;
+    private bool m_jumpOnPlace = false;
     
     private State m_state = State.Idle;
     private Rigidbody2D m_rigidbody;
@@ -42,7 +43,8 @@ public class Robot : MonoBehaviour
     {
         if(m_isActive)
         {
-            m_bodyAnimator.SetBool("Right", transform.lossyScale.x > 0.0f);
+            bool isRight = transform.lossyScale.x > 0.0f;
+            m_bodyAnimator.SetBool("Right", isRight);
 
             bool findBehavior = false;
             foreach(GunBehavior gunBehavior in m_gunBehaviors)
@@ -60,13 +62,17 @@ public class Robot : MonoBehaviour
             }
             ActivateShooter(findBehavior);
 
-            if(!IsGrabbed())
+            if(!IsGrabbed() && isRight)
             {
                 m_timeIdle += Time.deltaTime;
                 if(m_timeIdle >= m_timeWaitingBeforeJumpOnPlace) // want attention
                 {
-                    JumpOnPlace(); // need a jump anim ;)
-                    m_timeIdle = 0.0f;
+                    if(!m_jumpOnPlace)
+                    {
+                        m_jumpOnPlace = true;
+                        m_bodyAnimator.SetBool("JumpOnPlace", true);
+                        StartCoroutine(JumpOnPlace());
+                    }
                 }
             }
         }
@@ -116,9 +122,12 @@ public class Robot : MonoBehaviour
         Debug.Log("Eve sourie");
     }
 
-    private void JumpOnPlace()
+    private IEnumerator JumpOnPlace()
     {
-        // need a jump anim ;)
+        yield return new WaitForSeconds(1f);
+        m_bodyAnimator.SetBool("JumpOnPlace", false);
+        m_jumpOnPlace = false;
+        m_timeIdle = 0f;
     }
     
     public void SetGunBehaviors(List<GunBehavior> _newGunBehaviors)

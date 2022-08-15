@@ -17,8 +17,14 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private List<Enemy> m_enemys;
     [SerializeField] private List<Sludge> m_sludges;
+    [SerializeField] private List<GunBehavior> m_gunBehaviorsUnlock;
+    public List<GunBehavior> gunBehaviorsUnlock => m_gunBehaviorsUnlock;
 
     private bool m_win;
+
+    public delegate void OnWinDelegate(GameManager _manager);
+
+    public static event OnWinDelegate OnWin;
     // Start is called before the first frame update
     void Awake()
     {
@@ -33,6 +39,10 @@ public class GameManager : MonoBehaviour
             bool win = !m_conditions.destroyAllEnemies || m_enemys.Count == 0;
             win &=     !m_conditions.destroyAllSludges || m_sludges.Count == 0;
             m_win = win;
+        }
+        else
+        {
+            OnWinCondition();
         }
     }
     
@@ -65,4 +75,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnWinCondition()
+    {
+        OnWin?.Invoke(this);
+    }
 }

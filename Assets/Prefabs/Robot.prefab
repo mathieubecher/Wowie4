@@ -333,10 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_upVelocityOnDrop: 20
-  m_jumpAmount: 2
   m_timeWaitingBeforeJumpOnPlace: 60
-  m_timeBetweenJump: 0.5
-  m_jumpOnPlaceDuration: 2
   m_bodyAnimator: {fileID: 732864362962899446}
   m_gunBehaviors:
   - {fileID: 11400000, guid: 0086242bd6234f245bdb0bf8eb72fca8, type: 2}

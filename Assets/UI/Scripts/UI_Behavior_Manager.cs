@@ -11,6 +11,10 @@ public class UI_Behavior_Manager : MonoBehaviour
     public string Effect_Text;
     public string Condition_Text;
     public GunBehavior Behavior_Object;
+    public bool Is_Equiped;
+    public bool Is_New;
+    public bool Locked;
+    public int Priority_Order;
 
 
     // Start is called before the first frame update

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -105,6 +106,7 @@ public class Robot : MonoBehaviour
         m_rigidbody.velocity = _dropOnPlace? Vector2.zero : new Vector2(_velocity, m_upVelocityOnDrop);
 
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y,transform.localScale.z);
+        transform.rotation = quaternion.identity;
         m_bodyAnimator.SetBool("isGrab", false);
     }
 

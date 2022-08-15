@@ -39,7 +39,7 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Menu_Manager = GameObject.Find("Viewport");
         Description = GameObject.Find("Description");

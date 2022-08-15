@@ -213,7 +213,7 @@ public class Character : MonoBehaviour
         if (_dead) return;
         m_fsm.SetTrigger("Hit");
         m_animator.SetTrigger("Hit");
-        SetDesiredVelocity(((Vector2)transform.position - _origin).normalized * (_damage * m_damageToHitImpulse), false);
+        SetDesiredVelocity(new Vector2(math.sign(((Vector2)transform.position - _origin).x), 1.0f) * (_damage * m_damageToHitImpulse), false);
     }
     
 #if UNITY_EDITOR

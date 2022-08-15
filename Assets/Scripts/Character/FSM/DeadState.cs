@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace CharacterFSM
 {
     public class DeadState : VirtualState
     {
+        [Header("Audio")]
+        [SerializeField] private List<AudioClip> m_deathSoundsAtStart;
+
         protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             if( m_animator.GetBool("grabRobot")) m_character.DropRobot(true);
+
+            int randomSoundId = (int)math.floor(Random.Range(0, m_deathSoundsAtStart.Count));
+            m_character.audio.PlayOneShot(m_deathSoundsAtStart[randomSoundId]);
         }
 
         override public void OnFixedUpdate()

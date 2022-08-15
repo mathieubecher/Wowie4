@@ -54,7 +54,7 @@ public class Robot : MonoBehaviour
                 {
                     if(gunBehavior != m_shooter.gunBehavior)
                     {
-                        SetEquippedGunBehavior(gunBehavior);
+                        EquippedGunBehavior(gunBehavior);
                     }
                     findBehavior = true;
                     break;
@@ -133,6 +133,11 @@ public class Robot : MonoBehaviour
     public void SetGunBehaviors(List<GunBehavior> _newGunBehaviors)
     {
         m_gunBehaviors = _newGunBehaviors;
+    }
+
+    public void EquippedGunBehavior(GunBehavior _newGunBehavior)
+    {
+        m_shooter.SetEquippedGunBehavior(_newGunBehavior);
     }
 
     public void SetEquippedGunBehavior(GunBehavior _newGunBehavior)

@@ -556,8 +556,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
+      propertyPath: Is_Equiped
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Condition_Text
       value: Placeholder Default Condition
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
+      propertyPath: Priority_Order
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967851, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: m_Name

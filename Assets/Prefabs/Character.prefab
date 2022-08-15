@@ -735,6 +735,7 @@ GameObject:
   - component: {fileID: 5454883677058282503}
   - component: {fileID: 2043176174332631448}
   - component: {fileID: 5416301824605142281}
+  - component: {fileID: -3440212628462757684}
   m_Layer: 6
   m_Name: Character
   m_TagString: Untagged
@@ -808,7 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51bdac3b2e0e203409d6362ac81ad199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_life: 5
+  m_life: 10
   m_invulnerableAfterHitTime: 1
 --- !u!95 &311141912199843389
 Animator:
@@ -1085,6 +1086,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3440212628462757684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5454883677058282499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a46df36c3cde6f4eb24acd0399bbc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5454883678412674911
 GameObject:
   m_ObjectHideFlags: 0

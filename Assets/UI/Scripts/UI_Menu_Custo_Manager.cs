@@ -73,6 +73,7 @@ public class UI_Menu_Custo_Manager : MonoBehaviour
                 
                 Behavior_Child = Behavior_Database.transform.GetChild(Slot_Behavior_ID - 1).gameObject;
                 Behavior_Manager = Behavior_Child.GetComponent<UI_Behavior_Manager>();
+                Behavior_Manager.Priority_Order = i + 1;
                 Debug.Log("Adding " + Behavior_Manager.Behavior_Object);
                 List_Behavior.Add(Behavior_Manager.Behavior_Object);
             }
@@ -124,6 +125,7 @@ public class UI_Menu_Custo_Manager : MonoBehaviour
         if (ID_Behavior != 0)
         {
             Slot_Button.GetComponent<UI_Button_Slot>().IsEmpty = false;
+
         } else
         {
             Slot_Button.GetComponent<UI_Button_Slot>().IsEmpty = true;
@@ -138,6 +140,7 @@ public class UI_Menu_Custo_Manager : MonoBehaviour
         {
             Behavior_Button = Behavior_List.transform.GetChild(i - 1).gameObject;
             Behavior_Button.GetComponent<UI_Behavior_Button>().Update_Equip(true);
+
         }
         
 

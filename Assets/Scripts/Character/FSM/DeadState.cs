@@ -17,6 +17,10 @@ namespace CharacterFSM
 
             int randomSoundId = (int)math.floor(Random.Range(0, m_deathSoundsAtStart.Count));
             m_character.audio.PlayOneShot(m_deathSoundsAtStart[randomSoundId]);
+            m_character.enabled = false;
+            m_character.GetComponent<Rigidbody2D>().isKinematic = true;
+            m_character.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            m_character.body.gameObject.SetActive(false);
         }
 
         override public void OnFixedUpdate()

@@ -107,6 +107,8 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
 
         Menu_Manager.GetComponent<UI_Menu_Custo_Manager>().Clean_Duplicates(ID_Behavior, ID_Slot);
 
+        Behavior_Manager.Priority_Order = ID_Slot;
+
 
 
 

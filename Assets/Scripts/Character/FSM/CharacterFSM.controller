@@ -1078,7 +1078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_deathSoundsAtStart:
-  - {fileID: 8300000, guid: 02ea8cb9748d67241a47a7a92c1452f7, type: 3}
+  - {fileID: 8300000, guid: 129bfc3e260b24443bd16ff4c6ad7c75, type: 3}
 --- !u!1102 &4901012463578571220
 AnimatorState:
   serializedVersion: 6

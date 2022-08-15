@@ -3,13 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private SceneAsset m_levelScene;
-    [SerializeField] private SceneAsset m_customizeScene;
-    [SerializeField] private List<SceneAsset> m_orderedLevels;
+    [SerializeField] private int m_levelScene;
+    [SerializeField] private int m_customizeScene;
+    [SerializeField] private List<int> m_orderedLevels;
 
     private int m_currentLevel = 0;
     private bool isOnCustomize = false;
@@ -50,7 +49,7 @@ public class LevelManager : MonoBehaviour
             m_currentLevel = 0;
         }
 
-        SceneManager.LoadScene(m_orderedLevels[m_currentLevel].name);
+        SceneManager.LoadScene(m_orderedLevels[m_currentLevel]);
         m_currentLevel++;
     }
 
@@ -62,18 +61,27 @@ public class LevelManager : MonoBehaviour
     public void LoadLevelScene()
     {
         isOnCustomize = false;
-        SceneManager.LoadScene(m_levelScene.name);
+        SceneManager.LoadScene(m_levelScene);
     }
 
     public void LoadCustomizeScene()
     {
         isOnCustomize = true;
-        SceneManager.LoadScene(m_customizeScene.name);
+        SceneManager.LoadScene(m_customizeScene);
     }
 
-    public void LoadLevel(SceneAsset _level)
+    public void LoadLevel(int _level)
     {
-        isOnCustomize = m_customizeScene.name == _level.name ? true : false;
-        SceneManager.LoadScene(m_orderedLevels.Find(x => x.name == _level.name).name);
+        isOnCustomize = m_customizeScene == _level ? true : false;
+        SceneManager.LoadScene(m_orderedLevels.Find(x => x == _level));
     }
+
+    public void Reload()
+    {
+        m_currentLevel--;
+        isOnCustomize = true;
+        SceneManager.LoadScene(m_customizeScene);
+    }
+
+    // reset
 }

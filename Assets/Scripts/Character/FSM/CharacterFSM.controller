@@ -1077,6 +1077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7c89da335ac8b46b519748bdae6903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_deathSoundsAtStart:
+  - {fileID: 8300000, guid: 02ea8cb9748d67241a47a7a92c1452f7, type: 3}
 --- !u!1102 &4901012463578571220
 AnimatorState:
   serializedVersion: 6

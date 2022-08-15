@@ -24,7 +24,7 @@ public class UI_Menu_Custo_Manager : MonoBehaviour
     void Start()
     {
 
-        Behavior_Database = GameObject.Find("Behavior_Database");
+        Behavior_Database = GameObject.Find("SaveDiskette");
         Behavior_Number = Behavior_Database.transform.childCount;
 
         for (int i = 1; i < Behavior_Number; i++)

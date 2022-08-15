@@ -19,6 +19,7 @@ public class UI_HUD_Manager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("UI_Scene", LoadSceneMode.Single);
+        LevelManager levelManager = FindObjectOfType<LevelManager>();
+        if(levelManager) levelManager.Reload();
     }
 }

@@ -111,7 +111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Effect_Text
-      value: Placeholder Spray Effect
+      value: Spray Counterclosewise
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Icon
@@ -123,7 +123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Condition_Text
-      value: Placeholder Spray Condition
+      value: NoCondition
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Object
@@ -201,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Effect_Text
-      value: Placeholder Target Effect
+      value: Closest Sludge
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Icon
@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Condition_Text
-      value: Placeholder Target Condition
+      value: Closest Sludge distance 10
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Object
@@ -291,7 +291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Effect_Text
-      value: Placeholder Target Effect
+      value: Closest Traget To Player
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Icon
@@ -303,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Condition_Text
-      value: Placeholder Target Condition
+      value: Closest Traget distance 20 from Robot
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Object
@@ -381,7 +381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Effect_Text
-      value: Placeholder Angular Effect
+      value: Right-Left
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Icon
@@ -393,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Condition_Text
-      value: Placeholder Angular Condition
+      value: NoCondition
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Object
@@ -471,7 +471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Effect_Text
-      value: Placeholder Target Effect
+      value: Closest Target
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Icon
@@ -483,7 +483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Condition_Text
-      value: Placeholder Target Condition
+      value: Closest Target Distance 20
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Object
@@ -560,8 +560,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
+      propertyPath: Effect_Text
+      value: Default
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Condition_Text
-      value: Placeholder Default Condition
+      value: NoCondition
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Priority_Order
@@ -635,7 +639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Effect_Text
-      value: Placeholder Angular Effect
+      value: Spray Clockwise
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Icon
@@ -647,7 +651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Condition_Text
-      value: Placeholder Angular Condition
+      value: NoCondition
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Object
@@ -725,7 +729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Effect_Text
-      value: Placeholder Target Effect
+      value: Farest Target
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Icon
@@ -737,7 +741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Condition_Text
-      value: Placeholder Target Condition
+      value: Farest Target distance 45
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Object
@@ -810,12 +814,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
+      propertyPath: Effect_Text
+      value: Empty
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Icon
       value: 
       objectReference: {fileID: -1201233072, guid: 93fbee882fdf70a42b8c99ac27a6cf04, type: 3}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Name
       value: None
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
+      propertyPath: Condition_Text
+      value: Empty
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Behavior_Object

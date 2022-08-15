@@ -19,9 +19,9 @@ public class UI_Behavior_Button : MonoBehaviour, IDeselectHandler, ISelectHandle
 
     public Color Color_Unselected;
 
-    private GameObject Behavior_Database;
-    private GameObject Behavior_Child;
-    private UI_Behavior_Manager Behavior_Manager;
+    public GameObject Behavior_Database;
+    public GameObject Behavior_Child;
+    public UI_Behavior_Manager Behavior_Manager;
 
     private bool IsSelected;
 
@@ -89,12 +89,18 @@ public class UI_Behavior_Button : MonoBehaviour, IDeselectHandler, ISelectHandle
 
     public void Update_Equip(bool IsEquiped)
     {
+        Behavior_Database = GameObject.Find("SaveDiskette");
+        Behavior_Child = Behavior_Database.transform.GetChild(ID_Behavior).gameObject;
+        Behavior_Manager = Behavior_Child.GetComponent<UI_Behavior_Manager>();
+
         if (IsEquiped == true)
         {
             
             if (ID_Behavior != 0)
             {
                 Equip_Icon.SetActive(true);
+                Behavior_Manager.Is_Equiped = true;
+
             }
             
 
@@ -102,6 +108,7 @@ public class UI_Behavior_Button : MonoBehaviour, IDeselectHandler, ISelectHandle
         } else
         {
             Equip_Icon.SetActive(false);
+            Behavior_Manager.Is_Equiped = false;
         }
         New_Tag.SetActive(false);
     }

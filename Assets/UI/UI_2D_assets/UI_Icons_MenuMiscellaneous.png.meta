@@ -388,6 +388,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_Icons_MenuMiscellaneous_13
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa587730978603647892d68fb4f76e8f
+      internalID: 1407361050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -409,6 +430,7 @@ TextureImporter:
       UI_Icons_MenuMiscellaneous_8: 599981347
       UI_Icons_MenuMiscellaneous_6: 1266507974
       UI_Icons_MenuMiscellaneous_10: -27169
+      UI_Icons_MenuMiscellaneous_13: 1407361050
       UI_Icons_MenuMiscellaneous_4: -148837436
       UI_Icons_MenuMiscellaneous_3: 1056145296
       UI_Icons_MenuMiscellaneous_12: -1395865693

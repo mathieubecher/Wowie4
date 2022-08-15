@@ -67,7 +67,6 @@ namespace CharacterFSM
                     m_currentCurve = m_turnCurve;
                     m_turnDirection = math.sign(moveInput);
                     m_stateTimer = TimeFromValue(m_currentCurve, velocityInput * math.sign(moveInput));
-                    Debug.Log(m_stateTimer + " " + velocityInput);
                 }
             }
             else if((m_state is MoveState.START or MoveState.STOP || math.abs(velocityInput) < 0.1f) && math.abs(moveInput) > 0.3f)

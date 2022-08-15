@@ -1232,5 +1232,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_hifFx: {fileID: 10442862334953298, guid: fd4250251caff374999ac63ccfb8766b, type: 3}
   m_hitSoundsAtStart:
   - {fileID: 8300000, guid: 7b8243bae42370940ada9c4ca13fac7e, type: 3}

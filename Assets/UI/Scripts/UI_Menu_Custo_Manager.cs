@@ -20,7 +20,7 @@ public class UI_Menu_Custo_Manager : MonoBehaviour
     public int Selected_Slot;
     private int Compare_ID;
     private int Slot_Behavior_ID;
-    private List<GunBehavior> List_Behavior;
+    
 
 
     // Start is called before the first frame update
@@ -60,7 +60,10 @@ public class UI_Menu_Custo_Manager : MonoBehaviour
     }
 
     public void Quit_Menu()
+
     {
+
+        List<GunBehavior> List_Behavior = new List<GunBehavior>();
         for (int i = 0; i < 4; i++)
         {
             Slot_Button = Slot_List.transform.GetChild(i).gameObject;
@@ -70,8 +73,8 @@ public class UI_Menu_Custo_Manager : MonoBehaviour
                 
                 Behavior_Child = Behavior_Database.transform.GetChild(Slot_Behavior_ID - 1).gameObject;
                 Behavior_Manager = Behavior_Child.GetComponent<UI_Behavior_Manager>();
-                Debug.Log("Adding " + Behavior_Manager.Behavior_Name);
-                //List_Behavior.Add(Behavior_Manager.Behavior_Object);
+                Debug.Log("Adding " + Behavior_Manager.Behavior_Object);
+                List_Behavior.Add(Behavior_Manager.Behavior_Object);
             }
             
 

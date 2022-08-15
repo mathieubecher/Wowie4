@@ -44,15 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d12d1c05e3f3d4f902a2f35fc72f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_levelScene: {fileID: 102900000, guid: d56251c9bfd5f9849ac61d8efb64c0cb, type: 3}
-  m_customizeScene: {fileID: 102900000, guid: c89944056f861444f9ab5036e5197fb3, type: 3}
-  m_orderedLevels:
-  - {fileID: 102900000, guid: 5b9755382da0d14438830152cc4c6296, type: 3}
-  - {fileID: 102900000, guid: 87daa5d628b773b4f97f174dd98d3444, type: 3}
-  - {fileID: 102900000, guid: f6480d22b9ae5f04db49e9a1abf28de8, type: 3}
-  - {fileID: 102900000, guid: b70002de60128dc46a4c804496e0a3bd, type: 3}
-  - {fileID: 102900000, guid: 6ae15fe184c9d4a4185e5a9acffda228, type: 3}
-  - {fileID: 102900000, guid: 6dcd1397f09dfb548a09e66310e8fbf0, type: 3}
-  - {fileID: 102900000, guid: f083290c787d6464384050e36eb71168, type: 3}
-  - {fileID: 102900000, guid: 93c1be42fd838104681dedcdf1977464, type: 3}
-  - {fileID: 102900000, guid: 3c0cf02bcbedb44428681797a7dffcca, type: 3}
+  m_levelScene: 0
+  m_customizeScene: 1
+  m_orderedLevels: 02000000030000000400000005000000060000000700000008000000090000000a000000

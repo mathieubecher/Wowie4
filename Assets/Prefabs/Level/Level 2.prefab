@@ -2352,6 +2352,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9063347567534053923, guid: 8402b9532dc80eb4bb8a5ffd4030c5bf, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063347567534053923, guid: 8402b9532dc80eb4bb8a5ffd4030c5bf, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063347567534053932, guid: 8402b9532dc80eb4bb8a5ffd4030c5bf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b44f920a8534b234187e27e873123d15, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8402b9532dc80eb4bb8a5ffd4030c5bf, type: 3}
 --- !u!4 &5100364576339005237 stripped

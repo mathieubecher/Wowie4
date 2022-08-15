@@ -410,6 +410,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8360986641261986341, guid: 32ca2a619480c20418eaf3cab81457c6, type: 3}
+      propertyPath: m_gunBehaviorsUnlock.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360986641261986341, guid: 32ca2a619480c20418eaf3cab81457c6, type: 3}
+      propertyPath: m_gunBehaviorsUnlock.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c429716269a60b4caa8535185b3a65c, type: 2}
     - target: {fileID: 8360986641261986362, guid: 32ca2a619480c20418eaf3cab81457c6, type: 3}
       propertyPath: m_Name
       value: GameManager

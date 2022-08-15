@@ -6,6 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Condition/TargetCondition/TargetCondition", order = 1)]
 public class TargetCondition : Condition
 {
+    [SerializeField] protected float m_distance = 10f;
+
+    public float distance => m_distance;
+
     protected List<Transform> m_targets = new List<Transform>();
 
     public virtual void SetTargets(List<Transform> _targets)

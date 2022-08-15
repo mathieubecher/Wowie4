@@ -26,11 +26,12 @@ public class SaveDiskette : MonoBehaviour
     void OnEnable()
     {
         SceneManager.sceneLoaded += InitRobotEquippedGunBehavior;
+        GameManager.OnWin += Win;
     }
-
     void OnDisable()
     {
         SceneManager.sceneLoaded -= InitRobotEquippedGunBehavior;
+        GameManager.OnWin -= Win;
     }
 
     public void InitRobotEquippedGunBehavior(Scene scene, LoadSceneMode mode)
@@ -62,4 +63,10 @@ public class SaveDiskette : MonoBehaviour
             }
         }
     }
+
+    private void Win(GameManager _manager)
+    {
+        UnlockGunBehaviors(_manager.gunBehaviorsUnlock);
+    }
+
 }

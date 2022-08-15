@@ -19,13 +19,24 @@ public class LevelManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void OnEnable()
+    {
+        GameManager.OnWin += LoadNextLevel;
+    }
+
+    private void OnDisable()
+    {
+        
+        GameManager.OnWin -= LoadNextLevel;
+    }
+
     void Start()
     {}
     
     void Update()
     {}
 
-    public void LoadNextLevel()
+    public void LoadNextLevel(GameManager _manager)
     {
         if(!isOnCustomize)
         {

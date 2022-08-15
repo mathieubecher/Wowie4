@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6afd1274f120405096bc1ad9e2010ba6157a00/a3/4fa63634/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/af9ebbbc858e49bba726051ff5571e171f800/ea/f4239a2b/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackgroundScaleManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/Controller/InputController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -102,7 +103,7 @@
       <workItem from="1660474638300" duration="10786000" />
       <workItem from="1660486910736" duration="16767000" />
       <workItem from="1660513729766" duration="5336000" />
-      <workItem from="1660557583812" duration="6624000" />
+      <workItem from="1660557583812" duration="8054000" />
     </task>
     <servers />
   </component>

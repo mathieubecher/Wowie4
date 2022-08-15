@@ -35,7 +35,6 @@ public class SaveDiskette : MonoBehaviour
 
     public void InitRobotEquippedGunBehavior(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Robot Init with equipped gun behavior");
         m_robot = FindObjectOfType<Robot>();
         if(m_robot)
         {
@@ -46,5 +45,21 @@ public class SaveDiskette : MonoBehaviour
     public void SetEquippedGunBehaviors(List<GunBehavior> _equippedGunBehaviors)
     {
         m_equippedGunBehaviors = _equippedGunBehaviors;
+    }
+
+    public void UnlockGunBehaviors(List<GunBehavior> _gunBehaviors)
+    {
+        int childCount = transform.childCount;
+
+        for (int i = 1; i < childCount; i++)
+        {
+            GameObject Behavior_Button = transform.GetChild(i).gameObject;
+            UI_Behavior_Manager behaviorManager = Behavior_Button.GetComponent<UI_Behavior_Manager>();
+            
+            if(_gunBehaviors.Contains(behaviorManager.Behavior_Object))
+            {
+                behaviorManager.Locked = false;
+            }
+        }
     }
 }

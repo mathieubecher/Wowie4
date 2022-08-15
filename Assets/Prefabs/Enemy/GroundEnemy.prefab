@@ -31,9 +31,49 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1776823581
       objectReference: {fileID: 0}
+    - target: {fileID: 3267780405498760407, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_Size.x
+      value: 2.4725928
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267780405498760407, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6984272
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267780405498760407, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0992136
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436253986117503193, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_Size.x
+      value: 1.852871
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436253986117503193, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2834673
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436253986117503193, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.14173365
+      objectReference: {fileID: 0}
     - target: {fileID: 3862905101010482084, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_onGround
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235997849147456917, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235997849147456917, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235997849147456917, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.094
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235997849147456917, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.351
       objectReference: {fileID: 0}
     - target: {fileID: 4300256151313813717, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_RootOrder
@@ -87,6 +127,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8681765233638878391, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 771792187, guid: 6df74a99cd7195b4da3578aefef1d0fc, type: 3}
     - target: {fileID: 9047966695964206247, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_Name
       value: GroundEnemy
@@ -97,3 +141,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+--- !u!1 &8761554277910566226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4202054054738208207, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+  m_PrefabInstance: {fileID: 4884148125796724893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &2939077351585108726
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8761554277910566226}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 654e434a6f3c65144b178eb4cd1aaf5e, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 654e434a6f3c65144b178eb4cd1aaf5e, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

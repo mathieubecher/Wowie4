@@ -10,6 +10,8 @@ public class Laser : MonoBehaviour
     [SerializeField] private float m_angularSpeed = 30f;
     [SerializeField] private Transform m_shootSpawner;
 
+    [SerializeField] private Transform m_laserDot;
+
     [SerializeField] private LifeManager m_target;
 
     private LineRenderer m_laser;
@@ -62,7 +64,8 @@ public class Laser : MonoBehaviour
         Vector3[] positions = new Vector3[2];
         positions[0] = m_shootSpawner.transform.position;
         positions[1] = hitPoint;
-        
+
+        m_laserDot.position = hitPoint;
         m_laser.SetPositions(positions);
     }
 

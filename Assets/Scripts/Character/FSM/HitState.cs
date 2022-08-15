@@ -10,6 +10,7 @@ namespace CharacterFSM
     {
         [SerializeField] private AnimationCurve m_lossOfControlInAir;
         [SerializeField] private AnimationCurve m_lossOfControlOnGround;
+        [SerializeField] private GameObject m_hifFx;
         private bool m_forceExit = false;
         private float m_hitTimer = 0.0f;
         
@@ -18,6 +19,14 @@ namespace CharacterFSM
         protected override void StateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             if( m_animator.GetBool("grabRobot")) m_character.DropRobot(true);
+
+            EffectManager manager = FindObjectOfType<EffectManager>();
+            if (manager)
+            {
+                manager.FreezeTime(0.3f);
+                manager.Shake(0.2f , 10f);
+                if(m_hifFx) manager.SpawnFx(m_hifFx, m_character.transform.position, Quaternion.identity, 2f);
+            }
             m_animator.ResetTrigger(ForceExitState);
             m_forceExit = false;
             m_hitTimer = 0.0f;

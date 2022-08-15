@@ -70,6 +70,11 @@ public class UI_Behavior_Button : MonoBehaviour, IDeselectHandler, ISelectHandle
                 Equip_Icon.SetActive(false);
             }
         }
+
+        if (ID_Behavior == 0)
+        {
+            New_Tag.SetActive(false);
+        }
   
        
     }
@@ -84,7 +89,12 @@ public class UI_Behavior_Button : MonoBehaviour, IDeselectHandler, ISelectHandle
     {
         if (IsEquiped == true)
         {
-            Equip_Icon.SetActive(true);
+            
+            if (ID_Behavior != 0)
+            {
+                Equip_Icon.SetActive(true);
+            }
+            
 
 
         } else

@@ -18,8 +18,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Enemy> m_enemys;
     [SerializeField] private List<Sludge> m_sludges;
     [SerializeField] private List<GunBehavior> m_gunBehaviorsUnlock;
+    public List<GunBehavior> gunBehaviorsUnlock => m_gunBehaviorsUnlock;
 
     private bool m_win;
+
+    public delegate void OnWinDelegate(GameManager _manager);
+
+    public static event OnWinDelegate OnWin;
     // Start is called before the first frame update
     void Awake()
     {
@@ -37,7 +42,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            OnWin();
+            OnWinCondition();
         }
     }
     
@@ -70,12 +75,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnWin()
+    private void OnWinCondition()
     {
-        SaveDiskette saveDiskette = FindObjectOfType<SaveDiskette>();
-        saveDiskette.UnlockGunBehaviors(m_gunBehaviorsUnlock);
-
-        LevelManager levelManager = FindObjectOfType<LevelManager>();
-        levelManager.LoadNextLevel();
+        OnWin?.Invoke(this);
     }
 }

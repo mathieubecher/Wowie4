@@ -36,13 +36,14 @@ public class LevelManager : MonoBehaviour
     void Update()
     {}
 
-    public void LoadNextLevel(GameManager _manager)
+    public void LoadNextLevel()
     {
         if(!isOnCustomize)
         {
             LoadCustomizeScene();
             return;
         }
+        isOnCustomize = false;
 
         if(m_currentLevel > m_orderedLevels.Count)
         {
@@ -51,6 +52,11 @@ public class LevelManager : MonoBehaviour
 
         SceneManager.LoadScene(m_orderedLevels[m_currentLevel].name);
         m_currentLevel++;
+    }
+
+    public void LoadNextLevel(GameManager _manager)
+    {
+        LoadNextLevel();
     }
 
     public void LoadLevelScene()

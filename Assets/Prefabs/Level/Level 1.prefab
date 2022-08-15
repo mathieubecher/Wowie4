@@ -1382,6 +1382,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5552347647640878194, guid: e5bf7d28d812c2d4d846e01f37a62cc6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552347647640878194, guid: e5bf7d28d812c2d4d846e01f37a62cc6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8676869644633464904, guid: e5bf7d28d812c2d4d846e01f37a62cc6, type: 3}
       propertyPath: m_RootOrder
       value: 9

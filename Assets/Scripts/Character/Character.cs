@@ -99,6 +99,10 @@ public class Character : MonoBehaviour
         
         m_lastGrabTimer += Time.deltaTime;
         m_fsm.SetBool("canGrab", m_lastGrabTimer > m_grabCooldown);
+        m_detectRobotRef.disable = (m_lastGrabTimer <= m_grabCooldown);
+        m_detectRobotRef.alpha = math.min(m_lastGrabTimer / m_grabCooldown, 1.0f);
+        
+        
         if (m_lastGrabTimer < m_grabCooldown - 0.3f)
         {
             m_fsm.ResetTrigger("Interact");

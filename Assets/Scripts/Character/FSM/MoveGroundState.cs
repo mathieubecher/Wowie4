@@ -56,7 +56,6 @@ namespace CharacterFSM
                     m_state = MoveState.STOP;
                     m_currentCurve = m_stopCurve;
                     m_stateTimer = TimeFromValue(m_currentCurve, math.abs(velocityInput));
-                    Debug.Log(m_stateTimer + " " + velocityInput);
                     
                 }
             }
@@ -78,7 +77,6 @@ namespace CharacterFSM
                     m_state = MoveState.START;
                     m_currentCurve = m_startCurve;
                     m_stateTimer = TimeFromValue(m_currentCurve, math.abs(velocityInput));
-                    Debug.Log(m_stateTimer + " " + velocityInput);
                 }
             }
             else if(m_state != MoveState.UPDATE)

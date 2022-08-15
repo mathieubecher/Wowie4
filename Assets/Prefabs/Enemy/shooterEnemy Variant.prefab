@@ -133,13 +133,17 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.5415801
       objectReference: {fileID: 0}
+    - target: {fileID: 2436839574757311610, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3862905101010482084, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_follower
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4235997849147456917, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4235997849147456917, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -244,4 +248,4 @@ MonoBehaviour:
   m_gunType: {fileID: 11400000, guid: 7ae1d4ed51187ae4ba4573787bc75269, type: 2}
   m_spawnBulletPos: {fileID: 6044742208828958323}
   m_shootSounds:
-  - {fileID: 8300000, guid: 49bc153f85c56064aac38e9de282e190, type: 3}
+  - {fileID: 8300000, guid: e339d699152ed37438cd80c054c91a61, type: 3}

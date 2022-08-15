@@ -56,6 +56,13 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
 
     public void Update_Behavior(int New_ID)
     {
+
+        if (ID_Behavior != 0)
+        {
+            Menu_Manager.GetComponent<UI_Menu_Custo_Manager>().Set_Unequiped(ID_Behavior);
+        }
+        
+
         ID_Behavior = New_ID;
 
         if (ID_Behavior == 0)
@@ -95,10 +102,20 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
             }
         }
 
-        
+        Menu_Manager.GetComponent<UI_Menu_Custo_Manager>().Set_Equiped(ID_Behavior);
+
+        Menu_Manager.GetComponent<UI_Menu_Custo_Manager>().Clean_Duplicates(ID_Behavior, ID_Slot);
 
 
-        
+
+
+
+
+
+
+
+
+
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -155,6 +172,7 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
     public void Click_on_Button()
     {
         Menu_Manager.GetComponent<UI_Menu_Custo_Manager>().Focus_Side_List(ID_Behavior);
+
     }
 
     public void Force_Deselect()

@@ -81,7 +81,8 @@ public class UI_Menu_Custo_Manager : MonoBehaviour
         }
 
         Behavior_Database.GetComponent<SaveDiskette>().SetEquippedGunBehaviors(List_Behavior);
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        LevelManager levelManager = FindObjectOfType<LevelManager>();
+        levelManager.LoadNextLevel();
     }
 
     public void Focus_Side_List(int ID_to_Focus)

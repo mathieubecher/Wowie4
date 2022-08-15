@@ -53,3 +53,6 @@ TagManager:
   - name: Foreground
     uniqueID: 3140658009
     locked: 0
+  - name: CameraIgnore
+    uniqueID: 1866112147
+    locked: 0

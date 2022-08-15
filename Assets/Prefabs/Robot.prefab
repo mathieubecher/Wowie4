@@ -159,7 +159,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1071598669
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 134952083, guid: 9e565023094a13a4491f9a6f756a54bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 8844998208908018938}
   - component: {fileID: 3302795965034619568}
   - component: {fileID: 5270335115315034727}
+  - component: {fileID: 2245399100512720087}
   m_Layer: 7
   m_Name: Robot
   m_TagString: Untagged
@@ -333,7 +334,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_upVelocityOnDrop: 20
-  m_timeWaitingBeforeJumpOnPlace: 60
   m_bodyAnimator: {fileID: 732864362962899446}
   m_gunBehaviors:
   - {fileID: 11400000, guid: 0086242bd6234f245bdb0bf8eb72fca8, type: 2}
@@ -473,3 +473,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2245399100512720087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047966695964206247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a46df36c3cde6f4eb24acd0399bbc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

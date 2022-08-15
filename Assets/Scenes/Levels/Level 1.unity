@@ -549,7 +549,7 @@ PrefabInstance:
     - target: {fileID: 8360986641261986341, guid: 32ca2a619480c20418eaf3cab81457c6, type: 3}
       propertyPath: m_gunBehaviorsUnlock.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: e76b278ab89413641b0b32544f26861d, type: 2}
+      objectReference: {fileID: 11400000, guid: c518ffd93d63c1a4181d383fa7721db6, type: 2}
     - target: {fileID: 8360986641261986362, guid: 32ca2a619480c20418eaf3cab81457c6, type: 3}
       propertyPath: m_Name
       value: GameManager

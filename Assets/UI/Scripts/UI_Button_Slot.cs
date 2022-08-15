@@ -32,16 +32,17 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
 
     private bool IsSelected;
 
+    private GameObject Description;
 
 
-    
 
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
         Menu_Manager = GameObject.Find("Viewport");
+        Description = GameObject.Find("Description");
         Behavior_Database = GameObject.Find("SaveDiskette");
         Behavior_Child = Behavior_Database.transform.GetChild(ID_Behavior + 1).gameObject;
         Behavior_Manager = Behavior_Child.GetComponent<UI_Behavior_Manager>();
@@ -135,6 +136,16 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
         }
         Number.sprite = Number_Selected;
         Menu_Manager.GetComponent<UI_Menu_Custo_Manager>().Select_New_Slot(ID_Slot);
+
+        if (IsEmpty == true)
+        {
+            Description.GetComponent<UI_Menu_Description_Manager>().Fill_Empty_Slot_Desc();
+
+        }
+        else
+        {
+            Description.GetComponent<UI_Menu_Description_Manager>().Fill_Classic_Desc(Behavior_Manager.Effect_Text, Behavior_Manager.Condition_Text);
+        }
 
 
 

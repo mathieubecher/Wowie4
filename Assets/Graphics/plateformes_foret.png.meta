@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9e565023094a13a4491f9a6f756a54bd
+guid: 0de4543788aaeeb46b2e2c4f17d92b4b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 80
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -76,53 +76,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ia_0
+      name: plateformes_foret_0
       rect:
         serializedVersion: 2
-        x: 80
-        y: 84
-        width: 81
-        height: 111
+        x: 58
+        y: 607
+        width: 751
+        height: 326
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +94,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12128be47a0276744999ba93d0f96a2c
-      internalID: 134952083
+      spriteID: 1fe3eda0d0f09e84690b9f121fa7b81f
+      internalID: -502134561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ia_1
+      name: plateformes_foret_1
       rect:
         serializedVersion: 2
-        x: 320
-        y: 83
-        width: 80
-        height: 113
+        x: 546
+        y: 419
+        width: 415
+        height: 319
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +115,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6a092e1e66837f4c8ff0ff18e11dad1
-      internalID: -680740154
+      spriteID: 0e6d4d36ab861274e9c6a94f4e2e63de
+      internalID: -846798088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ia_2
+      name: plateformes_foret_2
       rect:
         serializedVersion: 2
-        x: 537
-        y: 61
-        width: 126
-        height: 158
+        x: 1297
+        y: 715
+        width: 433
+        height: 161
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a0430ba8e8df764fb0230e2187edb3f
-      internalID: -1495081303
+      spriteID: 95ec924d3ef25ea4b8b007420f1fa520
+      internalID: 1340269713
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ia_3
+      name: plateformes_foret_3
       rect:
         serializedVersion: 2
-        x: 777
-        y: 60
-        width: 126
-        height: 158
+        x: 167
+        y: 63
+        width: 999
+        height: 434
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e8f3a301a672f0439c706253ac24a01
-      internalID: 196607129
+      spriteID: 8f9bd4452e1b507418dc31fe4a837cc6
+      internalID: 1504954675
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ia_4
+      name: plateformes_foret_4
       rect:
         serializedVersion: 2
-        x: 1017
-        y: 61
-        width: 126
-        height: 158
+        x: 1171
+        y: 232
+        width: 346
+        height: 340
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,8 +178,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8251a11db99c92341bbe40177de37d0b
-      internalID: 1506558041
+      spriteID: 1dc2168733dfc2541a0f5978dc9b3901
+      internalID: -1997621562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plateformes_foret_5
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 240
+        width: 153
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79ec9441ad0ed1e4fa670ab8a6f6c880
+      internalID: -979227264
       vertices: []
       indices: 
       edges: []
@@ -231,11 +216,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ia_3: 196607129
-      ia_1: -680740154
-      ia_0: 134952083
-      ia_4: 1506558041
-      ia_2: -1495081303
+      plateformes_foret_2: 1340269713
+      plateformes_foret_0: -502134561
+      plateformes_foret_4: -1997621562
+      plateformes_foret_3: 1504954675
+      plateformes_foret_5: -979227264
+      plateformes_foret_1: -846798088
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

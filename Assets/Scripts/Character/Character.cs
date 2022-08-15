@@ -212,6 +212,7 @@ public class Character : MonoBehaviour
         m_fsm.SetBool("dead", _dead);
         if (_dead) return;
         m_fsm.SetTrigger("Hit");
+        m_animator.SetTrigger("Hit");
         SetDesiredVelocity(((Vector2)transform.position - _origin).normalized * (_damage * m_damageToHitImpulse), false);
     }
     

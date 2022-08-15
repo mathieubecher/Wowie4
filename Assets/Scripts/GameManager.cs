@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         else
         {
             LevelManager levelManager = FindObjectOfType<LevelManager>();
-            levelManager.LoadNextLevel();
+            if(levelManager) levelManager.LoadNextLevel();
         }
     }
     

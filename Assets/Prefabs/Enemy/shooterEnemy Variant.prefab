@@ -227,3 +227,5 @@ MonoBehaviour:
   m_bulletLayer: EnemyBullet
   m_gunType: {fileID: 11400000, guid: 7ae1d4ed51187ae4ba4573787bc75269, type: 2}
   m_spawnBulletPos: {fileID: 6044742208828958323}
+  m_shootSounds:
+  - {fileID: 8300000, guid: 49bc153f85c56064aac38e9de282e190, type: 3}

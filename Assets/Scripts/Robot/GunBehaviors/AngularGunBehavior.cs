@@ -10,16 +10,18 @@ public class AngularGunBehavior : GunBehavior
 
     private int m_currentIndex = 0;
 
-    public override void Shoot(Vector3 _startPos, bool _goRight, string _bulletLayer)
+    public override bool Shoot(Vector3 _startPos, bool _goRight, string _bulletLayer)
     {
         if(m_currentIndex > m_angles.Count - 1)
         {
             m_currentIndex = 0;
         }
 
-        if(m_gunType.Shoot(_startPos, m_angles[m_currentIndex], _goRight, _bulletLayer))
+        if (m_gunType.Shoot(_startPos, m_angles[m_currentIndex], _goRight, _bulletLayer))
         {
             m_currentIndex++;
+            return true;
         }
+        else return false;
     }
 }

@@ -7,7 +7,6 @@ using Color = UnityEngine.Color;
 
 public class Track : MonoBehaviour
 {
-    [SerializeField] private bool m_loop = true;
     private List<Vector2> m_positions;
     private int m_currentPoint = 0;
     

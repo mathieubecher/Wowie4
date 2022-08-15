@@ -18,14 +18,16 @@ public class TargetGunBehavior : GunBehavior
         return m_condition.Poll() && m_targetCondition.Poll();
     }
 
-    public override void Shoot(Vector3 _startPos, bool _goRight, string _bulletLayer)
+    public override bool Shoot(Vector3 _startPos, bool _goRight, string _bulletLayer)
     {
         if(m_targetCondition.Poll())
         {
             Transform target = m_targetCondition.GetBestTarget();
             Vector3 direction = target.transform.position + Vector3.up - _startPos;
             float angle = Vector2.SignedAngle(Vector2.right, direction);
-            m_gunType.Shoot(_startPos, angle, true, _bulletLayer);
+            return m_gunType.Shoot(_startPos, angle, true, _bulletLayer);
         }
+
+        return false;
     }
 }

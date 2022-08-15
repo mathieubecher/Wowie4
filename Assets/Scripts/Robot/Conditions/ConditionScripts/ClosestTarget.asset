@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_closest: 1
   m_robotCentric: 1
+  m_layer:
+    serializedVersion: 2
+    m_Bits: 33024

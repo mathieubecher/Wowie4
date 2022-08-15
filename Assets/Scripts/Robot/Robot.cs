@@ -12,10 +12,7 @@ public class Robot : MonoBehaviour
     }
     [SerializeField] private float m_upVelocityOnDrop = 20.0f;
 
-    [SerializeField] private float m_jumpAmount = 2.0f;
     [SerializeField] private float m_timeWaitingBeforeJumpOnPlace = 0.0f;
-    [SerializeField] private float m_timeBetweenJump = 0.5f;
-    [SerializeField] private float m_jumpOnPlaceDuration = 2.0f;
 
     [SerializeField] private Animator m_bodyAnimator;
     [SerializeField] private List<GunBehavior> m_gunBehaviors;
@@ -23,11 +20,8 @@ public class Robot : MonoBehaviour
     private Shooter m_shooter;
     
     private float m_timeIdle = 0.0f;
-    private float m_elapsedTimeLastJump = 0.0f;
-    private float m_elapsedTimeFirstJump = 0.0f;
     
     private State m_state = State.Idle;
-    private Character m_myHuman; // for human front dir ?
     private Rigidbody2D m_rigidbody;
 
     private bool m_isActive = true;
@@ -35,7 +29,6 @@ public class Robot : MonoBehaviour
     void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
-        m_myHuman = FindObjectOfType<Character>();
         m_shooter = GetComponent<Shooter>();
     }
 
@@ -72,17 +65,8 @@ public class Robot : MonoBehaviour
                 m_timeIdle += Time.deltaTime;
                 if(m_timeIdle >= m_timeWaitingBeforeJumpOnPlace) // want attention
                 {
-                    if(m_elapsedTimeFirstJump <= m_jumpOnPlaceDuration) 
-                    {
-                        JumpOnPlace(); // need a jump anim ;)
-                    }
-                    else // enought jumpOnPlace for now
-                    {
-                        m_elapsedTimeFirstJump = 0.0f;
-                        m_elapsedTimeLastJump = 0.0f;
-                        m_timeIdle = 0.0f;
-                    }
-                    m_elapsedTimeFirstJump += Time.deltaTime;
+                    JumpOnPlace(); // need a jump anim ;)
+                    m_timeIdle = 0.0f;
                 }
             }
         }
@@ -134,28 +118,18 @@ public class Robot : MonoBehaviour
 
     private void JumpOnPlace()
     {
-        m_elapsedTimeLastJump += Time.deltaTime;
-        if(m_elapsedTimeLastJump >= m_timeBetweenJump)
-        {
-            m_rigidbody.AddForce(Vector2.up * m_jumpAmount, ForceMode2D.Impulse);
-            m_elapsedTimeLastJump = 0.0f;
-        }
+        // need a jump anim ;)
     }
     
-    public void AddGunBehavior(GunBehavior _newGunBehavior)
+    public void SetGunBehaviors(List<GunBehavior> _newGunBehaviors)
     {
-        m_gunBehaviors.Add(_newGunBehavior);
-    }
-
-    public void RemoveGunBehavior(GunBehavior _newGunBehavior)
-    {
-        m_gunBehaviors.Remove(_newGunBehavior);
+        m_gunBehaviors = _newGunBehaviors;
     }
 
     public void SetEquippedGunBehavior(GunBehavior _newGunBehavior)
     {
         m_gunBehaviors.Clear();
-        AddGunBehavior(_newGunBehavior);
+        m_gunBehaviors.Add(_newGunBehavior);
         m_shooter.SetEquippedGunBehavior(_newGunBehavior);
     }
 

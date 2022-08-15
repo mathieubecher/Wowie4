@@ -20,9 +20,9 @@ public class GunBehavior : ScriptableObject
         return m_condition && m_condition.Poll();
     }
 
-    public virtual void Shoot(Vector3 _startPos, bool _goRight, string _bulletLayer)
+    public virtual bool Shoot(Vector3 _startPos, bool _goRight, string _bulletLayer)
     {
-        m_gunType.Shoot(_startPos, 0f, _goRight, _bulletLayer);
+        return m_gunType.Shoot(_startPos, 0f, _goRight, _bulletLayer);
     }
 
     public void SetGunType(GunType _gunType)

@@ -136,7 +136,7 @@ public class Character : MonoBehaviour
     {
         m_fsm.SetBool("grabRobot", true);
         m_fsm.SetBool("canJumpInAir", true);
-        m_animator.runtimeAnimatorController = m_grabAnimator;
+        //m_animator.runtimeAnimatorController = m_grabAnimator;
         _robot.Grab();
         _robot.transform.parent = robotGrabPos;
         _robot.transform.localPosition = Vector3.zero;
@@ -151,7 +151,7 @@ public class Character : MonoBehaviour
         m_fsm.SetBool("grabRobot", false);
         m_fsm.SetBool("canJumpInAir", false);
         m_lastGrabTimer = 0.0f;
-        m_animator.runtimeAnimatorController = m_classicAnimator;
+        //m_animator.runtimeAnimatorController = m_classicAnimator;
 
         m_robotRef.Drop(m_rigidbody.velocity.x, _dropOnPlace);
         m_robotRef.transform.parent = null;

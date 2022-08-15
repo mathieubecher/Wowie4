@@ -103,6 +103,8 @@ public class Robot : MonoBehaviour
         //m_timeIdle = 0.0f;
         m_rigidbody.isKinematic = false;
         m_rigidbody.velocity = _dropOnPlace? Vector2.zero : new Vector2(_velocity, m_upVelocityOnDrop);
+
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y,transform.localScale.z);
         m_bodyAnimator.SetBool("isGrab", false);
     }
 

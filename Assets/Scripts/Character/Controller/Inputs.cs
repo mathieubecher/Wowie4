@@ -217,6 +217,17 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""5e92791b-c78a-47e3-927c-719c8ae0e776"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7d53d50d-ec16-4dca-b688-f3cbd61d868b"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",

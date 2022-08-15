@@ -25,34 +25,53 @@ public class UI_Behavior_Button : MonoBehaviour, IDeselectHandler, ISelectHandle
 
     private bool IsSelected;
 
+    private GameObject Menu_Manager;
+
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Menu_Manager = GameObject.Find("Viewport");
         Behavior_Database = GameObject.Find("Behavior_Database");
         Behavior_Child = Behavior_Database.transform.GetChild(ID_Behavior).gameObject;
         Behavior_Manager = Behavior_Child.GetComponent<UI_Behavior_Manager>();
-  
-        if (IsSelected == true)
+
+        if (Behavior_Manager.Locked == true)
         {
-            Icon.sprite = Behavior_Manager.Behavior_Icon_Selected;
+            Icon.color = Color.black;
+            Text_Name.text = "???";
+            GetComponent<Button>().interactable = false;
+            Equip_Icon.SetActive(false);
+            New_Tag.SetActive(false);
+
+
+
         } else
         {
-            Icon.sprite = Behavior_Manager.Behavior_Icon;
-        }
-        Text_Name.text = Behavior_Manager.Behavior_Name;
-        if (Behavior_Manager.Is_Equiped == true)
-        {
-            Equip_Icon.SetActive(true);
+            if (IsSelected == true)
+            {
+                Icon.sprite = Behavior_Manager.Behavior_Icon_Selected;
+            }
+            else
+            {
+                Icon.sprite = Behavior_Manager.Behavior_Icon;
+            }
+            Text_Name.text = Behavior_Manager.Behavior_Name;
+            if (Behavior_Manager.Is_Equiped == true && ID_Behavior != 0)
+            {
+                Equip_Icon.SetActive(true);
 
 
+            }
+            else
+            {
+                Equip_Icon.SetActive(false);
+            }
         }
-        else
-        {
-            Equip_Icon.SetActive(false);
-        }
+  
+       
     }
 
     // Update is called once per frame
@@ -98,5 +117,10 @@ public class UI_Behavior_Button : MonoBehaviour, IDeselectHandler, ISelectHandle
         Icon.sprite = Behavior_Manager.Behavior_Icon;
 
 
+    }
+
+    public void Equip()
+    {
+        Menu_Manager.GetComponent<UI_Menu_Custo_Manager>().Equip_to_Selected_Slot(ID_Behavior);
     }
 }

@@ -28,6 +28,8 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
     private GameObject Behavior_Child;
     private UI_Behavior_Manager Behavior_Manager;
 
+    private GameObject Menu_Manager;
+
     private bool IsSelected;
 
 
@@ -39,6 +41,7 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
     // Start is called before the first frame update
     void Start()
     {
+        Menu_Manager = GameObject.Find("Viewport");
         Behavior_Database = GameObject.Find("Behavior_Database");
         Behavior_Child = Behavior_Database.transform.GetChild(ID_Behavior + 1).gameObject;
         Behavior_Manager = Behavior_Child.GetComponent<UI_Behavior_Manager>();
@@ -48,7 +51,7 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
     // Update is called once per frame
     void Update()
     {
-        Update_Behavior(ID_Behavior);
+
     }
 
     public void Update_Behavior(int New_ID)
@@ -114,7 +117,8 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
             Icon.sprite = Behavior_Manager.Behavior_Icon_Selected;
         }
         Number.sprite = Number_Selected;
-        
+        Menu_Manager.GetComponent<UI_Menu_Custo_Manager>().Select_New_Slot(ID_Slot);
+
 
 
 
@@ -122,6 +126,38 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
     }
 
     public void OnDeselect(BaseEventData eventData)
+    {
+        if (Menu_Manager.GetComponent<UI_Menu_Custo_Manager>().Selected_Slot == ID_Slot)
+        {
+
+        } else
+        {
+            IsSelected = false;
+            Arrow.SetActive(false);
+            Background.SetActive(false);
+            Selection_Border.SetActive(false);
+            Text_Name.color = Color_Unselected;
+            if (IsEmpty == true)
+            {
+                Icon.sprite = Empty_Unselect;
+
+            }
+            else
+            {
+                Icon.sprite = Behavior_Manager.Behavior_Icon;
+            }
+            Number.sprite = Number_Unselect;
+        }
+        
+
+    }
+
+    public void Click_on_Button()
+    {
+        Menu_Manager.GetComponent<UI_Menu_Custo_Manager>().Focus_Side_List(ID_Behavior);
+    }
+
+    public void Force_Deselect()
     {
         IsSelected = false;
         Arrow.SetActive(false);
@@ -131,12 +167,12 @@ public class UI_Button_Slot : MonoBehaviour, IDeselectHandler, ISelectHandler
         if (IsEmpty == true)
         {
             Icon.sprite = Empty_Unselect;
-            
-        } else
+
+        }
+        else
         {
-            Icon.sprite  = Behavior_Manager.Behavior_Icon;
+            Icon.sprite = Behavior_Manager.Behavior_Icon;
         }
         Number.sprite = Number_Unselect;
-
     }
 }

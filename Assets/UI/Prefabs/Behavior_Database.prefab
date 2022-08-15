@@ -88,6 +88,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
+      propertyPath: Locked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Effect_Text
       value: Placeholder Target Effect
       objectReference: {fileID: 0}
@@ -258,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 3173706768561967848, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
+      propertyPath: Locked
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3173706768561967849, guid: 4f34192fc998c3442bb35e38c9e5d32f, type: 3}
       propertyPath: Effect_Text

@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
             win &=     !m_conditions.destroyAllSludges || m_sludges.Count == 0;
             m_win = win;
         }
+        else
+        {
+            LevelManager levelManager = FindObjectOfType<LevelManager>();
+            levelManager.LoadNextLevel();
+        }
     }
     
     private void OnEnable()

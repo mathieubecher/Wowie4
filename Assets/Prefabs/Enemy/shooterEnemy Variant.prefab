@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4826178319309571275}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5409515147679133914
 GameObject:
@@ -137,6 +137,18 @@ PrefabInstance:
       propertyPath: m_follower
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4235997849147456917, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235997849147456917, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235997849147456917, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.336
+      objectReference: {fileID: 0}
     - target: {fileID: 4300256151313813717, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -189,6 +201,10 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8681765233638878391, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 47897608, guid: 6df74a99cd7195b4da3578aefef1d0fc, type: 3}
     - target: {fileID: 9047966695964206247, guid: caf981644538c9d4aa2e1374a8fb29d1, type: 3}
       propertyPath: m_Name
       value: shooterEnemy Variant
